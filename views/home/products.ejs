@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {title:'Products'}) %>
+  </head>
 
-<head>
-  <%- include('../partials/head.ejs', {title:'Products'}) %>
-</head>
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/nav.ejs') %>
+    <!-- Links -->
+    <%- include('../partials/links.ejs', {page:'Products'}) %>
 
-<body>
-  <!-- Navbar -->
-  <%- include('../partials/nav.ejs') %>
-  <!-- Links -->
-  <%- include('../partials/links.ejs', {page:'Products'}) %>
+    <div class="product-container">
+      <% products.forEach(element => { %>
+      <div class="product-card">
+        <div class="product-image">
+          <span class="discount-tag"><%= element.discountPercentage %>% off</span>
+          <img src="<%= element.images[0] %>" class="product-thumb" alt="" />
+          <button class="card-btn">add to wishlist</button>
+        </div>
+        <div class="product-info">
+          <h2 class="product-brand"><%= element.brand %></h2>
+          <p class="product-short-des"><%= element.description %></p>
+          <span class="price"
+            >$<%= (element.price - (element.price * element.discountPercentage/100)).toFixed(2) %></span
+          ><span class="actual-price">$<%= element.price %></span>
+        </div>
+      </div>
+      <% }) %>
+    </div>
 
-  <!-- Footer -->
-  <%- include('../partials/footer.ejs') %>
-</body>
-
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
 </html>
