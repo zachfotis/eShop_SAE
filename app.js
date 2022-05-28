@@ -22,7 +22,9 @@ app.disable('view cache');
 
 // Routes
 const homeRoute = require('./routes/home');
+const adminRoute = require('./routes/admin');
 app.use('/', homeRoute);
+app.use('/admin/', adminRoute);
 
 // Start Server
 app.listen(PORT, console.log(`Listening on port ${PORT}`));

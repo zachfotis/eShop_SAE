@@ -1,11 +1,9 @@
-body{
+.admin{
     display: block;
     padding: 0 10vw;
+    margin-top: 50px;
 }
 
-.logo{
-    margin: 20px auto 50px;
-}
 
 input, textarea{
     font-weight: 500;
