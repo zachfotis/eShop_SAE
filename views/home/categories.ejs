@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {title:'Products'}) %>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/nav.ejs') %>
+    <!-- Links -->
+    <%- include('../partials/links.ejs', {page:'Products'}) %>
+
+    <div class="categories-container">
+      <% categories.forEach(element => { %>
+      <a class="category-card" href="/categories/<%= element.title.toLowerCase() %> ">
+        <h1 class="category-title"><%= element.title %></h1>
+        <img src="<%= element.image %>" class="product-thumb" alt="" />
+      </a>
+      <% }) %>
+    </div>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

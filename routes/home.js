@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { indexPage, productsPages, salesPages } = require('../controllers/home');
+const { indexPage, categoriesPage, productsPage, productPage, salesPage } = require('../controllers/home');
 
 router.get('/', indexPage);
-router.get('/products', productsPages);
-router.get('/sales', salesPages);
+router.get('/categories', categoriesPage);
+router.get('/categories/:category', productsPage);
+router.get('/products/:id', productPage);
+router.get('/sales', salesPage);
 
 module.exports = router;

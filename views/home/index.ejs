@@ -1,44 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include('../partials/head.ejs', {title:'Home'}) %>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navbar -->
     <%- include('../partials/nav.ejs') %>
     <!-- Links -->
     <%- include('../partials/links.ejs', {page:'Home'}) %>
 
-    <header class="hero-section">
-        <div class="content">
-            <img src="img/dummy-image-portrait.jpg" class="logo" alt="">
-            <p class="sub-heading">Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-    </header>
+    <header class="hero-section"></header>
 
     <section class="product">
-        <h2 class="product-category">best selling</h2>
-        <div class="product-container">
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="/img/dummy-image-portrait.jpg" class="product-thumb" alt="">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-des">Lorem ipsum dolor sit amet..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
+      <h2 class="product-category">best selling</h2>
+      <div class="product-container">
+        <div class="product-card">
+          <div class="product-image">
+            <span class="discount-tag">50% off</span>
+            <img src="/img/dummy-image-portrait.jpg" class="product-thumb" alt="" />
+            <button class="card-btn">add to whislist</button>
+          </div>
+          <div class="product-info">
+            <h2 class="product-brand">brand</h2>
+            <p class="product-short-des">Lorem ipsum dolor sit amet..</p>
+            <span class="price">$20</span><span class="actual-price">$40</span>
+          </div>
         </div>
+      </div>
     </section>
-
 
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %>
-</body>
-
+  </body>
 </html>

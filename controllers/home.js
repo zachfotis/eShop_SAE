@@ -4,41 +4,55 @@ const indexPage = (req, res) => {
   res.render('home/index');
 };
 
-const productsPages = (req, res) => {
+const categoriesPage = (req, res) => {
   Product.find({}, (err, products) => {
     if (err) {
       console.log(err);
     } else {
-      // create array with the categories of products
       const categories = products.map((product) => product.category);
-      // create array with the unique categories
       const uniqueCategories = [...new Set(categories)];
-      // add image to each category
       const categoriesWithImage = uniqueCategories.map((category) => {
-        const image = products.find((product) => product.category === category).images[0];
+        const image = products.find((product) => product.category === category).images[2];
         return {
-          category,
-          image,
+          title: category[0].toUpperCase() + category.slice(1),
+          image: image,
         };
       });
-      // create array with the products of each category
-      const productsByCategory = uniqueCategories.map((category) => {
-        return {
-          category,
-          products: products.filter((product) => product.category === category),
-        };
-      });
-      res.render('home/products', { products });
+      res.render('home/categories', { categories: categoriesWithImage });
     }
   });
 };
 
-const salesPages = (req, res) => {
+const productsPage = (req, res) => {
+  const category = req.params.category;
+  Product.find({ category: category }, (err, products) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('home/products', { products: products, category: category[0].toUpperCase() + category.slice(1) });
+    }
+  });
+};
+
+const productPage = (req, res) => {
+  const id = req.params.id;
+  Product.findOne({ id: Number(id) }, (err, product) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('home/product', { product: product });
+    }
+  });
+};
+
+const salesPage = (req, res) => {
   res.render('home/sales');
 };
 
 module.exports = {
   indexPage,
-  productsPages,
-  salesPages,
+  categoriesPage,
+  productsPage,
+  productPage,
+  salesPage,
 };

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {title: product.category}) %>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/nav.ejs') %>
+    <!-- Links -->
+    <%- include('../partials/links.ejs', {page: product.category.toLowerCase()}) %>
+
+    <div class="product-container">
+      <div class="product-card">
+        <a class="product-image" href="/products/<%= product.id %>">
+          <span class="discount-tag"><%= product.discountPercentage %>% off</span>
+          <img src="<%= product.images[0] %>" class="product-thumb" alt="" />
+          <div class="buttons">
+            <button class="card-btn"><img src="/img/wishlist.png" alt="" /></button>
+            <button class="card-btn"><img src="/img/cart3.png" alt="" /></button>
+          </div>
+        </a>
+        <div class="product-info">
+          <h2 class="product-brand"><%= product.brand %></h2>
+          <p class="product-short-des"><%= product.description %></p>
+          <span class="price"
+            >$<%= (product.price - (product.price * product.discountPercentage/100)).toFixed(2) %></span
+          ><span class="actual-price">$<%= product.price %></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
