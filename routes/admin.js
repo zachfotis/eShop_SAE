@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { modifyProductPage } = require('../controllers/modifyProduct');
+const { allProductsPage } = require('../controllers/admin');
 
-router.get('/modify-product', modifyProductPage);
+router.get('/all-products', allProductsPage);
 
 module.exports = router;

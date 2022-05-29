@@ -1,7 +1,6 @@
 // Imports
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
 const path = require('path');
 
 // Server APP
@@ -26,5 +25,14 @@ const adminRoute = require('./routes/admin');
 app.use('/', homeRoute);
 app.use('/admin/', adminRoute);
 
-// Start Server
-app.listen(PORT, console.log(`Listening on port ${PORT}`));
+// Connect to MongoDb and Start Server
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log('MongoDB Connected...');
+    app.listen(PORT, console.log(`Listening on port ${PORT}...`));
+  })
+  .catch((err) => console.log(err));

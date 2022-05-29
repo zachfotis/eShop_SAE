@@ -1,13 +1,35 @@
-const axios = require('axios').default;
+const Product = require('../models/product');
 
 const indexPage = (req, res) => {
   res.render('home/index');
 };
 
 const productsPages = (req, res) => {
-  axios.get('https://dummyjson.com/products').then((data) => {
-    const products = data.data.products;
-    res.render('home/products', { products });
+  Product.find({}, (err, products) => {
+    if (err) {
+      console.log(err);
+    } else {
+      // create array with the categories of products
+      const categories = products.map((product) => product.category);
+      // create array with the unique categories
+      const uniqueCategories = [...new Set(categories)];
+      // add image to each category
+      const categoriesWithImage = uniqueCategories.map((category) => {
+        const image = products.find((product) => product.category === category).images[0];
+        return {
+          category,
+          image,
+        };
+      });
+      // create array with the products of each category
+      const productsByCategory = uniqueCategories.map((category) => {
+        return {
+          category,
+          products: products.filter((product) => product.category === category),
+        };
+      });
+      res.render('home/products', { products });
+    }
   });
 };
 
