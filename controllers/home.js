@@ -1,4 +1,4 @@
-const Product = require('../models/product');
+const Product = require('../models/Product.js');
 
 const indexPage = (req, res) => {
   res.render('home/index');
