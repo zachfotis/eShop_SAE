@@ -1,7 +1,7 @@
 const Product = require('../models/Product.js');
 
 const allProductsPage = (req, res) => {
-  Product.find({}, (err, products) => {
+  Product.find({}, null, { sort: { id: 1 } }, (err, products) => {
     if (err) {
       console.log(err);
     } else {

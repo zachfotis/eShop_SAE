@@ -5,7 +5,7 @@ const indexPage = (req, res) => {
 };
 
 const categoriesPage = (req, res) => {
-  Product.find({}, (err, products) => {
+  Product.find({}, null, { sort: { id: 1 } }, (err, products) => {
     if (err) {
       console.log(err);
     } else {
@@ -29,7 +29,7 @@ const categoriesPage = (req, res) => {
 
 const productsPage = (req, res) => {
   const category = req.params.category;
-  Product.find({ category: category }, (err, products) => {
+  Product.find({ category: category }, null, { sort: { id: 1 } }, (err, products) => {
     if (err) {
       console.log(err);
     } else {
