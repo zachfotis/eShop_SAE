@@ -71,3 +71,11 @@ The following concepts are to be implements soon:
 - User Login and Register
 - Authentication and Authorization
 - ... and more
+
+<br>
+
+## Links:
+
+GitHub Repo: https://github.com/zachfotis/eShop_SAE
+
+Deployed Website: http://eshop-sae.fzachopoulos.com/
