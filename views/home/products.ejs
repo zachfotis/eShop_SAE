@@ -10,7 +10,7 @@
     <!-- Links -->
     <%- include('../partials/links.ejs', {page: category.toLowerCase()}) %>
 
-    <div class="product-container">
+    <div class="products-container">
       <% products.forEach(element => { %>
       <div class="product-card">
         <div class="product-image" href="/products/<%= element.id %>">

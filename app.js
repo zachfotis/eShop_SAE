@@ -24,6 +24,9 @@ const homeRoute = require('./routes/home');
 const adminRoute = require('./routes/admin');
 app.use('/', homeRoute);
 app.use('/admin/', adminRoute);
+app.use('*', (req, res, next) => {
+  res.status(404).render('home/404');
+});
 
 // Connect to MongoDb and Start Server
 mongoose

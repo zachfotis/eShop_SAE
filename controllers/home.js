@@ -18,7 +18,11 @@ const categoriesPage = (req, res) => {
           image: image,
         };
       });
-      res.render('home/categories', { categories: categoriesWithImage });
+      if (!products || products.length === 0) {
+        res.redirect('/');
+      } else {
+        res.render('home/categories', { categories: categoriesWithImage });
+      }
     }
   });
 };
@@ -29,7 +33,11 @@ const productsPage = (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render('home/products', { products: products, category: category[0].toUpperCase() + category.slice(1) });
+      if (!products || products.length === 0) {
+        res.redirect('/');
+      } else {
+        res.render('home/products', { products: products, category: category[0].toUpperCase() + category.slice(1) });
+      }
     }
   });
 };
@@ -40,7 +48,11 @@ const productPage = (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render('home/product', { product: product });
+      if (!product || product.length === 0) {
+        res.redirect('/');
+      } else {
+        res.render('home/product', { product: product });
+      }
     }
   });
 };

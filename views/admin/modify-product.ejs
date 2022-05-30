@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head_admin.ejs', {title:'Modify Product'}) %>
+    <link rel="stylesheet" href="/css/admin-modify-product.css" />
+    <script src="/scripts/admin-modify-product.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/nav.ejs') %>
+    <section class="admin">
+      <h1>ADMIN PAGE - ADD/EDIT PRODUCTS</h1>
+      <!-- Links -->
+      <%- include('../partials/links_admin.ejs', {page:'modify-product'})%>
+      <!-- Form -->
+      <form class="form-admin">
+        <div class="id">
+          <label for="id">ID:</label>
+          <input type="text" id="id" name="id" placeholder="product id" value="<%= isEdit ? product.id : '' %>" />
+        </div>
+        <div class="title-admin">
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="product title"
+            value="<%= isEdit ? product.title : '' %>"
+          />
+        </div>
+        <div class="brand-admin">
+          <label for="brand">Brand:</label>
+          <input
+            type="text"
+            id="brand"
+            name="brand"
+            placeholder="product brand"
+            value="<%= isEdit ? product.brand : '' %>"
+          />
+        </div>
+        <div class="category-admin">
+          <label for="category">Category:</label>
+          <input
+            type="text"
+            id="category"
+            name="category"
+            placeholder="product category"
+            value="<%= isEdit ? product.category : '' %>"
+          />
+        </div>
+        <div class="price-admin">
+          <label for="price">Price:</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            placeholder="product price"
+            step="0.01"
+            value="<%= isEdit ? product.price : '' %>"
+          />
+        </div>
+        <div class="discount-admin">
+          <label for="discount">Discount:</label>
+          <input
+            type="number-admin"
+            id="discountPercentage"
+            name="discountPercentage"
+            placeholder="product discount"
+            step="0.01"
+            value="<%= isEdit ? product.discountPercentage : '' %>"
+          />
+        </div>
+        <div class="rating-admin">
+          <label for="rating">Rating:</label>
+          <input
+            type="number"
+            id="rating"
+            name="rating"
+            placeholder="product rating"
+            step="0.01"
+            value="<%= isEdit ? product.rating : '' %>"
+          />
+        </div>
+        <div class="stock-admin">
+          <label for="stock">Stock:</label>
+          <input
+            type="number"
+            id="stock"
+            name="stock"
+            placeholder="product stock"
+            value="<%= isEdit ? product.stock : '' %>"
+          />
+        </div>
+        <div class="description-admin">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" placeholder="product description">
+<%= isEdit ? product.description : null %></textarea
+          >
+        </div>
+        <div class="thumbnail-admin">
+          <label for="thumbnail">Thumbnail:</label>
+          <input
+            type="text"
+            id="thumbnail"
+            name="thumbnail"
+            placeholder="product thumbnail"
+            value="<%= isEdit ? product.thumbnail : ''  %>"
+          />
+        </div>
+        <div class="images-admin">
+          <label for="images">Images:</label>
+          <div class="images">
+            <% if (isEdit) { %> <% product.images.forEach((image, index) => { %>
+            <input
+              type="text"
+              id="image<%= index %>"
+              name="image<%= index %>"
+              placeholder="product image"
+              value="<%= image %>"
+            />
+            <% }) %> <% } else { %>
+            <input type="text" id="image0" name="image0" placeholder="product image1" />
+            <input type="text" id="image1" name="image1" placeholder="product image2" />
+            <input type="text" id="image2" name="image2" placeholder="product image3" />
+            <input type="text" id="image3" name="image3" placeholder="product image4" />
+            <input type="text" id="image4" name="image4" placeholder="product image5" />
+            <% } %>
+          </div>
+        </div>
+        <div class="buttons-admin">
+          <% if (isEdit) { %>
+          <input type="button" id="edit-admin" value="Edit" />
+          <input type="button" id="delete-admin" value="Delete" />
+          <% } else{ %>
+          <input type="button" id="add-admin" value="Add" />
+          <% } %>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
