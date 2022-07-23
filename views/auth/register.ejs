@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {title:'Register'}) %>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/nav.ejs') %>
+    <!-- Links -->
+    <%- include('../partials/links.ejs', {page:'Register'}) %>
+
+    <main>
+      <% if (typeof errorMessage !== 'undefined') { %>
+      <div class="error-container">
+        <p class="error-message"><%= errorMessage %></p>
+      </div>
+      <% } %>
+      <form class="login-form" action="/register" method="POST">
+        <h1>User Register</h1>
+        <label for="email">E-Mail</label>
+        <input type="email" name="email" id="email" autocomplete="email" />
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" autocomplete="new-password" />
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" name="confirmPassword" id="confrim-password" />
+        <input type="submit" value="Register" />
+        <a href="/login">Existed User? Login!</a>
+      </form>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

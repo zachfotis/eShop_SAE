@@ -24,17 +24,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* remove a tag decoration */
   text-decoration: none;
 }
 
 .brand-logo {
-  height: 60px;
+  height: 40px;
 }
 
 .logo h1 {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 30px;
+  font-weight: 500;
   color: #000;
   letter-spacing: 2px;
   margin-left: 10px;

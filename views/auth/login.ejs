@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {title:'Login'}) %>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/nav.ejs') %>
+    <!-- Links -->
+    <%- include('../partials/links.ejs', {page:'Login'}) %>
+
+    <main>
+      <% if (typeof errorMessage !== 'undefined') { %>
+      <div class="error-container">
+        <p class="error-message"><%= errorMessage %></p>
+      </div>
+      <% } %> <% if (typeof successMessage !== 'undefined') { %>
+      <div class="success-container">
+        <p class="success-message"><%= successMessage %></p>
+      </div>
+      <% } %>
+      <form class="login-form" action="/login" method="POST">
+        <h1>User Login</h1>
+        <label for="email">E-Mail</label>
+        <input type="email" name="email" id="email" autocomplete="email" />
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" />
+        <input type="submit" value="Login" />
+        <a href="/register">Not a User? Sign Up!</a>
+      </form>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

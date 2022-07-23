@@ -1,7 +1,11 @@
 const Product = require('../models/Product.js');
 
 const indexPage = (req, res) => {
-  res.render('home/index');
+  res.render('home/index', {
+    title: 'Home',
+    isLoggedIn: req.session?.isLoggedIn,
+    isAdmin: req.session?.user?.isAdmin,
+  });
 };
 
 const categoriesPage = (req, res) => {
@@ -21,7 +25,11 @@ const categoriesPage = (req, res) => {
       if (!products || products.length === 0) {
         res.redirect('/');
       } else {
-        res.render('home/categories', { categories: categoriesWithImage });
+        res.render('home/categories', {
+          categories: categoriesWithImage,
+          isLoggedIn: req.session?.isLoggedIn,
+          isAdmin: req.session?.user?.isAdmin,
+        });
       }
     }
   });
@@ -36,7 +44,12 @@ const productsPage = (req, res) => {
       if (!products || products.length === 0) {
         res.redirect('/');
       } else {
-        res.render('home/products', { products: products, category: category[0].toUpperCase() + category.slice(1) });
+        res.render('home/products', {
+          products: products,
+          category: category[0].toUpperCase() + category.slice(1),
+          isLoggedIn: req.session?.isLoggedIn,
+          isAdmin: req.session?.user?.isAdmin,
+        });
       }
     }
   });
@@ -51,14 +64,18 @@ const productPage = (req, res) => {
       if (!product || product.length === 0) {
         res.redirect('/');
       } else {
-        res.render('home/product', { product: product });
+        res.render('home/product', {
+          product: product,
+          isLoggedIn: req.session?.isLoggedIn,
+          isAdmin: req.session?.user?.isAdmin,
+        });
       }
     }
   });
 };
 
 const salesPage = (req, res) => {
-  res.render('home/sales');
+  res.render('home/sales', { isLoggedIn: req.session?.isLoggedIn, isAdmin: req.session?.user?.isAdmin });
 };
 
 module.exports = {

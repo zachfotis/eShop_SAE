@@ -6,28 +6,24 @@
 
   <body>
     <!-- Navbar -->
-    <%- include('../partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs', {isAdmin}) %>
     <!-- Links -->
     <%- include('../partials/links.ejs', {page:'Home'}) %>
 
-    <header class="hero-section"></header>
+    <header>
+      <h1>Welcome to our eShop</h1>
+      <p>Check our regular and on sale products</p>
+    </header>
 
-    <section class="product">
-      <h2 class="product-category">best selling</h2>
-      <div class="product-container">
-        <div class="product-card">
-          <div class="product-image">
-            <span class="discount-tag">50% off</span>
-            <img src="/img/dummy-image-portrait.jpg" class="product-thumb" alt="" />
-            <button class="card-btn">add to whislist</button>
-          </div>
-          <div class="product-info">
-            <h2 class="product-brand">brand</h2>
-            <p class="product-short-des">Lorem ipsum dolor sit amet..</p>
-            <span class="price">$20</span><span class="actual-price">$40</span>
-          </div>
-        </div>
-      </div>
+    <section class="options">
+      <a href="/categories" class="regular">
+        <h2>Products</h2>
+        <img src="/icons/products.png" alt="products" />
+      </a>
+      <a href="/sales" class="onSale">
+        <h2>On Sale</h2>
+        <img src="/icons/onSale.png" alt="onSale" />
+      </a>
     </section>
 
     <!-- Footer -->

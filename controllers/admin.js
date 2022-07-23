@@ -8,7 +8,11 @@ const allProductsPage = (req, res) => {
       if (!products || products.length === 0) {
         res.redirect('/');
       } else {
-        res.render('admin/all-products', { products: products });
+        res.render('admin/all-products', {
+          products: products,
+          isLoggedIn: req.session?.isLoggedIn,
+          isAdmin: req.session?.user?.isAdmin,
+        });
       }
     }
   });
@@ -26,12 +30,21 @@ const modifyProductPage = (req, res) => {
         if (!product) {
           res.redirect('/');
         } else {
-          res.render('admin/modify-product', { product: product, isEdit: isEdit });
+          res.render('admin/modify-product', {
+            product: product,
+            isEdit: isEdit,
+            isLoggedIn: req.session?.isLoggedIn,
+            isAdmin: req.session?.user?.isAdmin,
+          });
         }
       }
     });
   } else {
-    res.render('admin/modify-product', { isEdit: isEdit });
+    res.render('admin/modify-product', {
+      isEdit: isEdit,
+      isLoggedIn: req.session?.isLoggedIn,
+      isAdmin: req.session?.user?.isAdmin,
+    });
   }
 };
 

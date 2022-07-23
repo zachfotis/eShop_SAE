@@ -2,12 +2,20 @@ const express = require('express');
 const router = express.Router();
 const { allProductsPage, modifyProductPage, addProduct, editProduct, deleteProduct } = require('../controllers/admin');
 
-router.get('/all-products', allProductsPage);
-router.get('/modify-product', modifyProductPage);
-router.get('/modify-product/:id', modifyProductPage);
+const protectedRoute = (req, res, next) => {
+  if (req.session?.user?.isAdmin) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+};
 
-router.post('/add-product', addProduct);
-router.post('/edit-product', editProduct);
-router.post('/delete-product', deleteProduct);
+router.get('/all-products', protectedRoute, allProductsPage);
+router.get('/modify-product', protectedRoute, modifyProductPage);
+router.get('/modify-product/:id', protectedRoute, modifyProductPage);
+
+router.post('/add-product', protectedRoute, addProduct);
+router.post('/edit-product', protectedRoute, editProduct);
+router.post('/delete-product', protectedRoute, deleteProduct);
 
 module.exports = router;

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {title:'Logout'}) %>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/nav.ejs') %>
+    <!-- Links -->
+    <%- include('../partials/links.ejs', {page:'Logout'}) %>
+
+    <main>
+      <% if (typeof errorMessage !== 'undefined') { %>
+      <div class="error-container">
+        <p class="error-message"><%= errorMessage %></p>
+      </div>
+      <% } %>
+      <form class="login-form" action="/logout" method="POST">
+        <h1>Logout User</h1>
+        <% if (typeof email !== 'undefined') { %>
+        <p>Current User: <strong><%= email %></strong></p>
+        <% } %> <% if (typeof isAdmin !== 'undefined') { %>
+        <p>Privileges: <strong>Administrator</strong></p>
+        <% } %>
+        <input type="submit" value="Logout" />
+      </form>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
