@@ -9,9 +9,9 @@ const allProductsPage = (req, res) => {
         res.redirect('/');
       } else {
         res.render('admin/all-products', {
+          title: 'All Products',
           products: products,
-          isLoggedIn: req.session?.isLoggedIn,
-          isAdmin: req.session?.user?.isAdmin,
+          ...res.locals.commonInputs,
         });
       }
     }
@@ -31,19 +31,19 @@ const modifyProductPage = (req, res) => {
           res.redirect('/');
         } else {
           res.render('admin/modify-product', {
+            title: 'Modify Product',
             product: product,
             isEdit: isEdit,
-            isLoggedIn: req.session?.isLoggedIn,
-            isAdmin: req.session?.user?.isAdmin,
+            ...res.locals.commonInputs,
           });
         }
       }
     });
   } else {
     res.render('admin/modify-product', {
+      title: 'Modify Product',
       isEdit: isEdit,
-      isLoggedIn: req.session?.isLoggedIn,
-      isAdmin: req.session?.user?.isAdmin,
+      ...res.locals.commonInputs,
     });
   }
 };

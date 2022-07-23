@@ -27,10 +27,22 @@ app.use(
   session({
     secret: 'my secret password',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: store,
   })
 );
+app.use((req, res, next) => {
+  const commonInputs = {};
+  if (req.session?.user) {
+    commonInputs.user = req.session.user;
+  }
+  if (req.session?.isLoggedIn) {
+    commonInputs.isLoggedIn = req.session.isLoggedIn;
+  }
+  res.locals.commonInputs = commonInputs;
+  next();
+});
+
 const { authVerify } = require('./controllers/auth');
 app.use(authVerify);
 

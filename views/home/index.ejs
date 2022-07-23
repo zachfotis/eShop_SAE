@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('../partials/head.ejs', {title:'Home'}) %>
+    <%- include('../partials/head.ejs', {title}) %>
+    <link rel="stylesheet" href="/css/home.css" />
   </head>
 
   <body>
     <!-- Navbar -->
-    <%- include('../partials/nav.ejs', {isAdmin}) %>
-    <!-- Links -->
-    <%- include('../partials/links.ejs', {page:'Home'}) %>
+    <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %>
 
     <header>
       <h1>Welcome to our eShop</h1>

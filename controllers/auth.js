@@ -9,8 +9,8 @@ const loginPage = (req, res) => {
     res.redirect('/logout');
   } else {
     res.render('auth/login', {
-      isLoggedIn: req.session?.isLoggedIn,
-      isAdmin: req.session?.user?.isAdmin,
+      title: 'Login',
+      ...res.locals.commonInputs,
     });
   }
 };
@@ -18,9 +18,9 @@ const loginPage = (req, res) => {
 const logoutPage = (req, res) => {
   if (req.session?.isLoggedIn) {
     res.render('auth/logout', {
+      title: 'Logout',
       email: req.session?.user?.email,
-      isLoggedIn: req.session?.isLoggedIn,
-      isAdmin: req.session?.user?.isAdmin,
+      ...res.locals.commonInputs,
     });
   } else {
     res.redirect('/login');
@@ -29,8 +29,8 @@ const logoutPage = (req, res) => {
 
 const registerPage = (req, res) => {
   res.render('auth/register', {
-    isLoggedIn: req.session?.isLoggedIn,
-    isAdmin: req.session?.user?.isAdmin,
+    title: 'Register',
+    ...res.locals.commonInputs,
   });
 };
 
@@ -43,6 +43,8 @@ const registerUser = (req, res) => {
     .then((user) => {
       if (user) {
         res.render('auth/register', {
+          title: 'Register',
+          ...res.locals.commonInputs,
           errorMessage: 'User already exists',
         });
       } else {
@@ -50,6 +52,8 @@ const registerUser = (req, res) => {
           bcrypt.hash(password, 12, (err, hash) => {
             if (err) {
               res.render('auth/register', {
+                title: 'Register',
+                ...res.locals.commonInputs,
                 errorMessage: 'Error while registering user',
               });
             } else {
@@ -61,11 +65,15 @@ const registerUser = (req, res) => {
                 .save()
                 .then((user) => {
                   res.render('auth/login', {
+                    title: 'Register',
+                    ...res.locals.commonInputs,
                     successMessage: 'User registered successfully',
                   });
                 })
                 .catch((err) => {
                   res.render('auth/register', {
+                    title: 'Register',
+                    ...res.locals.commonInputs,
                     errorMessage: 'Error while registering user',
                   });
                 });
@@ -73,6 +81,8 @@ const registerUser = (req, res) => {
           });
         } else {
           res.render('auth/register', {
+            title: 'Register',
+            ...res.locals.commonInputs,
             errorMessage: 'Passwords do not match',
           });
         }
@@ -80,6 +90,8 @@ const registerUser = (req, res) => {
     })
     .catch((err) => {
       res.render('auth/register', {
+        title: 'Register',
+        ...res.locals.commonInputs,
         errorMessage: 'Error while registering user',
       });
     });
@@ -94,6 +106,8 @@ const signUser = (req, res, next) => {
     .then((user) => {
       if (!user) {
         return res.render('auth/login', {
+          title: 'Login',
+          ...res.locals.commonInputs,
           errorMessage: 'User does not exist',
         });
       }
@@ -111,12 +125,15 @@ const signUser = (req, res, next) => {
                 expiresIn: '1h',
               }
             );
-            req.session.isLoggedIn = true;
+            // Copy object
             req.session.user = user;
+            req.session.isLoggedIn = true;
             return req.session.save((err) => {
               if (err) {
                 console.log(err);
                 return res.render('auth/login', {
+                  title: 'Login',
+                  ...res.locals.commonInputs,
                   errorMessage: 'Error while signing in',
                 });
               } else {
@@ -125,6 +142,8 @@ const signUser = (req, res, next) => {
             });
           } else {
             return res.render('auth/login', {
+              title: 'Login',
+              ...res.locals.commonInputs,
               errorMessage: 'Password is incorrect',
             });
           }
@@ -132,6 +151,8 @@ const signUser = (req, res, next) => {
         .catch((err) => {
           console.log(err);
           return res.render('auth/login', {
+            title: 'Login',
+            ...res.locals.commonInputs,
             errorMessage: 'Error while signing in',
           });
         });
@@ -139,6 +160,8 @@ const signUser = (req, res, next) => {
     .catch((err) => {
       console.log(err);
       return res.render('auth/login', {
+        title: 'Login',
+        ...res.locals.commonInputs,
         errorMessage: 'Error while signing in',
       });
     });
@@ -150,16 +173,14 @@ const authVerify = (req, res, next) => {
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
-        req.session.isLoggedIn = false;
         delete req.session.token;
         delete req.session.user;
-      } else {
-        req.session.isLoggedIn = true;
       }
       next();
     });
   } else {
-    req.session.isLoggedIn = false;
+    delete req.session.token;
+    delete req.session.user;
     next();
   }
 };

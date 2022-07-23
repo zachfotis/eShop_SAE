@@ -2,9 +2,8 @@ const Product = require('../models/Product.js');
 
 const indexPage = (req, res) => {
   res.render('home/index', {
-    title: 'Home',
-    isLoggedIn: req.session?.isLoggedIn,
-    isAdmin: req.session?.user?.isAdmin,
+    title: 'home',
+    ...res.locals.commonInputs,
   });
 };
 
@@ -26,9 +25,9 @@ const categoriesPage = (req, res) => {
         res.redirect('/');
       } else {
         res.render('home/categories', {
+          title: 'categories',
           categories: categoriesWithImage,
-          isLoggedIn: req.session?.isLoggedIn,
-          isAdmin: req.session?.user?.isAdmin,
+          ...res.locals.commonInputs,
         });
       }
     }
@@ -45,10 +44,10 @@ const productsPage = (req, res) => {
         res.redirect('/');
       } else {
         res.render('home/products', {
+          title: 'products',
           products: products,
           category: category[0].toUpperCase() + category.slice(1),
-          isLoggedIn: req.session?.isLoggedIn,
-          isAdmin: req.session?.user?.isAdmin,
+          ...res.locals.commonInputs,
         });
       }
     }
@@ -65,9 +64,9 @@ const productPage = (req, res) => {
         res.redirect('/');
       } else {
         res.render('home/product', {
+          title: 'product',
           product: product,
-          isLoggedIn: req.session?.isLoggedIn,
-          isAdmin: req.session?.user?.isAdmin,
+          ...res.locals.commonInputs,
         });
       }
     }
@@ -75,7 +74,10 @@ const productPage = (req, res) => {
 };
 
 const salesPage = (req, res) => {
-  res.render('home/sales', { isLoggedIn: req.session?.isLoggedIn, isAdmin: req.session?.user?.isAdmin });
+  res.render('home/sales', {
+    title: 'sales',
+    ...res.locals.commonInputs,
+  });
 };
 
 module.exports = {

@@ -1,22 +1,76 @@
-<nav class="navbar">
-  <div class="nav">
-    <a class="logo" href="/">
-      <img src="/img/cart2.png" class="brand-logo" alt="logo" />
-      <h1>eShop</h1>
-    </a>
-    <div class="nav-items">
-      <div class="search">
-        <input type="text" class="search-box" placeholder="search brand, product" />
-        <button class="search-btn">search</button>
+<nav class="navbar bg-base-100 justify-between shadow-lg sticky top-0 z-10">
+  <a class="btn btn-ghost normal-case text-xl" href="/"> <img src="/icons/logo.png" class="w-8 mr-3" /> myShop</a>
+  <!-- SEARCH BAR -->
+  <div class="form-control search-bar">
+    <input type="text" placeholder="Search" class="input input-bordered input-sm" />
+  </div>
+  <div class="gap-4">
+    <!-- MAIN PAGES MENU -->
+    <ul class="menu menu-horizontal p-0 gap-2">
+      <li><a href="/" class="<%= title === 'home' && 'btn-outline ' %> btn-ghost btn-sm">Home</a></li>
+      <li>
+        <a href="/categories" class="<%= title === 'categories' && 'btn-outline ' %> btn-ghost btn-sm">Products</a>
+      </li>
+      <li><a href="/sales" class="<%= title === 'sales' && 'btn-outline ' %> btn-ghost btn-sm">Sales</a></li>
+    </ul>
+    <!-- CART -->
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost btn-circle">
+        <div class="indicator">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+            />
+          </svg>
+          <% if (user.cart.items.length > 0) { %>
+          <span class="badge badge-sm indicator-item"><%= user.cart.items.length %></span>
+          <% } %>
+        </div>
+      </label>
+      <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+        <div class="card-body">
+          <span class="font-bold text-lg"><%= user.cart.items.length %> Items</span>
+          <span class="text-info">Subtotal: $999</span>
+          <div class="card-actions">
+            <button class="btn btn-success btn-outline btn-sm btn-block">View cart</button>
+          </div>
+        </div>
       </div>
-      <a href="#"><img src="/img/cart.png" alt="cart" /></a>
-      <% if (typeof isLoggedIn !== 'undefined' && isLoggedIn) { %>
-      <a href="/login"><img src="/img/user2.png" alt="user" /></a>
-      <% } else { %>
-      <a href="/login"><img src="/img/user.png" alt="user" /></a>
-      <% } %> <% if (typeof isAdmin !== 'undefined') { %>
-      <a href="/admin/all-products"><img src="/img/admin.png" alt="admin" /></a>
-      <% } %>
+    </div>
+    <!-- USER -->
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+        <div class="w-10 rounded-full">
+          <% if (isLoggedIn) { %> <% if (user?.isAdmin) { %>
+          <img src="/icons/admin.png" />
+          <% } else { %>
+          <img src="/icons/user2.png" />
+          <% } %> <% } else { %>
+          <img src="/icons/user.png" />
+          <% } %>
+        </div>
+      </label>
+      <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+        <% if (isLoggedIn) { %>
+        <li>
+          <a href="/profile">Profile</a>
+        </li>
+        <% if (user?.isAdmin) { %>
+        <li>
+          <a href="/admin/all-products">
+            Dashboard
+            <span class="badge badge-outline badge-sm badge-secondary">Admin</span>
+          </a>
+        </li>
+        <% } %>
+        <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+        <li><a href="/login">Login</a></li>
+        <% } %>
+      </ul>
     </div>
   </div>
 </nav>

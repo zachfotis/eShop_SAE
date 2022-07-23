@@ -2,13 +2,12 @@
 <html lang="en">
   <head>
     <%- include('../partials/head.ejs', {title:'Products'}) %>
+    <link rel="stylesheet" href="/css/categories.css" />
   </head>
 
   <body>
     <!-- Navbar -->
     <%- include('../partials/nav.ejs') %>
-    <!-- Links -->
-    <%- include('../partials/links.ejs', {page:'Products'}) %>
 
     <div class="categories-container">
       <% categories.forEach(element => { %>
