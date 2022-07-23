@@ -35,9 +35,13 @@ app.use((req, res, next) => {
   const commonInputs = {};
   if (req.session?.user) {
     commonInputs.user = req.session.user;
+  } else {
+    commonInputs.user = null;
   }
   if (req.session?.isLoggedIn) {
     commonInputs.isLoggedIn = req.session.isLoggedIn;
+  } else {
+    commonInputs.isLoggedIn = false;
   }
   res.locals.commonInputs = commonInputs;
   next();
