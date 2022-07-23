@@ -8,23 +8,23 @@
   <body>
     <!-- Navbar -->
     <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %>
+    <section>
+      <header>
+        <h1>Welcome to our eShop</h1>
+        <p>Check our regular and on sale products</p>
+      </header>
 
-    <header>
-      <h1>Welcome to our eShop</h1>
-      <p>Check our regular and on sale products</p>
-    </header>
-
-    <section class="options">
-      <a href="/categories" class="regular">
-        <h2>Products</h2>
-        <img src="/icons/products.png" alt="products" />
-      </a>
-      <a href="/sales" class="onSale">
-        <h2>On Sale</h2>
-        <img src="/icons/onSale.png" alt="onSale" />
-      </a>
+      <article class="options">
+        <a href="/categories" class="regular">
+          <h2>Products</h2>
+          <img src="/icons/products.png" alt="products" />
+        </a>
+        <a href="/sales" class="onSale">
+          <h2>On Sale</h2>
+          <img src="/icons/onSale.png" alt="onSale" />
+        </a>
+      </article>
     </section>
-
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %>
   </body>
