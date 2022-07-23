@@ -43,7 +43,7 @@ app.use((req, res, next) => {
   } else {
     commonInputs.isLoggedIn = false;
   }
-  res.locals.commonInputs = commonInputs;
+  res.locals = commonInputs;
   next();
 });
 

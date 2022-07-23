@@ -3,7 +3,6 @@ const Product = require('../models/Product.js');
 const indexPage = (req, res) => {
   res.render('home/index', {
     title: 'home',
-    ...res.locals.commonInputs,
   });
 };
 
@@ -27,7 +26,6 @@ const categoriesPage = (req, res) => {
         res.render('home/categories', {
           title: 'categories',
           categories: categoriesWithImage,
-          ...res.locals.commonInputs,
         });
       }
     }
@@ -47,7 +45,6 @@ const productsPage = (req, res) => {
           title: 'products',
           products: products,
           category: category[0].toUpperCase() + category.slice(1),
-          ...res.locals.commonInputs,
         });
       }
     }
@@ -66,7 +63,6 @@ const productPage = (req, res) => {
         res.render('home/product', {
           title: 'product',
           product: product,
-          ...res.locals.commonInputs,
         });
       }
     }

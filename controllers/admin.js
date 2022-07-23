@@ -11,7 +11,6 @@ const allProductsPage = (req, res) => {
         res.render('admin/all-products', {
           title: 'All Products',
           products: products,
-          ...res.locals.commonInputs,
         });
       }
     }
@@ -34,7 +33,6 @@ const modifyProductPage = (req, res) => {
             title: 'Modify Product',
             product: product,
             isEdit: isEdit,
-            ...res.locals.commonInputs,
           });
         }
       }
