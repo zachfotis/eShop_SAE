@@ -72,7 +72,12 @@ const productPage = (req, res) => {
 const salesPage = (req, res) => {
   res.render('home/sales', {
     title: 'sales',
-    ...res.locals.commonInputs,
+  });
+};
+
+const cartPage = (req, res) => {
+  res.render('home/cart', {
+    title: 'cart',
   });
 };
 
@@ -82,4 +87,5 @@ module.exports = {
   productsPage,
   productPage,
   salesPage,
+  cartPage,
 };
