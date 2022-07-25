@@ -64,12 +64,12 @@ The following concepts have been developed so far:
 
 The following concepts are to be implements soon:
 
-- Enhance basic layout, design and page structure
+- ~~Enhance basic layout, design and page structure~~
 - Responsive Design
 - Use MongoDB's \_id instead of product id
 - Validations on routing
-- User Login and Register
-- Authentication and Authorization
+- ~~User Login and Register~~
+- ~~Authentication and Authorization~~
 - ... and more
 
 <br>
