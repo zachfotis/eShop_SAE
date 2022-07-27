@@ -1,0 +1,19 @@
+[
+  {
+    "bookId": "hFduEAAAQBAJ",
+    "title": "DATA SCIENCE",
+    "category": "Antiques & Collectibles",
+    "description": "DATA SCIENCE WRITTEN BY Dr.Venkataramana Sarella,Mr. Sandeep Srivastava, Dr.K.Jamberi, Dr.Syed Khasim",
+    "shortDescription": "This makes <b>Data Science</b> a highly employable career field. 2. Abundance of Positions There are extremely few individuals that have the requisite skill-set to become a full <b>Data Scientist</b>. This makes <b>Data Science</b> less saturated as&nbsp;...",
+    "authors": ["Dr.Venkataramana Sarella", "Mr. Sandeep Srivastava", "Dr.K.Jamberi", "Dr.Syed Khasim "],
+    "publisher": "GCS PUBLISHERS",
+    "publishedDate": "2022-05-01",
+    "isbn": "9394304223",
+    "pageCount": 288,
+    "price": 11.81,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=hFduEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=hFduEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  }
+]

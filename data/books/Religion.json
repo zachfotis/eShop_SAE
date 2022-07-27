@@ -1,0 +1,19 @@
+[
+  {
+    "bookId": "dN1KAwAAQBAJ",
+    "title": "Precalculus Mathematics in a Nutshell: Geometry, Algebra, Trigonometry",
+    "category": "Religion",
+    "description": "ÒGeometry is a very beautiful subject whose qualities of elegance, order, and certainty have exerted a powerful attraction on the human mind for many centuries. . . Algebra's importance lies in the student's future. . . as essential preparation for the serious study of science, engineering, economics, or for more advanced types of mathematics. . . The primary importance of trigonometry is not in its applications to surveying and navigation, or in making computations about triangles, but rather in the mathematical description of vibrations, rotations, and periodic phenomena of all kinds, including light, sound, alternating currents, and the orbits of the planets around the sun.Ó In this brief, clearly written book, the essentials of geometry, algebra, and trigonometry are pulled together into three complementary and convenient small packages, providing an excellent preview and review for anyone who wishes to prepare to master calculus with a minimum of misunderstanding and wasted time and effort. Students and other readers will find here all they need to pull them through.",
+    "shortDescription": "ÒGeometry is a very beautiful subject whose qualities of elegance, order, and certainty have exerted a powerful attraction on the human mind for many centuries.",
+    "authors": ["George F. Simmons"],
+    "publisher": "Wipf and Stock Publishers",
+    "publishedDate": "2003-01-14",
+    "isbn": "1592441300",
+    "pageCount": 128,
+    "price": 19.32,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=dN1KAwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=dN1KAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  }
+]

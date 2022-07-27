@@ -10,64 +10,57 @@ body {
   justify-content: flex-start;
 }
 
-section {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-top: 2rem;
-}
-
-header {
-  width: 80%;
-  margin: 30px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-header h1 {
-  font-size: 40px;
-  font-weight: 400;
-  color: #000;
-  letter-spacing: 2px;
-}
-
-article.options {
-  width: 100%;
-  margin: 30px 0;
+.section-home {
+  width: 70%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 100px;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 30px;
+  margin: 50px auto;
 }
 
-article.options .regular,
-article.options .onSale {
-  width: 250px;
-  padding: 20px;
-  margin: 30px 0px;
-  border: 1px solid #d1d1d1;
-  border-radius: 10px;
+.section-home header > h1 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #000;
+}
+
+.section-home header > p {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(66, 64, 64);
+  margin-top: 10px;
+}
+
+.section-home article {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
-  text-decoration: none;
-  color: #000;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
 }
 
-article.options > a h2 {
-  font-size: 20px;
+.section-home article h1 {
+  font-size: 16px;
   font-weight: 400;
-  color: #000;
-  letter-spacing: 2px;
+  color: rgb(66, 64, 64);
+  font-style: italic;
+  margin-top: 20px;
 }
 
-article.options > a img {
-  height: 150px;
+.section-home article p {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(66, 64, 64);
+  font-style: italic;
+}
+
+.section-home article img {
+  height: 200px;
+  object-fit: cover;
+  transition: all 0.5s ease-in-out;
 }

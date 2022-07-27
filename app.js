@@ -41,9 +41,11 @@ app.use((req, res, next) => {
   if (req.session?.isLoggedIn) {
     commonInputs.isLoggedIn = req.session.isLoggedIn;
   } else {
-    commonInputs.isLoggedIn = false;
+    commonInputs.isLoggedIn = null;
   }
   res.locals = commonInputs;
+  // save session
+  req.session.save();
   next();
 });
 

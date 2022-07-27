@@ -8,21 +8,17 @@
   <body>
     <!-- Navbar -->
     <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %>
-    <section>
+    <section class="section-home">
       <header>
-        <h1>Welcome to our eShop</h1>
-        <p>Check our regular and on sale products</p>
+        <h1>Welcome to the Book Store!</h1>
+        <p>Check out the new and on sales books</p>
       </header>
 
-      <article class="options">
-        <a href="/categories" class="regular">
-          <h2>Products</h2>
-          <img src="/icons/products.png" alt="products" />
-        </a>
-        <a href="/sales" class="onSale">
-          <h2>On Sale</h2>
-          <img src="/icons/onSale.png" alt="onSale" />
-        </a>
+      <article class="shadow-md hover:shadow-lg rounded-lg p-8">
+        <!-- Welcome text for book store -->
+        <img src="/icons/bookstore_logo.png" alt="eshop logo" />
+        <h1><%= quote.quote %></h1>
+        <p>~ <%= quote.author %> ~</p>
       </article>
     </section>
     <!-- Footer -->

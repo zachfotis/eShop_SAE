@@ -1,5 +1,6 @@
 [
   {
+    "bookId": "h8EwBQAAQBAJ",
     "title": "Mastering English",
     "category": "Juvenile Nonfiction",
     "description": "This is one of the rare books on English which covers every aspect of the language—vocabulary, pronunciation, grammar and punctuation. It will open a new chapter in the learning process of every student. English is not so easy to learn as claimed by certain fly-by-night teaching centres, but every effort has been made in this book to understand the nuances of the language—and fast. English is one of the richest languages. It has borrowed extensively from all the major languages in the world, including Hindi. Mantra, chutney, dosa, etc have now become English words. A separate list of foreign words is given in this book. Twenty students have ‘left’ the class means gone out of the class. Twenty students are ‘left’ in the class means remained in the class. ‘That’s life’ means bad/hard life while ‘This is the life’ means good life. A fat chance or a slim chance have the same meaning. Such oddities have been explained in the book quite clearly. This book will be useful not only for students but for all who want to learn English from A to Z and want to use the language with authority.",
@@ -8,506 +9,61 @@
     "publishedDate": "2020-09-15",
     "isbn": "9350481847",
     "pageCount": 154,
+    "price": 2.94,
     "imageLinks": {
       "smallThumbnail": "http://books.google.com/books/content?id=h8EwBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
       "thumbnail": "http://books.google.com/books/content?id=h8EwBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 2.94
+    }
   },
   {
-    "title": "Writing, Grades 5 - 8",
+    "bookId": "oTrTBAAAQBAJ",
+    "title": "Business Math",
     "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
+    "description": "Have you ever thought about starting a business? Even if you just babysit . . . or mow lawns . . . or sell homemade jewelry at craft fairs, you'll need to know some basic math to help you keep track of your expenses and earnings. Businesses need math. Learn what you'll need to know to make money. Who knows where it might lead you!",
+    "shortDescription": "How would you define <b>math</b>? It&#39;s not as easy as you might think. We know <b>math</b> has to do with numbers. We often think of it as a part, if not the basis, for the sciences, especially natural science, engineering, and medicine.",
+    "authors": ["Rae Simons"],
+    "publisher": "Simon and Schuster",
+    "publishedDate": "2014-09-02",
+    "isbn": "1422289141",
+    "pageCount": 48,
+    "price": 11.45,
     "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
+      "smallThumbnail": "http://books.google.com/books/content?id=oTrTBAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=oTrTBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
   },
   {
-    "title": "Writing, Grades 5 - 8",
+    "bookId": "jF-XDAAAQBAJ",
+    "title": "Understanding Business Math & Budgets",
     "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
+    "description": "Are you interested in having your own business? Today, young people have never had more opportunities to build new and exciting businesses. Before you start your business, you'll need to know the basics, though—and it doesn't get much more basic in business than dollars and cents! Knowing how much your company makes and how much it spends is a big part of knowing how you're doing. In Understanding Business Math & Budgets, you'll learn how important math is to keeping your business successful and what you need to keep a budget.",
+    "shortDescription": "<b>Business mathematics</b>–Juvenile literature. 2. Budget in business–Juvenile literature. I. Title. II. Title: Understanding <b>business math</b> and budgets. HF5691.T474 2014 510.24&#39;65–dc23 2013016932 Produced by Vestal Creative Services.",
+    "authors": ["Helen Thompson"],
+    "publisher": "Simon and Schuster",
+    "publishedDate": "2014-09-02",
+    "isbn": "1422289117",
+    "pageCount": 64,
+    "price": 11.45,
     "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
+      "smallThumbnail": "http://books.google.com/books/content?id=jF-XDAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=jF-XDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
   },
   {
-    "title": "Writing, Grades 5 - 8",
+    "bookId": "Iqn8DQAAQBAJ",
+    "title": "Through My Eyes",
     "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
+    "description": "In November 1960, all of America watched as a tiny six-year-old black girl, surrounded by federal marshals, walked through a mob of screaming segregationists and into her school. An icon of the civil rights movement, Ruby Bridges chronicles each dramatic step of this pivotal event in history through her own words.",
+    "shortDescription": "I wasn&#39;t allowed to be in contact with <b>Ruby&#39;s</b> family or even to know where they lived. <b>Ruby&#39;s</b> mother was a strong, stunning woman, and I was sorry not to be able to talk with her. I admired her courage in accepting such risks to help&nbsp;...",
+    "authors": ["Ruby Bridges"],
+    "publisher": "Scholastic Inc.",
+    "publishedDate": "2017-03-28",
+    "isbn": "0545708036",
+    "pageCount": 64,
+    "price": 12.82,
     "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
-  },
-  {
-    "title": "Writing, Grades 5 - 8",
-    "category": "Juvenile Nonfiction",
-    "description": "Write on! Write with students in grades 5 and up using Writing: Fundamentals for the Middle-School Classroom. This 128-page book helps students learn how to express themselves through writing. It provides open-ended lessons of personal writing, descriptive writing, short stories, poetry, and reports. This excellent classroom supplement also includes chapters arranged in order of increasing difficulty and activities that allow students to choose their own writing topics. It supports NCTE and IRA standards.",
-    "shortDescription": "As we move through the 21st century, <b>written</b> communication becomes increasingly important, yet it receives less and less attention in the classroom. With limited classroom time and resources, many teachers focus on content subjects&nbsp;...",
-    "authors": ["Cindy Barden"],
-    "publisher": "Mark Twain Media",
-    "publishedDate": "2010-08-06",
-    "isbn": "1580379796",
-    "pageCount": 128,
-    "imageLinks": {
-      "smallThumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-      "thumbnail": "http://books.google.com/books/content?id=lSlqAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "saleInfo": 14.23
+      "smallThumbnail": "http://books.google.com/books/content?id=Iqn8DQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=Iqn8DQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
   }
 ]

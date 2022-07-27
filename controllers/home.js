@@ -1,40 +1,33 @@
 const Product = require('../models/Product.js');
+const Utilities = require('../models/Utilities');
+const quotes = require('../data/quotes.js');
 
 const indexPage = (req, res) => {
+  // get random quote
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
   res.render('home/index', {
     title: 'home',
+    quote: randomQuote,
   });
 };
 
 const categoriesPage = (req, res) => {
-  Product.find({}, null, { sort: { id: 1 } }, (err, products) => {
+  Utilities.findOne({}, (err, utilities) => {
     if (err) {
       console.log(err);
     } else {
-      const categories = products.map((product) => product.category);
-      const uniqueCategories = [...new Set(categories)];
-      const categoriesWithImage = uniqueCategories.map((category) => {
-        const image = products.find((product) => product.category === category).images[2];
-        return {
-          title: category[0].toUpperCase() + category.slice(1),
-          image: image,
-        };
+      res.render('home/categories', {
+        title: 'categories',
+        categories: utilities.categories,
       });
-      if (!products || products.length === 0) {
-        res.redirect('/');
-      } else {
-        res.render('home/categories', {
-          title: 'categories',
-          categories: categoriesWithImage,
-        });
-      }
     }
   });
 };
 
 const productsPage = (req, res) => {
   const category = req.params.category;
-  Product.find({ category: category }, null, { sort: { id: 1 } }, (err, products) => {
+  Product.find({ category: { $regex: new RegExp(category, 'i') } }, null, (err, products) => {
     if (err) {
       console.log(err);
     } else {
@@ -44,7 +37,6 @@ const productsPage = (req, res) => {
         res.render('home/products', {
           title: 'products',
           products: products,
-          category: category[0].toUpperCase() + category.slice(1),
         });
       }
     }
@@ -53,7 +45,7 @@ const productsPage = (req, res) => {
 
 const productPage = (req, res) => {
   const id = req.params.id;
-  Product.findOne({ id: Number(id) }, (err, product) => {
+  Product.findOne({ _id: id }, (err, product) => {
     if (err) {
       console.log(err);
     } else {

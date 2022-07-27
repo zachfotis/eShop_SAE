@@ -1,36 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('../partials/head.ejs', {title: category}) %>
+    <%- include('../partials/head.ejs', {title}) %>
+    <link rel="stylesheet" href="/css/products.css" />
   </head>
 
   <body>
     <!-- Navbar -->
     <%- include('../partials/nav.ejs') %>
 
-    <div class="products-container">
-      <% products.forEach(element => { %>
-      <div class="product-card">
-        <div class="product-image" href="/products/<%= element.id %>">
-          <span class="discount-tag"><%= element.discountPercentage %>% off</span>
-          <a href="/products/<%= element.id %>">
-            <img src="<%= element.images[0] %>" class="product-thumb" alt="" />
-          </a>
-          <div class="buttons">
-            <button class="card-btn"><img src="/img/wishlist.png" alt="" /></button>
-            <button class="card-btn"><img src="/img/cart3.png" alt="" /></button>
+    <section class="section-products">
+      <nav aria-label="Breadcrumb" class="max-w-7xl px-4 sm:px-6 lg:px-8">
+        <ol role="list" class="flex items-center space-x-4">
+          <li>
+            <div class="flex items-center">
+              <a href="/" class="mr-4 text-sm font-medium text-gray-900"> Home </a>
+              <svg
+                viewBox="0 0 6 20"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                class="h-5 w-auto text-gray-300"
+              >
+                <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z" fill="currentColor" />
+              </svg>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <a href="/categories" class="mr-4 text-sm font-medium text-gray-900"> Categories </a>
+              <svg
+                viewBox="0 0 6 20"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                class="h-5 w-auto text-gray-300"
+              >
+                <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z" fill="currentColor" />
+              </svg>
+            </div>
+          </li>
+
+          <li class="text-sm">
+            <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">
+              <%= products[0].category %>
+            </a>
+          </li>
+        </ol>
+      </nav>
+      <div class="products-container">
+        <% for( let index = 0; index < Math.ceil(products.length/4); index++ ) { %>
+        <div class="bookshelf">
+          <div class="book-grid">
+            <ul>
+              <% for( let index2 = 0; index2 < 4 ; index2++ ) { %> <% if( products[index*4 + index2] ) { %>
+              <li>
+                <a href="/products/<%= products[index*4 + index2]._id %>">
+                  <img
+                    src="<%= products[index*4 + index2].imageLinks?.large || products[index*4 + index2].imageLinks?.medium || products[index*4 + index2].imageLinks.thumbnail%>"
+                    alt="product image"
+                  />
+                </a>
+              </li>
+              <% } %> <% } %>
+            </ul>
           </div>
+          <div class="shelf-shadows"></div>
+          <div class="shelf"></div>
         </div>
-        <div class="product-info">
-          <h2 class="product-brand"><%= element.title %></h2>
-          <p class="product-short-des"><%= element.description %></p>
-          <span class="price"
-            >$<%= (element.price - (element.price * element.discountPercentage/100)).toFixed(2) %></span
-          ><span class="actual-price">$<%= element.price %></span>
-        </div>
+        <% } %>
       </div>
-      <% }) %>
-    </div>
+    </section>
 
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %>

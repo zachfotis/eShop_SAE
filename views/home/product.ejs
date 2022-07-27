@@ -2,45 +2,361 @@
 <html lang="en">
   <head>
     <%- include('../partials/head.ejs', {title: product.category}) %>
+    <link rel="stylesheet" href="/css/product.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
   </head>
 
   <body>
     <!-- Navbar -->
     <%- include('../partials/nav.ejs') %>
+    <section class="section-product">
+      <nav aria-label="Breadcrumb" class="max-w-7xl px-4 sm:px-6 lg:px-8">
+        <ol role="list" class="flex items-center space-x-4">
+          <li>
+            <div class="flex items-center">
+              <a href="/" class="mr-4 text-sm font-medium text-gray-900"> Home </a>
+              <svg
+                viewBox="0 0 6 20"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                class="h-5 w-auto text-gray-300"
+              >
+                <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z" fill="currentColor" />
+              </svg>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <a href="/categories" class="mr-4 text-sm font-medium text-gray-900"> Categories </a>
+              <svg
+                viewBox="0 0 6 20"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                class="h-5 w-auto text-gray-300"
+              >
+                <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z" fill="currentColor" />
+              </svg>
+            </div>
+          </li>
 
-    <div class="product-container">
-      <div class="left-container">
-        <div class="left-gallery">
-          <img src="<%- product.images[0] %>" alt="<%- product.name %>" />
+          <li>
+            <div class="flex items-center">
+              <a href="/categories/<%= product.category %>" class="mr-4 text-sm font-medium text-gray-900">
+                <%= product.category %>
+              </a>
+              <svg
+                viewBox="0 0 6 20"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                class="h-5 w-auto text-gray-300"
+              >
+                <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z" fill="currentColor" />
+              </svg>
+            </div>
+          </li>
+
+          <li class="text-sm">
+            <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">
+              <%= product.title %>
+            </a>
+          </li>
+        </ol>
+      </nav>
+      <div class="content">
+        <div class="image-container">
+          <div class="book-wrapper">
+            <div class="book-container">
+              <img
+                class="book-front side"
+                src="<%= product.imageLinks?.large || product.imageLinks?.medium || product.imageLinks.thumbnail%>"
+                alt="<%- product.title %>"
+              />
+              <span class="shine"></span>
+              <div class="book-left side">
+                <span class="cover"></span>
+                <span class="spine-text"><%= product.title %></span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="right-gallery">
-          <% for( let index = 1; index < product.images.length; index++ ) { %>
-          <img src="<%- product.images[index] %>" alt="<%- product.name %>" />
-          <% } %>
-        </div>
-      </div>
-      <div class="right-container">
-        <div class="name">
+        <div class="details-container">
           <h1><%- product.title %></h1>
-        </div>
-        <div class="description">
-          <p><%- product.description %></p>
-        </div>
-        <div class="price">
-          <h2>$<%- (product.price - product.price * product.discountPercentage/100).toFixed(2) %></h2>
-          <h2>$<%- product.price %></h2>
-        </div>
-        <div class="quantity">
-          <label for="quantity">Quantity: </label>
-          <input type="number" name="quantity" id="quantity" min="1" max="<%= product.stock %> " value="1" />
-        </div>
-        <div class="buttons">
-          <button class="add-to-cart" type="button" name="button">Add to Cart</button>
-          <button class="add-to-wishlist" type="button" name="button">Add to Wishlist</button>
+          <p class="authors"><%= product.authors.join(', ') %></p>
+          <!-- Reviews -->
+          <div class="price-reviews flex items-center">
+            <div class="prices">
+              <% if ( product.discount > 0) { %>
+              <h2 class="discounted text-lg text-gray-900 sm:text-xl">
+                $<%- (product.price - product.price * product.discount).toFixed(2) %>
+              </h2>
+              <h2 class="normal text-lg text-gray-900 sm:text-xl">$<%- product.price.toFixed(2) %></h2>
+              <% } else {%>
+              <h2 class="discounted text-lg text-gray-900 sm:text-xl">$<%- product.price.toFixed(2) %></h2>
+              <% } %>
+            </div>
+            <div class="ml-4 pl-4 border-l border-gray-300">
+              <div class="flex items-center">
+                <div class="flex items-center">
+                  <% for( let index = 0; product?.ratings.length > 0 ? index < Math.floor(product.ratings.reduce((a,
+                  b)=> (a + b)) / product.ratings.length) : index < 0; index++ ) { %>
+                  <svg
+                    class="text-yellow-500 h-5 w-5 flex-shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                  <% } %> <% for( let index = 0; product?.ratings.length > 0 ? index < (5 -
+                  Math.floor(product.ratings.reduce((a, b) => (a + b)) / product.ratings.length)) : index < 5 ; index++
+                  ) { %>
+                  <svg
+                    class="text-gray-200 h-5 w-5 flex-shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                  <% } %>
+                </div>
+                <p class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                  <%= product?.ratings.length > 0 ? product?.ratings.length : 0 %> reviews
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Information Dropdown -->
+          <div class="border-t divide-y divide-gray-200 mt-12">
+            <div>
+              <button
+                id="information-button"
+                type="button"
+                class="group relative w-full py-6 flex justify-between items-center text-left"
+                aria-controls="disclosure-1"
+                aria-expanded="false"
+              >
+                <span class="text-gray-600 text-sm font-medium"> Book Information </span>
+                <span class="ml-6 flex items-center">
+                  <svg
+                    id="svg-1"
+                    class="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
+                  <svg
+                    id="svg-2"
+                    class="hidden h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6" />
+                  </svg>
+                </span>
+              </button>
+
+              <div class="hidden pb-6 prose prose-sm" id="disclosure-1">
+                <div class="flex flex-col">
+                  <div class="-my-2 overflow-x-auto w-fullsm:-mx-6 lg:-mx-8">
+                    <div class="py-2 align-middle w-full inline-block sm:px-6 lg:px-8">
+                      <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        <table class="divide-y w-full divide-gray-200">
+                          <tbody>
+                            <tr class="bg-white">
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Category</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <%= product?.category %>
+                              </td>
+                            </tr>
+
+                            <tr class="bg-blue-50">
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Authors</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <%= product.authors.join(', ') %>
+                              </td>
+                            </tr>
+
+                            <tr class="bg-white">
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Publisher</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <%= product?.publisher %>
+                              </td>
+                            </tr>
+
+                            <tr class="bg-blue-50">
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                Published Date
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <%= product?.publishedDate %>
+                              </td>
+                            </tr>
+
+                            <tr class="bg-white">
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">ISBN</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= product?.isbn %></td>
+                            </tr>
+
+                            <tr class="bg-blue-50">
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Pages</td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <%= product?.pageCount %>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description Dropdown -->
+          <div class="border-t divide-y divide-gray-200">
+            <div>
+              <button
+                id="description-button"
+                type="button"
+                class="group relative w-full py-6 flex justify-between items-center text-left"
+                aria-controls="disclosure-1"
+                aria-expanded="false"
+              >
+                <span class="text-gray-600 text-sm font-medium"> Description </span>
+                <span class="ml-6 flex items-center">
+                  <svg
+                    id="svg-1"
+                    class="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
+                  <svg
+                    id="svg-2"
+                    class="hidden h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6" />
+                  </svg>
+                </span>
+              </button>
+
+              <div class="hidden pb-6 prose prose-sm" id="disclosure-2">
+                <p class="description text-gray-600"><%- product.description %></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="buttons mt-10 flex sm:flex-col1">
+            <button
+              type="submit"
+              class="max-w-xs flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full"
+            >
+              Add to Cart
+            </button>
+
+            <button
+              type="button"
+              class="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+            >
+              <svg
+                class="h-6 w-6 flex-shrink-0"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+              </svg>
+              <span class="sr-only">Add to favorites</span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+    <script>
+      let tl = new TimelineMax();
 
+      tl.set($('.book-wrapper'), { perspective: 8000, xPercent: -50, yPercent: 8, left: '50%' })
+        .set($('.book-container'), { transformStyle: 'preserve-3d' })
+        .set($('.book-front'), { transformOrigin: '0% 50% -15px', transformPerspective: 8000 })
+        .set('.book-left', { rotationX: 0, rotationY: 270, rotationZ: 0, transformPerspective: 8000 });
+
+      $('.book-container').hover(
+        function () {
+          tl.to('.side', 0.75, { rotationY: '+=35' });
+        },
+        function () {
+          tl.to('.side', 0.75, { rotationY: '-=35' });
+        }
+      );
+
+      const infoButton = document.querySelector('#information-button');
+      const descriptionButton = document.querySelector('#description-button');
+
+      infoButton.addEventListener('click', function () {
+        const svg1 = infoButton.querySelector('#svg-1');
+        const svg2 = infoButton.querySelector('#svg-2');
+        const disclosure1 = infoButton.parentElement.querySelector('#disclosure-1');
+        svg1.classList.toggle('hidden');
+        svg1.classList.toggle('block');
+        svg2.classList.toggle('hidden');
+        svg2.classList.toggle('block');
+        disclosure1.classList.toggle('hidden');
+      });
+
+      descriptionButton.addEventListener('click', function () {
+        const svg1 = descriptionButton.querySelector('#svg-1');
+        const svg2 = descriptionButton.querySelector('#svg-2');
+        const disclosure2 = descriptionButton.parentElement.querySelector('#disclosure-2');
+        svg1.classList.toggle('hidden');
+        svg1.classList.toggle('block');
+        svg2.classList.toggle('hidden');
+        svg2.classList.toggle('block');
+        disclosure2.classList.toggle('hidden');
+      });
+    </script>
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %>
   </body>

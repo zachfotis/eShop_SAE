@@ -1,0 +1,415 @@
+[
+  {
+    "bookId": "V6A4DwAAQBAJ",
+    "title": "Strengthening Data Science Methods for Department of Defense Personnel and Readiness Missions",
+    "category": "Mathematics",
+    "description": "The Office of the Under Secretary of Defense (Personnel & Readiness), referred to throughout this report as P&R, is responsible for the total force management of all Department of Defense (DoD) components including the recruitment, readiness, and retention of personnel. Its work and policies are supported by a number of organizations both within DoD, including the Defense Manpower Data Center (DMDC), and externally, including the federally funded research and development centers (FFRDCs) that work for DoD. P&R must be able to answer questions for the Secretary of Defense such as how to recruit people with an aptitude for and interest in various specialties and along particular career tracks and how to assess on an ongoing basis service members' career satisfaction and their ability to meet new challenges. P&R must also address larger-scale questions, such as how the current realignment of forces to the Asia-Pacific area and other regions will affect recruitment, readiness, and retention. While DoD makes use of large-scale data and mathematical analysis in intelligence, surveillance, reconnaissance, and elsewhereâ€\"exploiting techniques such as complex network analysis, machine learning, streaming social media analysis, and anomaly detectionâ€\"these skills and capabilities have not been applied as well to the personnel and readiness enterprise. Strengthening Data Science Methods for Department of Defense Personnel and Readiness Missions offers and roadmap and implementation plan for the integration of data analysis in support of decisions within the purview of P&R.",
+    "shortDescription": "<b>Data</b>. <b>Science</b>. Methods. INTRODUCTION <b>Data</b> applicable to personnel and readiness decisions are increasing rapidly as is the potential to make meaningful decisions enhanced by previously inaccessible information.",
+    "authors": [
+      "National Academies of Sciences, Engineering, and Medicine",
+      "Division on Engineering and Physical Sciences",
+      "Board on Mathematical Sciences and Their Applications",
+      "Committee on Applied and Theoretical Statistics",
+      "Committee on Strengthening Data Science Methods for Department of Defense Personnel and Readiness Missions"
+    ],
+    "publisher": "National Academies Press",
+    "publishedDate": "2017-02-06",
+    "isbn": "0309450810",
+    "pageCount": 164,
+    "price": 41.74,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=V6A4DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=V6A4DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "RuELEAAAQBAJ",
+    "title": "Mathematics of Data Science: A Computational Approach to Clustering and Classification",
+    "category": "Mathematics",
+    "description": "This textbook provides a solid mathematical basis for understanding popular data science algorithms for clustering and classification and shows that an in-depth understanding of the mathematics powering these algorithms gives insight into the underlying data. It presents a step-by-step derivation of these algorithms, outlining their implementation from scratch in a computationally sound way. Mathematics of Data Science: A Computational Approach to Clustering and Classification proposes different ways of visualizing high-dimensional data to unveil hidden internal structures, and nearly every chapter includes graphical explanations and computed examples using publicly available data sets to highlight similarities and differences among the algorithms. This self-contained book is geared toward advanced undergraduate and beginning graduate students in the mathematical sciences, engineering, and computer science and can be used as the main text in a semester course. Researchers in any application area where data science methods are used will also find the book of interest. No advanced mathematical or statistical background is assumed.",
+    "shortDescription": "This self-contained book is geared toward advanced undergraduate and beginning graduate students in the mathematical sciences, engineering, and computer science and can be used as the main text in a semester course.",
+    "authors": ["Daniela Calvetti", "Erkki Somersalo"],
+    "publisher": "SIAM",
+    "publishedDate": "2020-11-20",
+    "isbn": "1611976375",
+    "pageCount": 199,
+    "price": 45.62,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=RuELEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=RuELEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "rRSRCgAAQBAJ",
+    "title": "Storytelling with Data",
+    "category": "Mathematics",
+    "description": "Don't simply show your data—tell a story with it! Storytelling with Data teaches you the fundamentals of data visualization and how to communicate effectively with data. You'll discover the power of storytelling and the way to make data a pivotal point in your story. The lessons in this illuminative text are grounded in theory, but made accessible through numerous real-world examples—ready for immediate application to your next graph or presentation. Storytelling is not an inherent skill, especially when it comes to data visualization, and the tools at our disposal don't make it any easier. This book demonstrates how to go beyond conventional tools to reach the root of your data, and how to use your data to create an engaging, informative, compelling story. Specifically, you'll learn how to: Understand the importance of context and audience Determine the appropriate type of graph for your situation Recognize and eliminate the clutter clouding your information Direct your audience's attention to the most important parts of your data Think like a designer and utilize concepts of design in data visualization Leverage the power of storytelling to help your message resonate with your audience Together, the lessons in this book will help you turn your data into high impact visual stories that stick with your audience. Rid your world of ineffective graphs, one exploding 3D pie chart at a time. There is a story in your data—Storytelling with Data will give you the skills and power to tell it!",
+    "shortDescription": "This book demonstrates how to go beyond conventional tools to reach the root of your data, and how to use your data to create an engaging, informative, compelling story.",
+    "authors": ["Cole Nussbaumer Knaflic"],
+    "publisher": "John Wiley & Sons",
+    "publishedDate": "2015-10-07",
+    "isbn": "1119002060",
+    "pageCount": 288,
+    "price": 29.99,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=rRSRCgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=rRSRCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "gXxKFWkE9h0C",
+    "title": "Lattice",
+    "category": "Mathematics",
+    "description": "Written by the author of the lattice system, this book describes lattice in considerable depth, beginning with the essentials and systematically delving into specific low levels details as necessary. No prior experience with lattice is required to read the book, although basic familiarity with R is assumed. The book contains close to 150 figures produced with lattice. Many of the examples emphasize principles of good graphical design; almost all use real data sets that are publicly available in various R packages. All code and figures in the book are also available online, along with supplementary material covering more advanced topics.",
+    "shortDescription": "No prior experience with lattice is required to read the book, although basic familiarity with R is assumed. The book contains close to 150 figures produced with lattice.",
+    "authors": ["Deepayan Sarkar"],
+    "publisher": "Springer Science & Business Media",
+    "publishedDate": "2008-02-15",
+    "isbn": "0387759697",
+    "pageCount": 268,
+    "price": 63.06,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=gXxKFWkE9h0C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=gXxKFWkE9h0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "T4JyEAAAQBAJ",
+    "title": "Linked Data Visualization",
+    "category": "Mathematics",
+    "description": "Linked Data (LD) is a well-established standard for publishing and managing structured information on the Web, gathering and bridging together knowledge from different scientific and commercial domains. The development of Linked Data Visualization techniques and tools has been followed as the primary means for the analysis of this vast amount of information by data scientists, domain experts, business users, and citizens. This book covers a wide spectrum of visualization issues, providing an overview of the recent advances in this area, focusing on techniques, tools, and use cases of visualization and visual analysis of LD. It presents the basic concepts related to data visualization and the LD technologies, the techniques employed for data visualization based on the characteristics of data techniques for Big Data visualization, use tools and use cases in the LD context, and finally a thorough assessment of the usability of these tools under different scenarios. The purpose of this book is to offer a complete guide to the evolution of LD visualization for interested readers from any background and to empower them to get started with the visual analysis of such data. This book can serve as a course textbook or a primer for all those interested in LD and data visualization.",
+    "shortDescription": "This book can serve as a course textbook or a primer for all those interested in LD and data visualization.",
+    "authors": ["Laura Po", "Nikos Bikakis", "Federico Desimoni", "George Papastefanatos"],
+    "publisher": "Springer Nature",
+    "publishedDate": "2022-05-31",
+    "isbn": "3031794907",
+    "pageCount": 143,
+    "price": 44.51,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=T4JyEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=T4JyEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "4dKDDwAAQBAJ",
+    "title": "R Machine Learning Projects",
+    "category": "Mathematics",
+    "description": "Master a range of machine learning domains with real-world projects using TensorFlow for R, H2O, MXNet, and more Key FeaturesMaster machine learning, deep learning, and predictive modeling concepts in R 3.5Build intelligent end-to-end projects for finance, retail, social media, and a variety of domainsImplement smart cognitive models with helpful tips and best practicesBook Description R is one of the most popular languages when it comes to performing computational statistics (statistical computing) easily and exploring the mathematical side of machine learning. With this book, you will leverage the R ecosystem to build efficient machine learning applications that carry out intelligent tasks within your organization. This book will help you test your knowledge and skills, guiding you on how to build easily through to complex machine learning projects. You will first learn how to build powerful machine learning models with ensembles to predict employee attrition. Next, you’ll implement a joke recommendation engine and learn how to perform sentiment analysis on Amazon reviews. You’ll also explore different clustering techniques to segment customers using wholesale data. In addition to this, the book will get you acquainted with credit card fraud detection using autoencoders, and reinforcement learning to make predictions and win on a casino slot machine. By the end of the book, you will be equipped to confidently perform complex tasks to build research and commercial projects for automated operations. What you will learnExplore deep neural networks and various frameworks that can be used in RDevelop a joke recommendation engine to recommend jokes that match users’ tastesCreate powerful ML models with ensembles to predict employee attritionBuild autoencoders for credit card fraud detectionWork with image recognition and convolutional neural networks Make predictions for casino slot machine using reinforcement learningImplement NLP techniques for sentiment analysis and customer segmentationWho this book is for If you’re a data analyst, data scientist, or machine learning developer who wants to master machine learning concepts using R by building real-world projects, this is the book for you. Each project will help you test your skills in implementing machine learning algorithms and techniques. A basic understanding of machine learning and working knowledge of R programming is necessary to get the most out of this book.",
+    "shortDescription": "With this book, you will leverage the R ecosystem to build efficient machine learning applications that carry out intelligent tasks within your organization.",
+    "authors": ["Dr. Sunil Kumar Chinnamgari"],
+    "publisher": "Packt Publishing Ltd",
+    "publishedDate": "2019-01-14",
+    "isbn": "1789806097",
+    "pageCount": 334,
+    "price": 18.54,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=4dKDDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=4dKDDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "AHWKDwAAQBAJ",
+    "title": "Advances in Algebra",
+    "category": "Mathematics",
+    "description": "This proceedings volume covers a range of research topics in algebra from the Southern Regional Algebra Conference (SRAC) that took place in March 2017. Presenting theory as well as computational methods, featured survey articles and research papers focus on ongoing research in algebraic geometry, ring theory, group theory, and associative algebras. Topics include algebraic groups, combinatorial commutative algebra, computational methods for representations of groups and algebras, group theory, Hopf-Galois theory, hypergroups, Lie superalgebras, matrix analysis, spherical and algebraic spaces, and tropical algebraic geometry. Since 1988, SRAC has been an important event for the algebra research community in the Gulf Coast Region and surrounding states, building a strong network of algebraists that fosters collaboration in research and education. This volume is suitable for graduate students and researchers interested in recent findings in computational and theoretical methods in algebra and representation theory.",
+    "shortDescription": "where the group <b>algebras</b> are not semi-simple, computational techniques have been employed to reveal the more complicated structure of the <b>algebras</b> and their blocks. Personally, I became involved in computational projects almost 30 years&nbsp;...",
+    "authors": ["Jörg Feldvoss", "Lauren Grimley", "Drew Lewis", "Andrei Pavelescu", "Cornelius Pillen"],
+    "publisher": "Springer",
+    "publishedDate": "2019-02-27",
+    "isbn": "3030115216",
+    "pageCount": 322,
+    "price": 118.71,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=AHWKDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=AHWKDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "64neFi31E_oC",
+    "title": "Algebra and Operator Theory",
+    "category": "Mathematics",
+    "description": "This volume presents the lectures given during the second French-Uzbek Colloquium on Algebra and Operator Theory which took place in Tashkent in 1997, at the Mathematical Institute of the Uzbekistan Academy of Sciences. Among the algebraic topics discussed here are deformation of Lie algebras, cohomology theory, the algebraic variety of the laws of Lie algebras, Euler equations on Lie algebras, Leibniz algebras, and real K-theory. Some contributions have a geometrical aspect, such as supermanifolds. The papers on operator theory deal with the study of certain types of operator algebras. This volume also contains a detailed introduction to the theory of quantum groups. Audience: This book is intended for graduate students specialising in algebra, differential geometry, operator theory, and theoretical physics, and for researchers in mathematics and theoretical physics.",
+    "shortDescription": "Proof Let L be a nilpotent Leibniz <b>algebra</b>. By lemma 2 there exists at E N, such that [...{[:r1,a:2],a:3]...,:1:m] : 0 for any :c,&#39; G L, i z Thus : 0, where 3: appears in — 1 times, i.e. RT“ = 0. Conversely, let operator RI be nilpotent&nbsp;...",
+    "authors": ["Y. Khakimdjanov", "M. Goze", "Sh. Ayupov"],
+    "publisher": "Springer Science & Business Media",
+    "publishedDate": "2012-12-06",
+    "isbn": "9401150729",
+    "pageCount": 250,
+    "price": 74.19,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=64neFi31E_oC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=64neFi31E_oC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "NSXCaGSVaX4C",
+    "title": "Basic Algebra",
+    "category": "Mathematics",
+    "description": "Basic Algebra and Advanced Algebra systematically develop concepts and tools in algebra that are vital to every mathematician, whether pure or applied, aspiring or established. Together, the two books give the reader a global view of algebra and its role in mathematics as a whole. The presentation includes blocks of problems that introduce additional topics and applications to science and engineering to guide further study. Many examples and hundreds of problems are included, along with a separate 90-page section giving hints or complete solutions for most of the problems.",
+    "shortDescription": "Together, the two books give the reader a global view of algebra and its role in mathematics as a whole.",
+    "authors": ["Anthony W. Knapp"],
+    "publisher": "Springer Science & Business Media",
+    "publishedDate": "2007-07-28",
+    "isbn": "0817645292",
+    "pageCount": 735,
+    "price": 96.45,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=NSXCaGSVaX4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=NSXCaGSVaX4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "wHXiBQAAQBAJ",
+    "title": "Lectures in General Algebra",
+    "category": "Mathematics",
+    "description": "Lectures in General Algebra is a translation from the Russian and is based on lectures on specialized courses in general algebra at Moscow University. The book starts with the basics of algebra. The text briefly describes the theory of sets, binary relations, equivalence relations, partial ordering, minimum condition, and theorems equivalent to the axiom of choice. The text gives the definition of binary algebraic operation and the concepts of groups, groupoids, and semigroups. The book examines the parallelism between the theory of groups and the theory of rings; such examinations show the convenience of constructing a single theory from the results of group experiments and ring experiments which are known to follow simple corollaries. The text also presents algebraic structures that are not of binary nature. From this parallelism arise other concepts, such as that of the lattices, complete lattices, and modular lattices. The book then proves the Schmidt-Ore theorem, and also describes linear algebra, as well as the Birkhoff-Witt theorem on Lie algebras. The text also addresses ordered groups, the Archimedean groups and rings, and Albert's theorem on normed algebras. This book can prove useful for algebra students and for professors of algebra and advanced mathematicians.",
+    "shortDescription": "The text also addresses ordered groups, the Archimedean groups and rings, and Albert&#39;s theorem on normed algebras. This book can prove useful for algebra students and for professors of algebra and advanced mathematicians.",
+    "authors": ["A. G. Kurosh"],
+    "publisher": "Elsevier",
+    "publishedDate": "2014-07-10",
+    "isbn": "1483149579",
+    "pageCount": 374,
+    "price": 38.46,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=wHXiBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=wHXiBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "r82mAgAAQBAJ",
+    "title": "Vertex Algebras and Algebraic Curves: Second Edition",
+    "category": "Mathematics",
+    "description": "Vertex algebras are algebraic objects that encapsulate the concept of operator product expansion from two-dimensional conformal field theory. Vertex algebras are fast becoming ubiquitous in many areas of modern mathematics, with applications to representation theory, algebraic geometry, the theory of finite groups, modular functions, topology, integrable systems, and combinatorics. This book is an introduction to the theory of vertex algebras with a particular emphasis on the relationship with the geometry of algebraic curves. The notion of a vertex algebra is introduced in a coordinate-independent way, so that vertex operators become well defined on arbitrary smooth algebraic curves, possibly equipped with additional data, such as a vector bundle. Vertex algebras then appear as the algebraic objects encoding the geometric structure of various moduli spaces associated with algebraic curves. Therefore they may be used to give a geometric interpretation of various questions of representation theory. The book contains many original results, introduces important new concepts, and brings new insights into the theory of vertex algebras. The authors have made a great effort to make the book self-contained and accessible to readers of all backgrounds. Reviewers of the first edition anticipated that it would have a long-lasting influence on this exciting field of mathematics and would be very useful for graduate students and researchers interested in the subject. This second edition, substantially improved and expanded, includes several new topics, in particular an introduction to the Beilinson-Drinfeld theory of factorization algebras and the geometric Langlands correspondence.",
+    "shortDescription": "This book is an introduction to the theory of vertex algebras with a particular emphasis on the relationship with the geometry of algebraic curves.",
+    "authors": ["Edward Frenkel", "David Ben-Zvi"],
+    "publisher": "American Mathematical Soc.",
+    "publishedDate": "2004-08-25",
+    "isbn": "0821836749",
+    "pageCount": 400,
+    "price": 80.56,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=r82mAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=r82mAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "3YQCAQAAQBAJ",
+    "title": "Torsors, Reductive Group Schemes and Extended Affine Lie Algebras",
+    "category": "Mathematics",
+    "description": "The authors give a detailed description of the torsors that correspond to multiloop algebras. These algebras are twisted forms of simple Lie algebras extended over Laurent polynomial rings. They play a crucial role in the construction of Extended Affine Lie Algebras (which are higher nullity analogues of the affine Kac-Moody Lie algebras). The torsor approach that the authors take draws heavily from the theory of reductive group schemes developed by M. Demazure and A. Grothendieck. It also allows the authors to find a bridge between multiloop algebras and the work of F. Bruhat and J. Tits on reductive groups over complete local fields.",
+    "shortDescription": "It is well known, by descent considerations, that if L and L are isomorphic as Lie <b>algebras</b> over k, then their absolute ... its name, the Witt-Tits index (with Tits&#39; notations) of an Rn–representative of the k–Lie <b>algebra</b> in question,&nbsp;...",
+    "authors": ["Philippe Gille", "Arturo Pianzola"],
+    "publisher": "American Mathematical Soc.",
+    "publishedDate": "2013-10-23",
+    "isbn": "0821887742",
+    "pageCount": 112,
+    "price": 74.2,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=3YQCAQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=3YQCAQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "2JpLDwAAQBAJ",
+    "title": "Calculus: A Complete Introduction",
+    "category": "Mathematics",
+    "description": "Calculus: A Complete Introduction is the most comprehensive yet easy-to-use introduction to using calculus. Written by a leading expert, this book will help you if you are studying for an important exam or essay, or if you simply want to improve your knowledge. The book covers all areas of calculus, including functions, gradients, rates of change, differentiation, exponential and logarithmic functions and integration. Everything you will need to know is here in one book. Each chapter includes not only an explanation of the knowledge and skills you need, but also worked examples and test questions.",
+    "shortDescription": "Written by a leading expert, this book will help you if you are studying for an important exam or essay, or if you simply want to improve your knowledge.",
+    "authors": ["Hugh Neill"],
+    "publisher": "Hachette UK",
+    "publishedDate": "2018-06-07",
+    "isbn": "1473678455",
+    "pageCount": 368,
+    "price": 3.99,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=2JpLDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=2JpLDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "7-mtq3e8ZM4C",
+    "title": "Environmental Statistics",
+    "category": "Mathematics",
+    "description": "In modern society, we are ever more aware of the environmental issues we face, whether these relate to global warming, depletion of rivers and oceans, despoliation of forests, pollution of land, poor air quality, environmental health issues, etc. At the most fundamental level it is necessary to monitor what is happening in the environment – collecting data to describe the changing scene. More importantly, it is crucial to formally describe the environment with sound and validated models, and to analyse and interpret the data we obtain in order to take action. Environmental Statistics provides a broad overview of the statistical methodology used in the study of the environment, written in an accessible style by a leading authority on the subject. It serves as both a textbook for students of environmental statistics, as well as a comprehensive source of reference for anyone working in statistical investigation of environmental issues. Provides broad coverage of the methodology used in the statistical investigation of environmental issues. Covers a wide range of key topics, including sampling, methods for extreme data, outliers and robustness, relationship models and methods, time series, spatial analysis, and environmental standards. Includes many detailed practical and worked examples that illustrate the applications of statistical methods in environmental issues. Authored by a leading authority on environmental statistics.",
+    "shortDescription": "Environmental Statistics provides a broad overview of thestatistical methodology used in the study of the environment,written in an accessible style by a leading authority on thesubject.",
+    "authors": ["Vic Barnett"],
+    "publisher": "John Wiley & Sons",
+    "publishedDate": "2005-12-13",
+    "isbn": "0470026979",
+    "pageCount": 316,
+    "price": 103.99,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=7-mtq3e8ZM4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=7-mtq3e8ZM4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "KsDdCgAAQBAJ",
+    "title": "Statistics for Spatio-Temporal Data",
+    "category": "Mathematics",
+    "description": "Winner of the 2013 DeGroot Prize. A state-of-the-art presentation of spatio-temporal processes, bridging classic ideas with modern hierarchical statistical modeling concepts and the latest computational methods Noel Cressie and Christopher K. Wikle, are also winners of the 2011 PROSE Award in the Mathematics category, for the book “Statistics for Spatio-Temporal Data” (2011), published by John Wiley and Sons. (The PROSE awards, for Professional and Scholarly Excellence, are given by the Association of American Publishers, the national trade association of the US book publishing industry.) Statistics for Spatio-Temporal Data has now been reprinted with small corrections to the text and the bibliography. The overall content and pagination of the new printing remains the same; the difference comes in the form of corrections to typographical errors, editing of incomplete and missing references, and some updated spatio-temporal interpretations. From understanding environmental processes and climate trends to developing new technologies for mapping public-health data and the spread of invasive-species, there is a high demand for statistical analyses of data that take spatial, temporal, and spatio-temporal information into account. Statistics for Spatio-Temporal Data presents a systematic approach to key quantitative techniques that incorporate the latest advances in statistical computing as well as hierarchical, particularly Bayesian, statistical modeling, with an emphasis on dynamical spatio-temporal models. Cressie and Wikle supply a unique presentation that incorporates ideas from the areas of time series and spatial statistics as well as stochastic processes. Beginning with separate treatments of temporal data and spatial data, the book combines these concepts to discuss spatio-temporal statistical methods for understanding complex processes. Topics of coverage include: Exploratory methods for spatio-temporal data, including visualization, spectral analysis, empirical orthogonal function analysis, and LISAs Spatio-temporal covariance functions, spatio-temporal kriging, and time series of spatial processes Development of hierarchical dynamical spatio-temporal models (DSTMs), with discussion of linear and nonlinear DSTMs and computational algorithms for their implementation Quantifying and exploring spatio-temporal variability in scientific applications, including case studies based on real-world environmental data Throughout the book, interesting applications demonstrate the relevance of the presented concepts. Vivid, full-color graphics emphasize the visual nature of the topic, and a related FTP site contains supplementary material. Statistics for Spatio-Temporal Data is an excellent book for a graduate-level course on spatio-temporal statistics. It is also a valuable reference for researchers and practitioners in the fields of applied mathematics, engineering, and the environmental and health sciences.",
+    "shortDescription": "A state-of-the-art presentation of spatio-temporal processes, bridging classic ideas with modern hierarchical statistical modeling concepts and the latest computational methods Noel Cressie and Christopher K. Wikle, are also winners of the ...",
+    "authors": ["Noel Cressie", "Christopher K. Wikle"],
+    "publisher": "John Wiley & Sons",
+    "publishedDate": "2015-11-02",
+    "isbn": "1119243068",
+    "pageCount": 624,
+    "price": 80.99,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=KsDdCgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=KsDdCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "ChpGSsqXIdoC",
+    "title": "Visual Statistics",
+    "category": "Mathematics",
+    "description": "A visually intuitive approach to statistical data analysis Visual Statistics brings the most complex and advanced statisticalmethods within reach of those with little statistical training byusing animated graphics of the data. Using ViSta: The VisualStatistics System-developed by Forrest Young and Pedro Valero-Moraand available free of charge on the Internet-students can easilycreate fully interactive visualizations from relevant mathematicalstatistics, promoting perceptual and cognitive understanding of thedata's story. An emphasis is placed on a paradigm for understandingdata that is visual, intuitive, geometric, and active, rather thanone that relies on convoluted logic, heavy mathematics, systems ofalgebraic equations, or passive acceptance of results. A companion Web site complements the book by further demonstratingthe concept of creating interactive and dynamic graphics. The bookprovides users with the opportunity to view the graphics in adynamic way by illustrating how to analyze statistical data andexplore the concepts of visual statistics. Visual Statistics addresses and features the followingtopics: * Why use dynamic graphics? * A history of statistical graphics * Visual statistics and the graphical user interface * Visual statistics and the scientific method * Character-based statistical interface objects * Graphics-based statistical interfaces * Visualization for exploring univariate data This is an excellent textbook for undergraduate courses in dataanalysis and regression, for students majoring or minoring instatistics, mathematics, science, engineering, and computerscience, as well as for graduate-level courses in mathematics. Thebook is also ideal as a reference/self-study guide for engineers,scientists, and mathematicians. With contributions by highly regarded professionals in the field,Visual Statistics not only improves a student's understanding ofstatistics, but also builds confidence to overcome problems thatmay have previously been intimidating.",
+    "shortDescription": "Visual Statistics addresses and features the following topics: * Why use dynamic graphics? * A history of statistical graphics * Visual statistics and the graphical user interface * Visual statistics and the scientific method * Character ...",
+    "authors": ["Forrest W. Young", "Pedro M. Valero-Mora", "Michael Friendly"],
+    "publisher": "John Wiley & Sons",
+    "publishedDate": "2011-09-15",
+    "isbn": "1118165411",
+    "pageCount": 363,
+    "price": 113.99,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=ChpGSsqXIdoC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=ChpGSsqXIdoC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "M0c58Rw3bEsC",
+    "title": "Epidemiology and Medical Statistics",
+    "category": "Mathematics",
+    "description": "This volume, representing a compilation of authoritative reviews on a multitude of uses of statistics in epidemiology and medical statistics written by internationally renowned experts, is addressed to statisticians working in biomedical and epidemiological fields who use statistical and quantitative methods in their work. While the use of statistics in these fields has a long and rich history, explosive growth of science in general and clinical and epidemiological sciences in particular have gone through a see of change, spawning the development of new methods and innovative adaptations of standard methods. Since the literature is highly scattered, the Editors have undertaken this humble exercise to document a representative collection of topics of broad interest to diverse users. The volume spans a cross section of standard topics oriented toward users in the current evolving field, as well as special topics in much need which have more recent origins. This volume was prepared especially keeping the applied statisticians in mind, emphasizing applications-oriented methods and techniques, including references to appropriate software when relevant. · Contributors are internationally renowned experts in their respective areas · Addresses emerging statistical challenges in epidemiological, biomedical, and pharmaceutical research · Methods for assessing Biomarkers, analysis of competing risks · Clinical trials including sequential and group sequential, crossover designs, cluster randomized, and adaptive designs · Structural equations modelling and longitudinal data analysis",
+    "shortDescription": "This volume, representing a compilation of authoritative reviews on a multitude of uses of statistics in epidemiology and medical statistics written by internationally renowned experts, is addressed to statisticians working in biomedical ...",
+    "publisher": "Elsevier",
+    "publishedDate": "2007-11-21",
+    "isbn": "9780080554211",
+    "pageCount": 870,
+    "price": 122.5,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=M0c58Rw3bEsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=M0c58Rw3bEsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "DEhFEAAAQBAJ",
+    "title": "Permutation Statistical Methods with R",
+    "category": "Mathematics",
+    "description": "This book takes a unique approach to explaining permutation statistics by integrating permutation statistical methods with a wide range of classical statistical methods and associated R programs. It opens by comparing and contrasting two models of statistical inference: the classical population model espoused by J. Neyman and E.S. Pearson and the permutation model first introduced by R.A. Fisher and E.J.G. Pitman. Numerous comparisons of permutation and classical statistical methods are presented, supplemented with a variety of R scripts for ease of computation. The text follows the general outline of an introductory textbook in statistics with chapters on central tendency and variability, one-sample tests, two-sample tests, matched-pairs tests, completely-randomized analysis of variance, randomized-blocks analysis of variance, simple linear regression and correlation, and the analysis of goodness of fit and contingency. Unlike classical statistical methods, permutation statistical methods do not rely on theoretical distributions, avoid the usual assumptions of normality and homogeneity, depend only on the observed data, and do not require random sampling. The methods are relatively new in that it took modern computing power to make them available to those working in mainstream research. Designed for an audience with a limited statistical background, the book can easily serve as a textbook for undergraduate or graduate courses in statistics, psychology, economics, political science or biology. No statistical training beyond a first course in statistics is required, but some knowledge of, or some interest in, the R programming language is assumed.",
+    "shortDescription": "This book takes a unique approach to explaining permutation statistics by integrating permutation statistical methods with a wide range of classical statistical methods and associated R programs.",
+    "authors": ["Kenneth J. Berry", "Kenneth L. Kvamme", "Janis E. Johnston", "Paul W. Mielke, Jr."],
+    "publisher": "Springer Nature",
+    "publishedDate": "2021-09-27",
+    "isbn": "3030743616",
+    "pageCount": 660,
+    "price": 81.61,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=DEhFEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=DEhFEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "yjbWDwAAQBAJ",
+    "title": "Foundations of Applied Mathematics, Volume 2",
+    "category": "Mathematics",
+    "description": "In this second book of what will be a four-volume series, the authors present, in a mathematically rigorous way, the essential foundations of both the theory and practice of algorithms, approximation, and optimization—essential topics in modern applied and computational mathematics. This material is the introductory framework upon which algorithm analysis, optimization, probability, statistics, machine learning, and control theory are built. This text gives a unified treatment of several topics that do not usually appear together: the theory and analysis of algorithms for mathematicians and data science students; probability and its applications; the theory and applications of approximation, including Fourier series, wavelets, and polynomial approximation; and the theory and practice of optimization, including dynamic optimization. When used in concert with the free supplemental lab materials, Foundations of Applied Mathematics, Volume 2: Algorithms, Approximation, Optimization teaches not only the theory but also the computational practice of modern mathematical methods. Exercises and examples build upon each other in a way that continually reinforces previous ideas, allowing students to retain learned concepts while achieving a greater depth. The mathematically rigorous lab content guides students to technical proficiency and answers the age-old question “When am I going to use this?” This textbook is geared toward advanced undergraduate and beginning graduate students in mathematics, data science, and machine learning.",
+    "shortDescription": "In this second book of what will be a four-volume series, the authors present, in a mathematically rigorous way, the essential foundations of both the theory and practice of algorithms, approximation, and optimization—essential topics in ...",
+    "authors": ["Jeffrey Humpherys", "Tyler J. Jarvis"],
+    "publisher": "SIAM",
+    "publishedDate": "2020-03-10",
+    "isbn": "1611976065",
+    "pageCount": 806,
+    "price": 67,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=yjbWDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=yjbWDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "2cPDAgAAQBAJ",
+    "title": "Mathematics",
+    "category": "Mathematics",
+    "description": "Major survey offers comprehensive, coherent discussions of analytic geometry, algebra, differential equations, calculus of variations, functions of a complex variable, prime numbers, linear and non-Euclidean geometry, topology, functional analysis, more. 1963 edition.",
+    "shortDescription": "This extension of the subject matter of <b>mathematics</b> is characterized by the fact that contemporary <b>mathematics</b> conscientiously sets itself the task of studying all possible types of quantitative relationships and spatial forms.",
+    "authors": ["A. D. Aleksandrov", "A. N. Kolmogorov", "M. A. Lavrent’ev"],
+    "publisher": "Courier Corporation",
+    "publishedDate": "2012-05-07",
+    "isbn": "0486157873",
+    "pageCount": 1120,
+    "price": 23.28,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=2cPDAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=2cPDAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "dVv0BwAAQBAJ",
+    "title": "The Art of Mathematics",
+    "category": "Mathematics",
+    "description": "The beauty of mathematics eludes all but a small, select handful of people. This monumental classic will illuminate the aesthetic delights of mathematics for all to behold. Why should only a tiny aristocracy hold the key to appreciating the elegance of mathematics? Why should intelligent, cultured people, who can easily articulate the brilliance of Shakespeare's imagery, quake at the prospect of deciphering a simple algebraic formula? Jerry King, a mathematics professor and a poet, razes the barriers between a world of two cultures and hands us the tools for appreciating the art and treasures of this elegant discipline. In his fluid, poetic voice, he initiates us into the splendid wonders of the Mathworld. He provides us with an original framework for contemplating mathematics as art. He deepens our ultimate comprehension of art by comparing the beauty of a Rembrandt as well as a Jackson Pollock with the riches to be mined in an elegant proof. Like the great philosophers of the past, Dr. King searches for pure Truth--a quest possible today only in the realm of mathematics. With his infectious enthusiasm, he explains with utmost clarity the intellectually stimulating underpinnings of both pure and applied mathematics. He goes on to decry how our educational system has failed by perfunctorily teaching us mathematics, depriving us of the pillars of beauty upon which mathematics rests. Never before has a book spoken so eloquently to our soul in instilling an appreciation for the grandeur of mathematics. Through Dr. King, the muses of mathematics will no longer sing for others and not for us. The elegant world of mathematics awaits us all to savor.",
+    "shortDescription": "maticians and applied <b>mathematicians</b> to have vastly differing attitudes and expectations. The most they have in common is a lack of appreciation for each other&#39;s work. Pure <b>mathematicians</b> live to create <b>mathematics</b>;&nbsp;...",
+    "authors": ["Jerry P. King"],
+    "publisher": "Springer",
+    "publishedDate": "2013-11-11",
+    "isbn": "1489963391",
+    "pageCount": 313,
+    "price": 64.55,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=dVv0BwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=dVv0BwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "O9wJBAAAQBAJ",
+    "title": "Mathematics across the Iron Curtain",
+    "category": "Mathematics",
+    "description": "The theory of semigroups is a relatively young branch of mathematics, with most of the major results having appeared after the Second World War. This book describes the evolution of (algebraic) semigroup theory from its earliest origins to the establishment of a full-fledged theory. Semigroup theory might be termed `Cold War mathematics' because of the time during which it developed. There were thriving schools on both sides of the Iron Curtain, although the two sides were not always able to communicate with each other, or even gain access to the other's publications. A major theme of this book is the comparison of the approaches to the subject of mathematicians in East and West, and the study of the extent to which contact between the two sides was possible.",
+    "shortDescription": "America&#39;s first school of <b>mathematical</b> research: James Joseph Sylvester at the Johns Hopkins University 1876–1883, AHES 38, 153–196. (1995). <b>Mathematics</b> in national contexts (1875–1900): an international overview, in S. D. Chatterji (ed&nbsp;...",
+    "authors": ["Christopher Hollings"],
+    "publisher": "American Mathematical Society",
+    "publishedDate": "2014-07-16",
+    "isbn": "1470414937",
+    "pageCount": 441,
+    "price": 109.18,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=O9wJBAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=O9wJBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "cyPyBwAAQBAJ",
+    "title": "The Biology of Numbers",
+    "category": "Mathematics",
+    "description": "Foreword The modern developments in mathematical biology took place roughly between 1920 and 1940, a period now referred to as the \"Golden Age of Theoretical Biology\". The eminent Italian mathematician Vito Volterra played a decisive and widely acknowledged role in these developments. Volterra's interest in the application of mathematics to the non physical sciences, and to biology and economics in particular, dates back to the turn of the century and was expressed in his inaugural address at the University of Rome for the academic year 1900/01 (VOLTERRA 1901). Nevertheless, it was only in the mid-twenties that Volterra entered the field in person, at the instigation of his son in law, Umberto D'Ancona, who had confronted him with the problem of competition among animal species, asking him whether a mathematical treatment was possible. From that time on, until his death in 1940, Volterra produced a huge output of publications on the subject. Volterra's specific project was to transfer the model and the concepts of classical mechanics to biology, constructing a sort of \"rational mechanics\" and an \"analytic mechanics\" of biological associations. The new subject was thus to be equipped with a solid experimental or at least empirical basis, also in this case following the tried and tested example of mathematical physics. Although very few specific features of this reductionist programme have actually survived, Volterra's contribution was decisive, as is now universally acknowledged, in en couraging fresh studies in the field of mathematical biology.",
+    "shortDescription": "Foreword The modern developments in mathematical biology took place roughly between 1920 and 1940, a period now referred to as the &quot;Golden Age of Theoretical Biology&quot;.",
+    "authors": ["Giorgio Israel", "Ana M. Gasca"],
+    "publisher": "Birkhäuser",
+    "publishedDate": "2013-03-07",
+    "isbn": "3034881231",
+    "pageCount": 405,
+    "price": 59.35,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=cyPyBwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=cyPyBwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  },
+  {
+    "bookId": "sGSnqg1MA3gC",
+    "title": "Business Math Demystified",
+    "category": "Mathematics",
+    "description": "This work teaches business-management students all the basic mathematics used in a retail business and follows the standard curriculum of Business Math courses.",
+    "shortDescription": "This work teaches business-management students all the basic mathematics used in a retail business and follows the standard curriculum of Business Math courses.",
+    "authors": ["Allan Bluman"],
+    "publisher": "McGraw Hill Professional",
+    "publishedDate": "2006-04-03",
+    "isbn": "0071487115",
+    "pageCount": 390,
+    "price": 15.4,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=sGSnqg1MA3gC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=sGSnqg1MA3gC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  }
+]

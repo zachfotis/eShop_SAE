@@ -1,0 +1,19 @@
+[
+  {
+    "bookId": "dcXdBAAAQBAJ",
+    "title": "Smarandache Special Definite Algebraic Structures",
+    "category": "Ordered algebraic structures",
+    "description": "We study these new Smarandache algebraic structures, which are defined as structures which have a proper subset which has a weak structure.A Smarandache Weak Structure on a set S means a structure on S that has a proper subset P with a weaker structure.By proper subset of a set S, we mean a subset P of S, different from the empty set, from the original set S, and from the idempotent elements if any.A Smarandache Strong Structure on a set S means a structure on S that has a proper subset P with a stronger structure.A Smarandache Strong-Weak Structure on a set S means a structure on S that has two proper subsets: P with a stronger structure, and Q with a weaker structure.",
+    "shortDescription": "Another class of S-definite special linear <b>algebra</b> is given by the following theorem. THEOREM 3.3.4: Let V = u uu! Q Q Q be a linear <b>algebra</b> ntimes over Q. V is a S-definite special linear <b>algebra</b> of S- definite dimension n.",
+    "authors": ["W. B. Vasantha Kandasamy"],
+    "publisher": "Infinite Study",
+    "publishedDate": "2009-01-01",
+    "isbn": "1599730855",
+    "pageCount": 139,
+    "price": 3.04,
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=dcXdBAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=dcXdBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    }
+  }
+]
