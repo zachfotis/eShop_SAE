@@ -14,7 +14,7 @@ const store = new MongoDBStore({
 });
 
 // PORT
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // Cerate JWT secret | ON DEMAND
 // process.env.JWT_SECRET = require('crypto').randomBytes(64).toString('hex');

@@ -69,7 +69,8 @@
             <div class="book-container">
               <img
                 class="book-front side"
-                src="<%= product.imageLinks?.large || product.imageLinks?.medium || product.imageLinks.thumbnail%>"
+                src="https://books.google.com/books/publisher/content?id=<%= product.bookId
+                %>&printsec=frontcover&img=1&zoom=4"
                 alt="<%- product.title %>"
               />
               <span class="shine"></span>

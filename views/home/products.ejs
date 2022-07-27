@@ -55,7 +55,8 @@
               <li>
                 <a href="/products/<%= products[index*4 + index2]._id %>">
                   <img
-                    src="<%= products[index*4 + index2].imageLinks?.large || products[index*4 + index2].imageLinks?.medium || products[index*4 + index2].imageLinks.thumbnail%>"
+                    src="https://books.google.com/books/publisher/content?id=<%= products[index*4 + index2].bookId
+                    %>&printsec=frontcover&img=1&zoom=3"
                     alt="product image"
                   />
                 </a>
