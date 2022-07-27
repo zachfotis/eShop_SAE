@@ -278,7 +278,9 @@
               </button>
 
               <div class="hidden pb-6 prose prose-sm" id="disclosure-2">
-                <p class="description text-gray-600"><%- product.description %></p>
+                <% product?.description.split('.').forEach((paragraph) => { %>
+                <p class="description text-gray-600 text-sm"><%= paragraph.length > 0 ? paragraph + '.' : ''%></p>
+                <% }) %>
               </div>
             </div>
           </div>

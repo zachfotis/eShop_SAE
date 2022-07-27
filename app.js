@@ -14,7 +14,7 @@ const store = new MongoDBStore({
 });
 
 // PORT
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 // Cerate JWT secret | ON DEMAND
 // process.env.JWT_SECRET = require('crypto').randomBytes(64).toString('hex');
@@ -29,28 +29,28 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: store,
+    expires: new Date(Date.now() + 3600000), // 1 hour
   })
 );
-app.use((req, res, next) => {
-  const commonInputs = {};
-  if (req.session?.user) {
-    commonInputs.user = req.session.user;
-  } else {
-    commonInputs.user = null;
-  }
-  if (req.session?.isLoggedIn) {
-    commonInputs.isLoggedIn = req.session.isLoggedIn;
-  } else {
-    commonInputs.isLoggedIn = null;
-  }
-  res.locals = commonInputs;
-  // save session
-  req.session.save();
-  next();
-});
 
+// Verify JWT token
 const { authVerify } = require('./controllers/auth');
 app.use(authVerify);
+
+// Save variables to locals
+app.use((req, res, next) => {
+  if (req.session?.user) {
+    res.locals.user = req.session.user;
+  } else {
+    res.locals.user = null;
+  }
+  if (req.session?.isLoggedIn) {
+    res.locals.isLoggedIn = req.session.isLoggedIn;
+  } else {
+    res.locals.isLoggedIn = null;
+  }
+  next();
+});
 
 // View Engine
 app.set('view engine', 'ejs');

@@ -116,7 +116,6 @@ const signUser = (req, res, next) => {
                 expiresIn: '1h',
               }
             );
-            // Copy object
             req.session.user = user;
             req.session.isLoggedIn = true;
             return req.session.save((err) => {
@@ -162,13 +161,24 @@ const authVerify = (req, res, next) => {
       if (err) {
         delete req.session.token;
         delete req.session.user;
+        delete req.session.isLoggedIn;
+        // Destroy Session and Remove Cookie
+        req.session.destroy();
+        res.clearCookie('connect.sid');
+        res.redirect('/login');
       }
       next();
     });
   } else {
-    delete req.session.token;
-    delete req.session.user;
-    next();
+    if (req?.session?.isLoggedIn) {
+      delete req.session.user;
+      delete req.session.isLoggedIn;
+      // Destroy Session and Remove Cookie
+      req.session.destroy();
+      res.clearCookie('connect.sid');
+    } else {
+      next();
+    }
   }
 };
 

@@ -5,6 +5,7 @@ const quotes = require('../data/quotes.js');
 const indexPage = (req, res) => {
   // get random quote
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  !randomQuote?.author && (randomQuote.author = 'Anonymous');
 
   res.render('home/index', {
     title: 'home',
