@@ -7,14 +7,10 @@
 
   <body>
     <!-- Navbar -->
-    <%- include('../partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %> <%- (typeof message !== 'undefined') ? (include('../partials/message.ejs',
+    {message})) : '' %>
 
     <main>
-      <% if (typeof errorMessage !== 'undefined') { %>
-      <div class="error-container">
-        <p class="error-message"><%= errorMessage %></p>
-      </div>
-      <% } %>
       <form class="login-form" action="/register" method="POST">
         <h1>User Register</h1>
         <label for="email">E-Mail</label>

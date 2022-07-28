@@ -43,21 +43,3 @@
   text-decoration: none;
   align-self: center;
 }
-
-.error-container {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 3px;
-  background: #f8d7da;
-  color: #721c24;
-  text-align: center;
-}
-
-.success-container {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 3px;
-  background: #d4edda;
-  color: #155724;
-  text-align: center;
-}

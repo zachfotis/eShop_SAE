@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
-const jwt = require('jsonwebtoken');
 const path = require('path');
 
 // Server APP
@@ -26,16 +25,33 @@ app.use(express.json());
 app.use(
   session({
     secret: 'my secret password',
-    resave: false,
-    saveUninitialized: false,
     store: store,
-    expires: new Date(Date.now() + 3600000), // 1 hour
+    resave: true,
+    rolling: true,
+    saveUninitialized: false,
+    cookie: {
+      expires: 24 * 60 * 60 * 1000, // 24 hours
+    },
   })
 );
 
 // Verify JWT token
 const { authVerify } = require('./controllers/auth');
 app.use(authVerify);
+
+// Connect Cart to Session
+app.use((req, res, next) => {
+  if (req.session.cart) {
+    res.locals.cart = req.session.cart;
+    res.locals.cartTotal = 0;
+    res.locals.cart.forEach((product) => {
+      res.locals.cartTotal +=
+        (product.product.price - product.product.price * product.product.discount) * product.quantity;
+    });
+    req.session.cartTotal = res.locals.cartTotal;
+  }
+  next();
+});
 
 // Save variables to locals
 app.use((req, res, next) => {

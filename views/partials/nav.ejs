@@ -35,17 +35,25 @@
                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
-            <% if (user?.cart.items.length > 0) { %>
-            <span class="badge badge-sm indicator-item"><%= user?.cart.items.length %></span>
+            <% if (typeof cart !== 'undefined' && cart.length > 0) { %>
+            <!-- get total items times the quantity -->
+            <span class="badge badge-sm indicator-item"
+              ><%= cart.reduce((accumulator, currentValue) => { return accumulator + currentValue.quantity},0) %></span
+            >
             <% } %>
           </div>
         </label>
         <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
           <div class="card-body">
-            <span class="font-bold text-lg"><%= user?.cart.items.length %> Items</span>
-            <span class="text-info">Subtotal: $999</span>
+            <span class="font-bold text-lg"
+              ><%= (typeof cart !== 'undefined' && cart.length > 0) ? cart.length : '0' %> Item<%= (typeof cart !==
+              'undefined' && cart.length > 1) ? 's' : '' %></span
+            >
+            <span class="text-info"
+              >Subtotal: $<%= (typeof cartTotal !== 'undefined') ? cartTotal.toFixed(2) : '0' %></span
+            >
             <div class="card-actions">
-              <a href="/cart" class="btn btn-primary btn-outline btn-sm btn-block">View cart</a>
+              <a href="/cart" class="btn bg-indigo-600 hover:bg-indigo-700 btn-sm btn-block">View cart</a>
             </div>
           </div>
         </div>

@@ -9,6 +9,7 @@
   <body>
     <!-- Navbar -->
     <%- include('../partials/nav.ejs') %>
+    <%- (typeof message !== 'undefined') ? (include('../partials/message.ejs', {message})) : '' %>
 
     <section class="section-products">
       <nav aria-label="Breadcrumb" class="max-w-full">

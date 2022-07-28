@@ -37,6 +37,7 @@
 .container::before {
   content: attr(data-ribbon);
   font-size: var(--f);
+  font-weight: 500;
   /* I : position & coloration */
   position: absolute;
   top: 0;

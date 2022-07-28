@@ -42,7 +42,7 @@ const registerUser = (req, res) => {
       if (user) {
         res.render('auth/register', {
           title: 'Register',
-          errorMessage: 'User already exists',
+          message: { type: 'error', text: 'User already exists' },
         });
       } else {
         if (password === confirmPassword) {
@@ -50,7 +50,7 @@ const registerUser = (req, res) => {
             if (err) {
               res.render('auth/register', {
                 title: 'Register',
-                errorMessage: 'Error while registering user',
+                message: { type: 'error', text: 'Error while registering user' },
               });
             } else {
               const newUser = new User({
@@ -62,13 +62,13 @@ const registerUser = (req, res) => {
                 .then((user) => {
                   res.render('auth/login', {
                     title: 'Register',
-                    successMessage: 'User registered successfully',
+                    message: { type: 'success', text: 'User registered successfully' },
                   });
                 })
                 .catch((err) => {
                   res.render('auth/register', {
                     title: 'Register',
-                    errorMessage: 'Error while registering user',
+                    message: { type: 'error', text: 'Error while registering user' },
                   });
                 });
             }
@@ -76,7 +76,7 @@ const registerUser = (req, res) => {
         } else {
           res.render('auth/register', {
             title: 'Register',
-            errorMessage: 'Passwords do not match',
+            message: { type: 'error', text: 'Passwords do not match' },
           });
         }
       }
@@ -84,7 +84,7 @@ const registerUser = (req, res) => {
     .catch((err) => {
       res.render('auth/register', {
         title: 'Register',
-        errorMessage: 'Error while registering user',
+        message: { type: 'error', text: 'Error while registering user' },
       });
     });
 };
@@ -99,7 +99,7 @@ const signUser = (req, res, next) => {
       if (!user) {
         return res.render('auth/login', {
           title: 'Login',
-          errorMessage: 'User does not exist',
+          message: { type: 'error', text: 'User does not exist' },
         });
       }
       bcrypt
@@ -123,7 +123,7 @@ const signUser = (req, res, next) => {
                 console.log(err);
                 return res.render('auth/login', {
                   title: 'Login',
-                  errorMessage: 'Error while signing in',
+                  message: { type: 'error', text: 'Error while signing in' },
                 });
               } else {
                 res.redirect('/');
@@ -132,7 +132,7 @@ const signUser = (req, res, next) => {
           } else {
             return res.render('auth/login', {
               title: 'Login',
-              errorMessage: 'Password is incorrect',
+              message: { type: 'error', text: 'Password is incorrect' },
             });
           }
         })
@@ -140,7 +140,7 @@ const signUser = (req, res, next) => {
           console.log(err);
           return res.render('auth/login', {
             title: 'Login',
-            errorMessage: 'Error while signing in',
+            message: { type: 'error', text: 'Error while signing in' },
           });
         });
     })
@@ -148,7 +148,7 @@ const signUser = (req, res, next) => {
       console.log(err);
       return res.render('auth/login', {
         title: 'Login',
-        errorMessage: 'Error while signing in',
+        message: { type: 'error', text: 'Error while signing in' },
       });
     });
 };
@@ -161,10 +161,10 @@ const authVerify = (req, res, next) => {
       if (err) {
         delete req.session.token;
         delete req.session.user;
-        delete req.session.isLoggedIn;
-        // Destroy Session and Remove Cookie
-        req.session.destroy();
-        res.clearCookie('connect.sid');
+        req.session.isLoggedIn = false;
+        req.session.save();
+        // req.session.destroy();
+        // res.clearCookie('connect.sid');
         res.redirect('/login');
       }
       next();
@@ -172,10 +172,8 @@ const authVerify = (req, res, next) => {
   } else {
     if (req?.session?.isLoggedIn) {
       delete req.session.user;
-      delete req.session.isLoggedIn;
-      // Destroy Session and Remove Cookie
-      req.session.destroy();
-      res.clearCookie('connect.sid');
+      req.session.isLoggedIn = false;
+      req.session.save();
     }
     next();
   }
@@ -183,9 +181,9 @@ const authVerify = (req, res, next) => {
 
 // Logout User
 const logoutUser = (req, res) => {
-  req.session.isLoggedIn = false;
   delete req.session.token;
   delete req.session.user;
+  req.session.isLoggedIn = false;
   req.session.save((err) => {
     if (err) {
       console.log(err);

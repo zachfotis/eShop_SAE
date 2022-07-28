@@ -94,6 +94,48 @@ const cartPage = (req, res) => {
   });
 };
 
+const addToCart = (req, res) => {
+  const id = req.params.id;
+  Product.findOne({ _id: id }, (err, product) => {
+    if (err) {
+      console.log(err);
+      res.redirect('/');
+    } else {
+      if (!product || product.length === 0) {
+        res.redirect('/');
+      } else {
+        if (!req.session?.cart) {
+          req.session.cart = [];
+        }
+        // if product is not in cart, add it
+        if (!req.session.cart.find((item) => item.id === id)) {
+          req.session.cart.push({
+            id: id,
+            product: product,
+            quantity: 1,
+          });
+        } else {
+          // if product is in cart, increase quantity
+          const item = req.session.cart.find((item) => item.id === id);
+          item.quantity += 1;
+        }
+        res.redirect('/cart');
+      }
+    }
+  });
+};
+
+const removeFromCart = (req, res) => {
+  const id = req.params.id;
+  if (req.session?.cart) {
+    const item = req.session.cart.find((item) => item.id === id);
+    if (item) {
+      req.session.cart.splice(req.session.cart.indexOf(item), 1);
+    }
+  }
+  res.redirect('/cart');
+};
+
 module.exports = {
   indexPage,
   categoriesPage,
@@ -101,4 +143,6 @@ module.exports = {
   productPage,
   salesPage,
   cartPage,
+  addToCart,
+  removeFromCart,
 };

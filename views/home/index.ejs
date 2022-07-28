@@ -7,7 +7,8 @@
 
   <body>
     <!-- Navbar -->
-    <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %>
+    <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %> 
+    <%- (typeof message !== 'undefined') ? (include('../partials/message.ejs', {message})) : '' %>
     <section class="section-home">
       <header>
         <h1>Welcome to the Book Store!</h1>

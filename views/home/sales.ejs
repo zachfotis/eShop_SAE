@@ -9,6 +9,7 @@
   <body>
     <!-- Navbar -->
     <%- include('../partials/nav.ejs') %>
+    <%- (typeof message !== 'undefined') ? (include('../partials/message.ejs', {message})) : '' %>
 
     <section class="section-sales">
       <nav aria-label="Breadcrumb" class="max-w-full">
@@ -43,7 +44,7 @@
                 <li>
                   <div
                     class="container"
-                    data-ribbon="<%= (products[category][index*4 + index2].discount * 100).toFixed(0) %> % off"
+                    data-ribbon="<%= (products[category][index*4 + index2].discount * 100).toFixed(0) %>% off"
                   ></div>
 
                   <a href="/products/<%= products[category][index*4 + index2]._id %>">

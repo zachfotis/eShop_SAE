@@ -1,0 +1,20 @@
+<% if (typeof message !== 'undefined' && message?.text && message?.type) { %>
+<div
+  class="message-container"
+  style="width: 100%; margin: 10px 0; padding: 10px; border-radius: 3px; text-align: center; 
+  <% if (message?.type === 'info') { %>
+    background-color: #B0E0E6;
+    color: #4682B4;
+  <% } else if (message?.type === 'success') { %>
+    background-color: #d4edda;
+    color: #155724;
+  <% } else if (message?.type === 'warning') { %>
+    background-color: #ffeeba;
+    color: #856404;
+  <% } else if (message?.type === 'error') { %>
+    background-color: #f8d7da;
+    color: #856404;<% } %>"
+>
+  <p class="message"><%= message.text %></p>
+</div>
+<% } %>

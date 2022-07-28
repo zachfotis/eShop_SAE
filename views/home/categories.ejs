@@ -7,7 +7,10 @@
 
   <body>
     <!-- Navbar -->
-    <%- include('../partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %> 
+    <%- (typeof message !== 'undefined') ? (include('../partials/message.ejs',
+    {message})) : '' %>
+
     <section class="section-categories">
       <nav aria-label="Breadcrumb" class="max-w-full">
         <ol role="list" class="flex items-center space-x-4">
