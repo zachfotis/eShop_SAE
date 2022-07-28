@@ -63,8 +63,28 @@ const productPage = (req, res) => {
 };
 
 const salesPage = (req, res) => {
-  res.render('home/sales', {
-    title: 'sales',
+  Product.find({ discount: { $gt: 0.1 } }, (err, products) => {
+    if (err) {
+      console.log(err);
+      res.redirect('/');
+    } else {
+      if (!products || products.length === 0) {
+        res.redirect('/'); // TODO: render with error message
+      } else {
+        const productsByCategory = {};
+        products.forEach((product) => {
+          if (!productsByCategory[product.category]) {
+            productsByCategory[product.category] = [];
+          }
+          productsByCategory[product.category].push(product);
+        });
+
+        res.render('home/sales', {
+          title: 'sales',
+          products: productsByCategory,
+        });
+      }
+    }
   });
 };
 

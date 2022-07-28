@@ -176,9 +176,8 @@ const authVerify = (req, res, next) => {
       // Destroy Session and Remove Cookie
       req.session.destroy();
       res.clearCookie('connect.sid');
-    } else {
-      next();
     }
+    next();
   }
 };
 

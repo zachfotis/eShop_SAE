@@ -1,0 +1,63 @@
+.section-sales {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 50px;
+  margin: 50px auto;
+}
+
+.categories-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.categories-container > h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.products-container {
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.container {
+  --d: 6px; /* folded part */
+  --c: lightgreen; /* color */
+  --f: 16px; /* ribbon font-size */
+  position: relative;
+}
+.container::before {
+  content: attr(data-ribbon);
+  font-size: var(--f);
+  /* I : position & coloration */
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(29.29%, -100%) rotate(45deg);
+  transform-origin: bottom left;
+  padding: 5px 35px calc(var(--d) + 5px);
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 0 0) bottom/100% var(--d) no-repeat var(--c);
+  /* II : clipping */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    calc(100% - var(--d)) calc(100% - var(--d)),
+    var(--d) calc(100% - var(--d)),
+    0 100%
+  );
+  /* III : masking */
+  -webkit-mask: linear-gradient(135deg, transparent calc(50% - var(--d) * 0.707), #fff 0) bottom left,
+    linear-gradient(-135deg, transparent calc(50% - var(--d) * 0.707), #fff 0) bottom right;
+  -webkit-mask-size: 300vmax 300vmax;
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+}

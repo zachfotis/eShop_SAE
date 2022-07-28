@@ -2,12 +2,68 @@
 <html lang="en">
   <head>
     <%- include('../partials/head.ejs', {title:'Sales'}) %>
+    <link rel="stylesheet" href="/css/sales.css" />
+    <link rel="stylesheet" href="/css/bookShelves.css" />
   </head>
 
   <body>
     <!-- Navbar -->
     <%- include('../partials/nav.ejs') %>
 
+    <section class="section-sales">
+      <nav aria-label="Breadcrumb" class="max-w-full">
+        <ol role="list" class="flex items-center space-x-4">
+          <li>
+            <div class="flex items-center">
+              <a href="/" class="mr-4 text-sm font-medium text-gray-900"> Home </a>
+              <svg
+                viewBox="0 0 6 20"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                class="h-5 w-auto text-gray-300"
+              >
+                <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z" fill="currentColor" />
+              </svg>
+            </div>
+          </li>
+          <li class="text-sm">
+            <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600"> Sales </a>
+          </li>
+        </ol>
+      </nav>
+      <div class="categories-container">
+        <% for (const category in products) { %>
+        <h1><%= category %></h1>
+        <% for( let index = 0; index < Math.ceil(products[category].length/4); index++ ) { %>
+        <div class="products-container">
+          <div class="bookshelf">
+            <div class="book-grid">
+              <ul>
+                <% for( let index2 = 0; index2 < 4 ; index2++ ) { %> <% if( products[category][index*4 + index2] ) { %>
+                <li>
+                  <div
+                    class="container"
+                    data-ribbon="<%= (products[category][index*4 + index2].discount * 100).toFixed(0) %> % off"
+                  ></div>
+
+                  <a href="/products/<%= products[category][index*4 + index2]._id %>">
+                    <img
+                      src="https://books.google.com/books/publisher/content?id=<%= products[category][index*4 + index2].bookId
+                      %>&printsec=frontcover&img=1&zoom=3"
+                      alt="product image"
+                    />
+                  </a>
+                </li>
+                <% } %> <% } %>
+              </ul>
+            </div>
+            <div class="shelf-shadows"></div>
+            <div class="shelf"></div>
+          </div>
+        </div>
+        <% } %> <% } %>
+      </div>
+    </section>
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %>
   </body>
