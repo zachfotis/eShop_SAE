@@ -7,3 +7,10 @@
   gap: 30px;
   margin: 50px auto;
 }
+
+.section-cart > img {
+  width: 100%;
+  max-width: 500px;
+  align-self: center;
+  margin-top: 50px;
+}

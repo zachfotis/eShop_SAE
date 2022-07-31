@@ -175,6 +175,7 @@ const authVerify = (req, res, next) => {
       req.session.isLoggedIn = false;
       req.session.save();
     }
+    req.session.touch();
     next();
   }
 };

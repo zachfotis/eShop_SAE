@@ -17,6 +17,13 @@ nav .wrapper {
 
 /* Cart */
 
+.cart-dropdown > img {
+  width: 100%;
+  max-width: 200px;
+  align-self: center;
+  margin: 50px 0;
+}
+
 .cart-products {
   width: 100%;
   display: flex;
