@@ -119,7 +119,13 @@ const addToCart = (req, res) => {
           const item = req.session.cart.find((item) => item.id === id);
           item.quantity += 1;
         }
-        res.redirect('/cart');
+        req.session.save((err) => {
+          if (err) {
+            res.redirect('/');
+          } else {
+            res.redirect('/cart');
+          }
+        });
       }
     }
   });

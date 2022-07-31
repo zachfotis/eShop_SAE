@@ -14,3 +14,41 @@ nav .wrapper {
 .search-bar input {
   width: 80%;
 }
+
+/* Cart */
+
+.cart-products {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 10px 0;
+}
+
+.cart-products .product {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.cart-products .product .product-image {
+  width: 50px;
+}
+
+.cart-products .product img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.cart-products .product .product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}

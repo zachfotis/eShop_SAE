@@ -39,7 +39,8 @@
           <form class="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
             <section aria-labelledby="cart-heading" class="lg:col-span-7">
               <ul role="list" class="border-t border-b border-gray-200 divide-y divide-gray-200">
-                <% cart.forEach(product => { %>
+
+                <% typeof cart !== 'undefined' && cart.forEach(product => { %>
                 <li class="flex py-6 sm:py-10">
                   <img
                     src="https://books.google.com/books/publisher/content?id=<%= product.product.bookId

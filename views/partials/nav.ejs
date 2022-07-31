@@ -43,17 +43,32 @@
             <% } %>
           </div>
         </label>
-        <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+        <div tabindex="0" class="mt-3 card card-compact dropdown-content w-96 bg-base-100 shadow">
           <div class="card-body">
             <span class="font-bold text-lg"
               ><%= (typeof cart !== 'undefined' && cart.length > 0) ? cart.length : '0' %> Item<%= (typeof cart !==
               'undefined' && cart.length > 1) ? 's' : '' %></span
             >
-            <span class="text-info"
+            <span class="cart-products">
+              <% if (typeof cart !== 'undefined' && cart.length > 0) { %> <% cart.forEach(product => { %>
+              <div class="product">
+                <div class="product-image">
+                  <img src="<%= product.product.imageLinks.thumbnail %>" alt="<%= product.product.title %>" />
+                </div>
+                <div class="product-info">
+                  <span class="product-name"><%= product.product.title %></span>
+                  <span class="product-price"
+                    >$<%= product.product.price.toFixed(2) %><%= product.quantity > 1 ? ' x ' +product.quantity : '' %>
+                  </span>
+                </div>
+              </div>
+              <% }) %> <% } %>
+            </span>
+            <span class="text-ghost font-medium text-md"
               >Subtotal: $<%= (typeof cartTotal !== 'undefined') ? cartTotal.toFixed(2) : '0' %></span
             >
             <div class="card-actions">
-              <a href="/cart" class="btn bg-indigo-600 hover:bg-indigo-700 btn-sm btn-block">View cart</a>
+              <a href="/cart" class="btn bg-indigo-600 hover:bg-indigo-700 btn-md btn-block">View cart</a>
             </div>
           </div>
         </div>
