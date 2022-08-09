@@ -9,12 +9,14 @@ const {
   cartPage,
   addToCart,
   removeFromCart,
+  addToWishList,
 } = require('../controllers/home');
 
 router.get('/', indexPage);
 router.get('/categories', categoriesPage);
 router.get('/categories/:category', productsPage);
 router.get('/products/:id', productPage);
+router.get('/products/:id/add-to-wishlist', addToWishList);
 router.get('/sales', salesPage);
 router.get('/cart', cartPage);
 router.get('/cart/add/:id', addToCart);

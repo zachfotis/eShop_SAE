@@ -1,5 +1,6 @@
 const Product = require('../models/Product.js');
 const Utilities = require('../models/Utilities');
+const User = require('../models/User.js');
 const quotes = require('../data/quotes.js');
 
 const indexPage = (req, res) => {
@@ -56,6 +57,7 @@ const productPage = (req, res) => {
         res.render('home/product', {
           title: 'product',
           product: product,
+          message: res.locals?.msg,
         });
       }
     }
@@ -142,6 +144,42 @@ const removeFromCart = (req, res) => {
   res.redirect('/cart');
 };
 
+const addToWishList = (req, res) => {
+  const productId = req.params.id;
+  if (req?.session?.user) {
+    console.log(req.session.user);
+    User.findOne({ _id: req.session.user._id }, (err, user) => {
+      if (err) {
+        console.log(err);
+        return res.redirect('/');
+      } else {
+        if (!user || user.length === 0) {
+          return res.redirect('/');
+        } else {
+          user.addToWishList(productId, (err) => {
+            if (err) {
+              console.log(err);
+              return res.redirect('/');
+            } else {
+              res.locals.msg = {
+                type: 'success',
+                text: 'Product added to wish list',
+              };
+              productPage(req, res);
+            }
+          });
+        }
+      }
+    });
+  } else {
+    res.locals.msg = {
+      type: 'error',
+      text: 'You must log in to add products to your wishlist',
+    };
+    productPage(req, res);
+  }
+};
+
 module.exports = {
   indexPage,
   categoriesPage,
@@ -151,4 +189,5 @@ module.exports = {
   cartPage,
   addToCart,
   removeFromCart,
+  addToWishList,
 };

@@ -9,18 +9,29 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  cart: {
-    items: [
-      {
-        productId: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'Product',
-          required: true,
-        },
-        quantity: { type: Number, required: true },
+  wishlist: [
+    {
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product',
+        required: true,
       },
-    ],
-  },
+    },
+  ],
 });
+
+// Add to wishlist
+schema.methods.addToWishList = function (productId) {
+  if (!this.wishlist) {
+    this.wishlist = [];
+  }
+  if (!this.wishlist.find((item) => item.id.toString() === productId.toString())) {
+    this.wishlist.push({
+      id: productId,
+    });
+    return this.save();
+  }
+  return this.save();
+};
 
 module.exports = mongoose.model('Users', schema);
