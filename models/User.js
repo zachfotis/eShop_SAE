@@ -30,14 +30,17 @@ schema.methods.toggleFromWishlist = function (productId, isRemovedCallback) {
   if (!this.wishlist.find((item) => item.id.valueOf() === productId)) {
     // Add to wishlist
     this.wishlist.push({ id: mongoose.Types.ObjectId(productId) });
-    this.save();
-    return isRemovedCallback(isRemoved);
+    this.save((err) => {
+      return isRemovedCallback(isRemoved);
+    });
   } else {
     // Remove from wishlist
     this.wishlist = this.wishlist.filter((item) => item.id.valueOf() !== productId);
     this.save();
     isRemoved = true;
-    return isRemovedCallback(isRemoved);
+    this.save((err) => {
+      return isRemovedCallback(isRemoved);
+    });
   }
 };
 

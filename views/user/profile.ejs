@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {title}) %>
+    <link rel="stylesheet" href="/css/user.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %> <%- (typeof message !== 'undefined') ?
+    (include('../partials/message.ejs', {message})) : '' %>
+
+    <section class="section-profile">
+      <!-- User NAV -->
+      <%- include('../partials/user_nav.ejs') %>
+
+      <main class="w-full">
+        <article>
+          <!-- Profile header -->
+          <div>
+            <!-- Banner -->
+            <img
+              class="h-32 w-full object-cover lg:h-48 rounded-md"
+              src="/img/books_wallpaper.jpg"
+              alt="books wallpaper"
+            />
+            <!-- User Image and Name -->
+            <div class="mx-12 -mt-12 sm:-mt-16 flex justify-start items-center">
+              <div class="flex flex-col justify-center items-center">
+                <!-- User Image -->
+                <img
+                  class="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32"
+                  src="<%- user.avatar ?
+                `/avatars/${user.avatar}` : '/icons/user2.png' %>"
+                  alt=""
+                />
+
+                <!-- User name -->
+                <h1 class="mt-6 text-2xl font-bold text-gray-900 truncate">
+                  <%= user.fullname ? user.fullname : 'User' %>
+                </h1>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description list -->
+          <div class="mx-12 mt-10">
+            <dl class="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
+              <div class="sm:col-span-1">
+                <dt class="text-sm font-medium text-gray-500">Email</dt>
+                <input class="h-8 px-1 w-full text-sm mt-1" disabled type="email" value="<%= user.email %>" />
+              </div>
+
+              <div class="sm:col-span-1">
+                <dt class="text-sm font-medium text-gray-500">Email Status</dt>
+                <dd class="h-8 px-1 w-full text-sm mt-1 flex justify-start items-center">Verified ✅</dd>
+              </div>
+
+              <div class="sm:col-span-1">
+                <dt class="text-sm font-medium text-gray-500">Phone</dt>
+                <input class="h-8 px-1 w-full text-sm mt-1" disabled type="text" value="<%= user.phone %>" />
+              </div>
+
+              <div class="sm:col-span-1">
+                <dt class="text-sm font-medium text-gray-500">First Name</dt>
+                <input class="h-8 px-1 w-full text-sm mt-1" disabled type="text" value="<%= user.firstname %>" />
+              </div>
+
+              <div class="sm:col-span-1">
+                <dt class="text-sm font-medium text-gray-500">Last Name</dt>
+                <input class="h-8 px-1 w-full text-sm mt-1" disabled type="text" value="<%= user.lastname %>" />
+              </div>
+
+              <div class="sm:col-span-1">
+                <dt class="text-sm font-medium text-gray-500">Address</dt>
+                <div class="flex justify-start items-center w-full gap-5 mt-1">
+                  <input
+                    class="flex-auto h-8 px-1 text-sm"
+                    disabled
+                    type="text"
+                    value="<%= user.address %>"
+                    placeholder="Name"
+                  />
+                  <input
+                    class="flex-auto h-8 px-1 text-sm"
+                    disabled
+                    type="text"
+                    value="<%= user.address %>"
+                    placeholder="Number"
+                  />
+                  <input
+                    class="flex-auto h-8 px-1 text-sm"
+                    disabled
+                    type="text"
+                    value="<%= user.address %>"
+                    placeholder="ZIP Code"
+                  />
+                  <input
+                    class="flex-auto h-8 px-1 text-sm"
+                    disabled
+                    type="text"
+                    value="<%= user.address %>"
+                    placeholder="Country"
+                  />
+                </div>
+              </div>
+            </dl>
+          </div>
+        </article>
+      </main>
+    </section>
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

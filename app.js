@@ -40,8 +40,9 @@ app.use(
 const { authVerify } = require('./controllers/auth');
 app.use(authVerify);
 
-// Connect Cart to Session
+// LOCALS
 app.use((req, res, next) => {
+  // Update cart Locals and Session
   if (req.session.cart) {
     res.locals.cart = req.session.cart;
     res.locals.cartTotal = 0;
@@ -51,29 +52,29 @@ app.use((req, res, next) => {
     });
     req.session.cartTotal = res.locals.cartTotal;
   }
-  next();
-});
 
-// Save variables to locals
-app.use((req, res, next) => {
-  // Get query from URL
+  // Update wishlist Locals
   if (req?.query?.message && req?.query?.message.length > 0 && req?.query?.type && req?.query?.type.length > 0) {
-    // escape user all special characters
     res.locals.msg = {
       text: req.query.message.replace(/[^a-zA-Z0-9 ]/g, ''),
       type: req.query.type.replace(/[^a-zA-Z0-9 ]/g, ''),
     };
   }
+
+  // Update user Locals
   if (req.session?.user) {
     res.locals.user = req.session.user;
   } else {
     res.locals.user = null;
   }
+
+  // Update login status Locals
   if (req.session?.isLoggedIn) {
     res.locals.isLoggedIn = req.session.isLoggedIn;
   } else {
     res.locals.isLoggedIn = null;
   }
+
   next();
 });
 
@@ -86,9 +87,11 @@ app.disable('view cache');
 const homeRoute = require('./routes/home');
 const adminRoute = require('./routes/admin');
 const authRoute = require('./routes/auth');
+const userRoute = require('./routes/user');
 
 app.use('/', homeRoute);
 app.use('/', authRoute);
+app.use('/user/', userRoute);
 app.use('/admin/', adminRoute);
 app.use('*', (req, res, next) => {
   res.status(404).render('home/404');

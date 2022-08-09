@@ -82,8 +82,8 @@
       <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost btn-circle avatar">
           <div class="w-10 rounded-full">
-            <% if (isLoggedIn) { %> <% if (user?.isAdmin) { %>
-            <img src="/icons/admin.png" />
+            <% if (isLoggedIn) { %> <% if (user?.avatar) { %>
+            <img src="/avatars/<%- user.avatar %>" />
             <% } else { %>
             <img src="/icons/user2.png" />
             <% } %> <% } else { %>
@@ -94,7 +94,7 @@
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
           <% if (isLoggedIn) { %>
           <li>
-            <a href="/profile">Profile</a>
+            <a href="/user/profile">Account</a>
           </li>
           <% if (user?.isAdmin) { %>
           <li>
