@@ -16,22 +16,29 @@ const schema = new mongoose.Schema({
         ref: 'Product',
         required: true,
       },
+      _id: false,
     },
   ],
 });
 
 // Add to wishlist
-schema.methods.addToWishList = function (productId) {
+schema.methods.toggleFromWishlist = function (productId, isRemovedCallback) {
+  let isRemoved = null;
   if (!this.wishlist) {
     this.wishlist = [];
   }
-  if (!this.wishlist.find((item) => item.id.toString() === productId.toString())) {
-    this.wishlist.push({
-      id: productId,
-    });
-    return this.save();
+  if (!this.wishlist.find((item) => item.id.valueOf() === productId)) {
+    // Add to wishlist
+    this.wishlist.push({ id: mongoose.Types.ObjectId(productId) });
+    this.save();
+    return isRemovedCallback(isRemoved);
+  } else {
+    // Remove from wishlist
+    this.wishlist = this.wishlist.filter((item) => item.id.valueOf() !== productId);
+    this.save();
+    isRemoved = true;
+    return isRemovedCallback(isRemoved);
   }
-  return this.save();
 };
 
 module.exports = mongoose.model('Users', schema);

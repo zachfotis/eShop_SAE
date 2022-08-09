@@ -36,6 +36,7 @@ app.use(
 );
 
 // Verify JWT token
+
 const { authVerify } = require('./controllers/auth');
 app.use(authVerify);
 
@@ -55,6 +56,14 @@ app.use((req, res, next) => {
 
 // Save variables to locals
 app.use((req, res, next) => {
+  // Get query from URL
+  if (req?.query?.message && req?.query?.message.length > 0 && req?.query?.type && req?.query?.type.length > 0) {
+    // escape user all special characters
+    res.locals.msg = {
+      text: req.query.message.replace(/[^a-zA-Z0-9 ]/g, ''),
+      type: req.query.type.replace(/[^a-zA-Z0-9 ]/g, ''),
+    };
+  }
   if (req.session?.user) {
     res.locals.user = req.session.user;
   } else {

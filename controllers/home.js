@@ -49,11 +49,18 @@ const productPage = (req, res) => {
   const id = req.params.id;
   Product.findOne({ _id: id }, (err, product) => {
     if (err) {
-      console.log(err);
+      return res.redirect('/');
     } else {
       if (!product || product.length === 0) {
         res.redirect('/');
       } else {
+        // Check if product is in wishlist
+        if (req?.session?.user?.wishlist.find((item) => item.id.valueOf() === product._id.valueOf())) {
+          product.isInWishlist = true;
+        } else {
+          product.isInWishlist = false;
+        }
+
         res.render('home/product', {
           title: 'product',
           product: product,
@@ -65,7 +72,7 @@ const productPage = (req, res) => {
 };
 
 const salesPage = (req, res) => {
-  Product.find({ discount: { $gt: 0.1 } }, (err, products) => {
+  Product.find({ discount: { $gte: 0.1 } }, (err, products) => {
     if (err) {
       console.log(err);
       res.redirect('/');
@@ -147,36 +154,47 @@ const removeFromCart = (req, res) => {
 const addToWishList = (req, res) => {
   const productId = req.params.id;
   if (req?.session?.user) {
-    console.log(req.session.user);
     User.findOne({ _id: req.session.user._id }, (err, user) => {
       if (err) {
-        console.log(err);
+        // Error during finding the user
         return res.redirect('/');
       } else {
         if (!user || user.length === 0) {
+          // User not found
           return res.redirect('/');
         } else {
-          user.addToWishList(productId, (err) => {
-            if (err) {
-              console.log(err);
-              return res.redirect('/');
+          // User found
+          user.toggleFromWishlist(productId, (isRemoved) => {
+            if (isRemoved) {
+              // Product removed from wishlist
+              // Update session
+              req.session.user = user;
+              req.session.save();
+              return res.redirect(
+                '/products/' +
+                  productId +
+                  `?message=${encodeURIComponent('Product removed from wishlist')}&type=success`
+              );
             } else {
-              res.locals.msg = {
-                type: 'success',
-                text: 'Product added to wish list',
-              };
-              productPage(req, res);
+              // Product added to wishlist
+              // Update session
+              req.session.user = user;
+              req.session.save();
+              return res.redirect(
+                '/products/' + productId + `?message=${encodeURIComponent('Product added to wishlist')}&type=success`
+              );
             }
           });
         }
       }
     });
   } else {
-    res.locals.msg = {
-      type: 'error',
-      text: 'You must log in to add products to your wishlist',
-    };
-    productPage(req, res);
+    // User not logged in
+    return res.redirect(
+      '/products/' +
+        productId +
+        `?message=${encodeURIComponent('You must log in to add products to your wishlist')}&type=error`
+    );
   }
 };
 
