@@ -9,10 +9,11 @@
     <!-- Navbar -->
     <%- include('../partials/nav.ejs') %> <%- (typeof message !== 'undefined') ? (include('../partials/message.ejs',
     {message})) : '' %>
+    <script src="/js/message.js" defer></script>
 
     <main>
-      <form class="login-form" action="/logout" method="POST">
-        <h1>Logout User</h1>
+      <h1>Logout User</h1>
+      <form class="login-form shadow-md rounded-lg" action="/logout" method="POST">
         <% if (typeof email !== 'undefined') { %>
         <p>Current User: <strong><%= email %></strong></p>
         <% } %> <% if (typeof isAdmin !== 'undefined') { %>

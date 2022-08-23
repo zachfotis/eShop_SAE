@@ -64,7 +64,6 @@ const productPage = (req, res) => {
         res.render('home/product', {
           title: 'product',
           product: product,
-          message: res.locals?.msg,
         });
       }
     }
@@ -173,7 +172,7 @@ const addToWishList = (req, res) => {
               return res.redirect(
                 '/products/' +
                   productId +
-                  `?message=${encodeURIComponent('Product removed from wishlist')}&type=success`
+                  `?message=${encodeURIComponent('Product removed from wishlist')}&type=warning`
               );
             } else {
               // Product added to wishlist

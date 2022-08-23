@@ -36,7 +36,6 @@ app.use(
 );
 
 // Verify JWT token
-
 const { authVerify } = require('./controllers/auth');
 app.use(authVerify);
 
@@ -53,9 +52,9 @@ app.use((req, res, next) => {
     req.session.cartTotal = res.locals.cartTotal;
   }
 
-  // Update wishlist Locals
+  // Update Warning Messages
   if (req?.query?.message && req?.query?.message.length > 0 && req?.query?.type && req?.query?.type.length > 0) {
-    res.locals.msg = {
+    res.locals.message = {
       text: req.query.message.replace(/[^a-zA-Z0-9 ]/g, ''),
       type: req.query.type.replace(/[^a-zA-Z0-9 ]/g, ''),
     };

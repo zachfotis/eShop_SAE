@@ -2,111 +2,165 @@
 <html lang="en">
   <head>
     <%- include('../partials/head.ejs', {title}) %>
-    <link rel="stylesheet" href="/css/user.css" />
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+    <script src="/js/profile.js" defer></script>
   </head>
 
   <body>
     <!-- Navbar -->
     <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %> <%- (typeof message !== 'undefined') ?
     (include('../partials/message.ejs', {message})) : '' %>
+    <script src="/js/message.js" defer></script>
 
     <section class="section-profile">
       <!-- User NAV -->
       <%- include('../partials/user_nav.ejs') %>
 
-      <main class="w-full">
-        <article>
-          <!-- Profile header -->
-          <div>
-            <!-- Banner -->
-            <img
-              class="h-32 w-full object-cover lg:h-48 rounded-md"
-              src="/img/books_wallpaper.jpg"
-              alt="books wallpaper"
-            />
-            <!-- User Image and Name -->
-            <div class="mx-12 -mt-12 sm:-mt-16 flex justify-start items-center">
-              <div class="flex flex-col justify-center items-center">
-                <!-- User Image -->
-                <img
-                  class="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32"
-                  src="<%- user.avatar ?
-                `/avatars/${user.avatar}` : '/icons/user2.png' %>"
-                  alt=""
-                />
-
-                <!-- User name -->
-                <h1 class="mt-6 text-2xl font-bold text-gray-900 truncate">
-                  <%= user.fullname ? user.fullname : 'User' %>
-                </h1>
-              </div>
+      <main class="w-full px-4">
+        <!-- Account Details -->
+        <section class="account-section shadow-md rounded-md">
+          <h2 class="text-lg leading-6 font-medium text-gray-900">Account Details</h2>
+          <form>
+            <div class="container">
+              <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+              <label for="status" class="block ml-2 text-sm text-gray-700">Verified ✅</label>
             </div>
+            <div class="container">
+              <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+              <input type="email" name="email" id="email" placeholder="Email Address" class="input input-sm" disabled autocomplete="email"/>
+            </div>
+            <div class="container">
+              <label for="password" class="block text-sm font-medium text-gray-700">New Password</label>
+              <input
+                type="password"
+                name="password"
+                autocomplete="new-password"
+                id="password"
+                placeholder="Password"
+                class="input input-sm input-bordered"
+                autocomplete="new-password"
+                />
+              </div>
+              <div class="container">
+                <label for="password" class="block text-sm font-medium text-gray-700">Verify Password</label>
+                <input
+                type="password"
+                name="verify-password"
+                id="verify-password"
+                placeholder="Verify Password"
+                class="input input-sm input-bordered"
+                autocomplete="new-password"
+              />
+            </div>
+            <div class="container">
+              <input type="submit" value="Save" class="btn btn-sm btn-outline btn-success" />
+            </div>
+          </form>
+        </section>
+
+        <!-- Billing Information -->
+        <section class="payment-section shadow-md rounded-md">
+          <h2 class="text-lg leading-6 font-medium text-gray-900">Payment Details</h2>
+          <div class="credit-cards-container w-full">
+            <form method="POST" action="/user/profile/updateCard" class="credit-card rounded-lg outline outline-1 outline-slate-300">
+              <label for="payment" class="text-sm mb-2">Credit Card</label>
+              <div class="card-details-container">
+                <div class="card-details">
+                  <input type="text" id="cardOwner" name="cardOwner" class="flex-1 input input-sm input-outline" placeholder="Card Owner" />
+                  <input type="text" id="cardNumber" name="cardNumber" class="flex-1 input input-sm input-outline" placeholder="Card Number" />
+                  <input type="text" id="originalCardNumber" name="originalCardNumber" class="flex-1 input input-sm input-outline" placeholder="Card Number" hidden/>
+                  <input type="text" id="cardExpirationDate" name="cardExpirationDate" class="flex-2 input input-sm input-outline" placeholder="MM / YY" />
+                </div>
+                <div class="buttons">
+                  <input type="submit" value="Save" class="text-xs btn btn-xs btn-outline btn-accent" />
+                  <button class="text-xs btn btn-xs btn-outline btn-error">Delete</button>
+                </div>
+              </div>
+            </form>
           </div>
+          <div class="new-card">
+            <img src="/icons/add-card.png" alt="add card" />
+          </div>
+        </section>
 
-          <!-- Description list -->
-          <div class="mx-12 mt-10">
-            <dl class="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
-              <div class="sm:col-span-1">
-                <dt class="text-sm font-medium text-gray-500">Email</dt>
-                <input class="h-8 px-1 w-full text-sm mt-1" disabled type="email" value="<%= user.email %>" />
+        <!-- Shipping Details -->
+        <section class="shipping-section shadow-md rounded-md">
+          <h2 class="text-lg leading-6 font-medium text-gray-900">Shipping Details</h2>
+          <div class="horizontal-container">
+            <form action="/user/profile/updateShipping" method="POST" 
+            <%- (typeof user.shipping !== 'undefined') ? 'data-lat="' + user.shipping.geoLocation.lat + '"' :
+            '' %>
+            <%- (typeof user.shipping !== 'undefined') ? 'data-lng="' + user.shipping.geoLocation.lng + '"' :
+            '' %>
+            >
+              <div class="recipient-container container">
+                <label for="recipient" class="block text-sm font-medium text-gray-700">Recipient Name</label>
+                <input type="text" name="recipient" id="recipient" placeholder="Recipient Name" class="input input-sm
+                input-bordered" <%- (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.recipient + '"' :
+                '' %> />
               </div>
-
-              <div class="sm:col-span-1">
-                <dt class="text-sm font-medium text-gray-500">Email Status</dt>
-                <dd class="h-8 px-1 w-full text-sm mt-1 flex justify-start items-center">Verified ✅</dd>
+              <div class="country-container container">
+                <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                <select id="country" name="country" autocomplete="country-name" class="input input-sm input-bordered">
+                  <% countryList.forEach(country => { %>
+                  <option value="<%- country %>" <%- (typeof user.shipping !== 'undefined') ?
+                  (user.shipping.country === country ? 'selected' : '') : '' %>><%- country %></option>
+                  <% }) %>
+                </select>
               </div>
-
-              <div class="sm:col-span-1">
-                <dt class="text-sm font-medium text-gray-500">Phone</dt>
-                <input class="h-8 px-1 w-full text-sm mt-1" disabled type="text" value="<%= user.phone %>" />
-              </div>
-
-              <div class="sm:col-span-1">
-                <dt class="text-sm font-medium text-gray-500">First Name</dt>
-                <input class="h-8 px-1 w-full text-sm mt-1" disabled type="text" value="<%= user.firstname %>" />
-              </div>
-
-              <div class="sm:col-span-1">
-                <dt class="text-sm font-medium text-gray-500">Last Name</dt>
-                <input class="h-8 px-1 w-full text-sm mt-1" disabled type="text" value="<%= user.lastname %>" />
-              </div>
-
-              <div class="sm:col-span-1">
-                <dt class="text-sm font-medium text-gray-500">Address</dt>
-                <div class="flex justify-start items-center w-full gap-5 mt-1">
+              <div class="street-container container">
+                <label for="street-address" class="block text-sm font-medium text-gray-700">Address</label>
+                <div class="inner-container">
                   <input
-                    class="flex-auto h-8 px-1 text-sm"
-                    disabled
                     type="text"
-                    value="<%= user.address %>"
-                    placeholder="Name"
+                    name="streetName"
+                    id="street-address"
+                    placeholder="Street Name"
+                    class="input input-sm input-bordered"
+                    <%- (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.streetName + '"' : '' %>
                   />
                   <input
-                    class="flex-auto h-8 px-1 text-sm"
-                    disabled
-                    type="text"
-                    value="<%= user.address %>"
+                    type="number"
+                    name="streetNumber"
+                    id="street-number"
                     placeholder="Number"
-                  />
-                  <input
-                    class="flex-auto h-8 px-1 text-sm"
-                    disabled
-                    type="text"
-                    value="<%= user.address %>"
-                    placeholder="ZIP Code"
-                  />
-                  <input
-                    class="flex-auto h-8 px-1 text-sm"
-                    disabled
-                    type="text"
-                    value="<%= user.address %>"
-                    placeholder="Country"
+                    class="input input-sm input-bordered"
+                    <%- (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.streetNumber + '"' : '' %>
                   />
                 </div>
               </div>
-            </dl>
+              <div class="city-container container">
+                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                <div class="inner-container">
+                  <input type="text" name="city" id="city" placeholder="City" class="input input-sm input-bordered"
+                  <%- (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.city + '"' : '' %>
+                  />
+                  <input
+                    type="number"
+                    name="postalCode"
+                    id="postal-code"
+                    placeholder="Postal Code"
+                    class="input input-sm input-bordered"
+                    <%- (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.postalCode + '"' : '' %>
+                  />
+                </div>
+              </div>
+              <input type="submit" value="Save" class="btn btn-sm btn-outline btn-success" />
+            </form>
+            <div id="map" class="rounded-lg"></div>
           </div>
-        </article>
+        </section>
       </main>
     </section>
     <!-- Footer -->

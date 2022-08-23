@@ -9,6 +9,8 @@
     <!-- Navbar -->
     <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %> 
     <%- (typeof message !== 'undefined') ? (include('../partials/message.ejs', {message})) : '' %>
+    <script src="/js/message.js" defer></script>
+
     <section class="section-home">
       <header>
         <h1>Welcome to the Book Store!</h1>

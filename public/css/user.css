@@ -1,9 +1,0 @@
-.section-profile {
-  width: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 30px;
-  margin: 50px auto;
-}

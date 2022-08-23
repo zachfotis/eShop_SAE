@@ -9,19 +9,31 @@
     <!-- Navbar -->
     <%- include('../partials/nav.ejs') %> <%- (typeof message !== 'undefined') ? (include('../partials/message.ejs',
     {message})) : '' %>
+    <script src="/js/message.js" defer></script>
 
     <main>
-      <form class="login-form" action="/login" method="POST">
-        <h1>User Login</h1>
-        <label for="email">E-Mail</label>
-        <input type="email" name="email" id="email" autocomplete="email" />
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
+      <h1>User Login</h1>
+      <form class="login-form shadow-md rounded-lg" action="/login" method="POST">
+        <div class="email-container">
+          <label for="email">E-Mail</label>
+          <input type="email" name="email" id="email" autocomplete="email" />
+        </div>
+        <div class="password-container">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" autocomplete="current-password" />
+        </div>
+        <div class="remember-forgot">
+          <div class="remember-me">
+            <input id="remember-me" name="remember-me" type="checkbox" />
+            <label for="remember-me">Remember me</label>
+          </div>
+
+          <a href="/forgot-password"> Forgot your password? </a>
+        </div>
         <input type="submit" value="Login" />
         <a href="/register">Not a User? Sign Up!</a>
       </form>
     </main>
-
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %>
   </body>

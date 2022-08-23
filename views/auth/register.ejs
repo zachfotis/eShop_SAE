@@ -9,16 +9,23 @@
     <!-- Navbar -->
     <%- include('../partials/nav.ejs') %> <%- (typeof message !== 'undefined') ? (include('../partials/message.ejs',
     {message})) : '' %>
+    <script src="/js/message.js" defer></script>
 
     <main>
-      <form class="login-form" action="/register" method="POST">
-        <h1>User Register</h1>
-        <label for="email">E-Mail</label>
-        <input type="email" name="email" id="email" autocomplete="email" />
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" autocomplete="new-password" />
-        <label for="confirm-password">Confirm Password</label>
-        <input type="password" name="confirmPassword" id="confrim-password" />
+      <h1>User Register</h1>
+      <form class="login-form shadow-md rounded-lg" action="/register" method="POST">
+        <div class="email-container">
+          <label for="email">E-Mail</label>
+          <input type="email" name="email" id="email" autocomplete="email" />
+        </div>
+        <div class="password-container">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" autocomplete="new-password" />
+        </div>
+        <div class="password-container">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" name="confirmPassword" id="confrim-password" />
+        </div>
         <input type="submit" value="Register" />
         <a href="/login">Existed User? Login!</a>
       </form>

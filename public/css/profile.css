@@ -1,0 +1,165 @@
+.section-profile {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 30px;
+  margin: 50px auto;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 50px;
+}
+
+main > section {
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Account Details */
+.account-section form {
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.account-section form .container {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.account-section form input {
+  width: 100%;
+}
+
+.account-section form input[type='submit'] {
+  margin-top: 10px;
+}
+
+/* Payment Details */
+.payment-section .credit-card {
+  flex: auto;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.payment-section .credit-card .card-details-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.payment-section .credit-card .card-details-container .card-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.payment-section .credit-card .card-details-container .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.payment-section .new-card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-section .new-card img {
+  margin-top: 20px;
+  height: 50px;
+  cursor: pointer;
+}
+
+/* Shipping Details */
+.horizontal-container {
+  width: 100%;
+  height: 370px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 40px;
+  padding: 10px;
+}
+
+.shipping-section form {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+}
+
+.shipping-section #map {
+  flex: 1;
+  width: 100%;
+  height: calc(100% - 20px);
+}
+
+.shipping-section form input,
+.shipping-section form select {
+  width: 100%;
+}
+
+.shipping-section form .container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shipping-section form .inner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.shipping-section form .inner-container :first-child {
+  flex: 3;
+}
+
+.shipping-section form .inner-container :last-child {
+  flex: 1;
+}

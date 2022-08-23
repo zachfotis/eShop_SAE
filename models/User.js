@@ -9,6 +9,42 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  shipping: {
+    recipient: {
+      type: String,
+      required: true,
+    },
+    streetName: {
+      type: String,
+      required: true,
+    },
+    streetNumber: {
+      type: Number,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    country: {
+      type: String,
+      required: true,
+    },
+    postalCode: {
+      type: Number,
+      required: true,
+    },
+    geoLocation: {
+      lat: {
+        type: Number,
+        required: true,
+      },
+      lng: {
+        type: Number,
+        required: true,
+      },
+    },
+  },
   wishlist: [
     {
       id: {
