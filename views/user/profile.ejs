@@ -3,6 +3,10 @@
   <head>
     <%- include('../partials/head.ejs', {title}) %>
     <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/css/credit_card.css" />
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="https://pattern.kivan-works.com/fonts/kredit.css">
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
@@ -14,7 +18,9 @@
       integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
       crossorigin=""
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/profile.js" defer></script>
+    <script src="/js/credit-card.js" defer></script>
   </head>
 
   <body>
@@ -30,15 +36,12 @@
       <main class="w-full px-4">
         <!-- Account Details -->
         <section class="account-section shadow-md rounded-md">
-          <h2 class="text-lg leading-6 font-medium text-gray-900">Account Details</h2>
+          <h2 class="text-xl leading-6 font-medium text-gray-900">Account Details</h2>
           <form>
             <div class="container">
-              <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-              <label for="status" class="block ml-2 text-sm text-gray-700">Verified ✅</label>
-            </div>
-            <div class="container">
               <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-              <input type="email" name="email" id="email" placeholder="Email Address" class="input input-sm" disabled autocomplete="email"/>
+              <input type="email" name="email" id="email" placeholder="Email Address" class="input input-sm" disabled
+              autocomplete="email" <%- (typeof user.email !== 'undefined') ? 'value="' + user.email + '"' : '' %> />
             </div>
             <div class="container">
               <label for="password" class="block text-sm font-medium text-gray-700">New Password</label>
@@ -50,11 +53,11 @@
                 placeholder="Password"
                 class="input input-sm input-bordered"
                 autocomplete="new-password"
-                />
-              </div>
-              <div class="container">
-                <label for="password" class="block text-sm font-medium text-gray-700">Verify Password</label>
-                <input
+              />
+            </div>
+            <div class="container">
+              <label for="password" class="block text-sm font-medium text-gray-700">Verify Password</label>
+              <input
                 type="password"
                 name="verify-password"
                 id="verify-password"
@@ -71,90 +74,94 @@
 
         <!-- Billing Information -->
         <section class="payment-section shadow-md rounded-md">
-          <h2 class="text-lg leading-6 font-medium text-gray-900">Payment Details</h2>
+          <h2 class="text-xl leading-6 font-medium text-gray-900">Payment Details</h2>
           <div class="credit-cards-container w-full">
-            <form method="POST" action="/user/profile/updateCard" class="credit-card rounded-lg outline outline-1 outline-slate-300">
-              <label for="payment" class="text-sm mb-2">Credit Card</label>
-              <div class="card-details-container">
-                <div class="card-details">
-                  <input type="text" id="cardOwner" name="cardOwner" class="flex-1 input input-sm input-outline" placeholder="Card Owner" />
-                  <input type="text" id="cardNumber" name="cardNumber" class="flex-1 input input-sm input-outline" placeholder="Card Number" />
-                  <input type="text" id="originalCardNumber" name="originalCardNumber" class="flex-1 input input-sm input-outline" placeholder="Card Number" hidden/>
-                  <input type="text" id="cardExpirationDate" name="cardExpirationDate" class="flex-2 input input-sm input-outline" placeholder="MM / YY" />
-                </div>
-                <div class="buttons">
-                  <input type="submit" value="Save" class="text-xs btn btn-xs btn-outline btn-accent" />
-                  <button class="text-xs btn btn-xs btn-outline btn-error">Delete</button>
-                </div>
+            <!-- Add new cards -->
+            <% if(typeof user?.creditCards !== 'undefined') {%>
+            <% for(let creditCard of user.creditCards) { %> 
+            <section class="credit-card floating shadow-lg">
+              <div class="card_body">
+                <div class="logo svg"></div>
+                <div class="paywave svg"></div>
+                <div class="chips svg"></div>
+                <div class="card_no text"><%= creditCard.cardNumber %></div>
+                <div class="valid text">
+                  VALID <br />
+                  THUR
+                </div>              
+                <div class="valid_date text"><%= creditCard.cardExpirationDate %></div>
+                <div class="holder text"><%= creditCard.cardOwner %></div>
+                <% if(creditCard.cardType === 'Visa') { %>
+                  <div class="visa_icon svg"></div>
+                <% } else if(creditCard.cardType === 'Mastercard') { %>
+                  <div class="mastercard_icon svg"></div>
+                <% } else { %> 
+                  <div class="generic_icon svg"></div>
+                <% } %>
+
+                      
               </div>
-            </form>
+            </section>
+            <% } %>
+            <% } %>
+            <section class="credit-card floating-new add-card">
+              <img src="/icons/add-card.png" alt="add card" />
+            </section>
           </div>
-          <div class="new-card">
-            <img src="/icons/add-card.png" alt="add card" />
-          </div>
+          
         </section>
 
         <!-- Shipping Details -->
         <section class="shipping-section shadow-md rounded-md">
-          <h2 class="text-lg leading-6 font-medium text-gray-900">Shipping Details</h2>
+          <h2 class="text-xl leading-6 font-medium text-gray-900">Shipping Details</h2>
           <div class="horizontal-container">
-            <form action="/user/profile/updateShipping" method="POST" 
-            <%- (typeof user.shipping !== 'undefined') ? 'data-lat="' + user.shipping.geoLocation.lat + '"' :
-            '' %>
-            <%- (typeof user.shipping !== 'undefined') ? 'data-lng="' + user.shipping.geoLocation.lng + '"' :
-            '' %>
-            >
+            <form 
+              action="/user/profile/updateShipping"
+              method="POST"
+              <%- (typeof user.shipping !== 'undefined') ? 'data-lat="' + user.shipping.geoLocation.lat + '"' : '' %>
+              <%- (typeof user.shipping !== 'undefined') ? 'data-lng="' + user.shipping.geoLocation.lng + '"' : '' %> 
+              >
               <div class="recipient-container container">
                 <label for="recipient" class="block text-sm font-medium text-gray-700">Recipient Name</label>
                 <input type="text" name="recipient" id="recipient" placeholder="Recipient Name" class="input input-sm
                 input-bordered" <%- (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.recipient + '"' :
                 '' %> />
               </div>
-              <div class="country-container container">
-                <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
-                <select id="country" name="country" autocomplete="country-name" class="input input-sm input-bordered">
-                  <% countryList.forEach(country => { %>
-                  <option value="<%- country %>" <%- (typeof user.shipping !== 'undefined') ?
-                  (user.shipping.country === country ? 'selected' : '') : '' %>><%- country %></option>
-                  <% }) %>
-                </select>
-              </div>
               <div class="street-container container">
                 <label for="street-address" class="block text-sm font-medium text-gray-700">Address</label>
                 <div class="inner-container">
-                  <input
-                    type="text"
-                    name="streetName"
-                    id="street-address"
-                    placeholder="Street Name"
-                    class="input input-sm input-bordered"
-                    <%- (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.streetName + '"' : '' %>
-                  />
-                  <input
-                    type="number"
-                    name="streetNumber"
-                    id="street-number"
-                    placeholder="Number"
-                    class="input input-sm input-bordered"
-                    <%- (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.streetNumber + '"' : '' %>
-                  />
+                  <input type="text" name="streetName" id="street-address" placeholder="Street Name" class="input
+                  input-sm input-bordered" <%- (typeof user.shipping !== 'undefined') ? 'value="' +
+                  user.shipping.streetName + '"' : '' %> /> <input type="number" name="streetNumber" id="street-number"
+                  placeholder="Number" class="input input-sm input-bordered" <%- (typeof user.shipping !== 'undefined')
+                  ? 'value="' + user.shipping.streetNumber + '"' : '' %> />
                 </div>
               </div>
               <div class="city-container container">
                 <label for="city" class="block text-sm font-medium text-gray-700">City</label>
                 <div class="inner-container">
-                  <input type="text" name="city" id="city" placeholder="City" class="input input-sm input-bordered"
-                  <%- (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.city + '"' : '' %>
-                  />
-                  <input
-                    type="number"
-                    name="postalCode"
-                    id="postal-code"
-                    placeholder="Postal Code"
-                    class="input input-sm input-bordered"
-                    <%- (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.postalCode + '"' : '' %>
-                  />
+                  <input type="text" name="city" id="city" placeholder="City" class="input input-sm input-bordered" <%-
+                  (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.city + '"' : '' %> /> <input
+                  type="number" name="postalCode" id="postal-code" placeholder="Postal Code" class="input input-sm
+                  input-bordered" <%- (typeof user.shipping !== 'undefined') ? 'value="' + user.shipping.postalCode +
+                  '"' : '' %> />
                 </div>
+              </div>
+              <div class="country-container container">
+                <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                <select id="country" name="country" autocomplete="country-name" class="input input-sm input-bordered">
+                  <% countryList.forEach(country => { %>
+                    <option value="<%- country %>" 
+                    <% if(typeof user.shipping !== 'undefined') { %>
+                    <% if(country === user.shipping.country) { %>
+                    selected
+                    <% } %>
+                    <% } %>
+                    >
+                      <%- country %>
+                    </option>
+                  <% }) %>
+                </select>
               </div>
               <input type="submit" value="Save" class="btn btn-sm btn-outline btn-success" />
             </form>

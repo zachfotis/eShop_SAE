@@ -3,14 +3,9 @@ const countryList = require('../data/countries.js');
 const User = require('../models/User');
 
 const profilePage = (req, res) => {
-  let shippingData = null;
-  if (req.session.user?.shipping) {
-    shippingData = req.session.user.shipping;
-  }
   res.render('user/profile', {
     title: 'Profile',
     countryList,
-    shippingData: shippingData,
     user: req.session.user,
   });
 };
@@ -71,7 +66,94 @@ const updateShipping = (req, res) => {
   }
 };
 
+const updateCard = (req, res) => {
+  let cardData = {};
+
+  if (req.body.cardExpirationDate) {
+    const cardExpirationDate = req.body.cardExpirationDate.replace(/\//g, '');
+    const cardYearDigits = cardExpirationDate.substring(cardExpirationDate.length - 2);
+    const cardMonthDigits = cardExpirationDate.substring(0, cardExpirationDate.length - 2);
+
+    // get two last digits from current year
+    const currentYear = new Date().getFullYear();
+    const currentYearDigits = Number(currentYear.toString().substring(currentYear.toString().length - 2));
+    // get current month in two digits
+    const currentMonth = new Date().getMonth() + 1;
+    const currentMonthDigits = Number(currentMonth < 10 ? '0' + currentMonth : currentMonth);
+
+    // Invalid Month
+    if (cardMonthDigits < 1 || cardMonthDigits > 12) {
+      return res.redirect(
+        '/user/profile' + `?message=${encodeURIComponent('Card expiration date is not correct')}&type=error`
+      );
+    }
+
+    // Invalid Year
+    if (cardYearDigits > currentYearDigits + 10) {
+      return res.redirect(
+        '/user/profile' + `?message=${encodeURIComponent('Card expiration date is not correct')}&type=error`
+      );
+    }
+
+    // Card Expired
+    if (
+      cardYearDigits <= currentYearDigits &&
+      (cardMonthDigits < currentMonthDigits || cardMonthDigits > currentMonthDigits)
+    ) {
+      return res.redirect('/user/profile' + `?message=${encodeURIComponent('Card is expired')}&type=error`);
+    }
+  }
+
+  if (
+    req.body?.cardOwner &&
+    req.body.cardOwner.length > 0 &&
+    req.body?.cardNumber &&
+    req.body.cardNumber.length === 19 &&
+    req.body.cardNumber.match(/^-{0,1}[0-9]{4}-{0,1}[0-9]{4}-{0,1}[0-9]{4}-{0,1}[0-9]{4}$/) &&
+    req.body?.cardExpirationDate &&
+    req.body.cardExpirationDate.length === 5 &&
+    req.body.cardExpirationDate.includes('/')
+  ) {
+    cardData = {
+      cardOwner: req.body.cardOwner,
+      cardNumber: req.body.cardNumber,
+      cardExpirationDate: req.body.cardExpirationDate,
+      cardType: getCardType(req.body.cardNumber),
+    };
+  }
+
+  if (Object.keys(cardData).length > 0) {
+    User.findByIdAndUpdate(req.session.user._id, { $push: { creditCards: cardData } }, { new: true })
+      .then((user) => {
+        req.session.user = user;
+        return res.redirect(
+          '/user/profile' + `?message=${encodeURIComponent('Credit card has successfully added!')}&type=success`
+        );
+      })
+      .catch((error) => {
+        return res.redirect('/user/profile' + `?message=${encodeURIComponent('Something went wrong!')}&type=error`);
+      });
+  } else {
+    return res.redirect(
+      '/user/profile' + `?message=${encodeURIComponent('Card details are not correct or missing')}&type=error`
+    );
+  }
+};
+
+function getCardType(number) {
+  // Visa
+  let re = new RegExp('^4');
+  if (number.match(re) != null) return 'Visa';
+
+  // Mastercard
+  re = new RegExp('^5');
+  if (number.match(re) != null) return 'Mastercard';
+
+  return 'Unknown';
+}
+
 module.exports = {
   profilePage,
   updateShipping,
+  updateCard,
 };

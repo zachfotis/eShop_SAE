@@ -14,7 +14,7 @@ main {
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  gap: 50px;
+  gap: 70px;
 }
 
 main > section {
@@ -56,19 +56,36 @@ main > section {
 }
 
 /* Payment Details */
-.payment-section .credit-card {
-  flex: auto;
+.payment-section .credit-cards-container {
   width: 100%;
-  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.payment-section .add-card {
+  outline: 1px solid #ccc;
+  cursor: pointer;
+}
+.payment-section .add-card:hover {
+  background: linear-gradient(145deg, #4684c1, #343174);
+}
+
+.payment-section .add-card img {
+  height: 80px;
+}
+
+.payment-section .new-card {
   padding: 10px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
-  gap: 10px;
 }
 
-.payment-section .credit-card .card-details-container {
+.payment-section .new-card form {
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -77,33 +94,25 @@ main > section {
   gap: 20px;
 }
 
-.payment-section .credit-card .card-details-container .card-details {
+.payment-section .new-card form .card-details {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 10px;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.payment-section .credit-card .card-details-container .buttons {
+.payment-section .new-card form .card-details input {
+  width: 100%;
+}
+
+.payment-section .new-card form .buttons {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 10px;
-}
-
-.payment-section .new-card {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.payment-section .new-card img {
-  margin-top: 20px;
-  height: 50px;
-  cursor: pointer;
 }
 
 /* Shipping Details */

@@ -66,6 +66,7 @@ const registerUser = (req, res) => {
                   });
                 })
                 .catch((err) => {
+                  console.log(err);
                   res.render('auth/register', {
                     title: 'Register',
                     message: { type: 'error', text: 'Error while registering user' },
