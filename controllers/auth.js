@@ -28,8 +28,35 @@ const logoutPage = (req, res) => {
 const registerPage = (req, res) => {
   res.render('auth/register', {
     title: 'Register',
-    ...res.locals.commonInputs,
   });
+};
+
+// Verify account via Token
+const verifyAccount = (req, res) => {
+  const { token } = req.query;
+  User.findOne({ verificationToken: token })
+    .then((user) => {
+      if (!user) {
+        return res.redirect(
+          '/' + `?message=${encodeURIComponent('Account already verified or not found!')}&type=warning`
+        );
+      }
+      user.isVerified = true;
+      user.verificationToken = undefined;
+      user.save().then((user) => {
+        if (req?.session?.isLoggedIn) {
+          req.session.user = user;
+          return res.redirect('/' + `?message=${encodeURIComponent('Account verified successfully!')}&type=success`);
+        } else {
+          return res.redirect(
+            '/login' + `?message=${encodeURIComponent('Account verified successfully!')}&type=success`
+          );
+        }
+      });
+    })
+    .catch((error) => {
+      return res.redirect('/' + `?message=${encodeURIComponent('Something went wrong!')}&type=error`);
+    });
 };
 
 // Register User
@@ -56,17 +83,22 @@ const registerUser = (req, res) => {
               const newUser = new User({
                 email: email,
                 password: hash,
+                verificationToken: Math.random().toString(36).substring(2),
               });
               newUser
                 .save()
                 .then((user) => {
+                  const host = req.get('host');
+                  const protocol = req.protocol;
+                  const link = `${protocol}://${host}/verify?token=${user.verificationToken}`;
+                  // TODO: Send verification email
+
                   res.render('auth/login', {
                     title: 'Register',
                     message: { type: 'success', text: 'User registered successfully' },
                   });
                 })
                 .catch((err) => {
-                  console.log(err);
                   res.render('auth/register', {
                     title: 'Register',
                     message: { type: 'error', text: 'Error while registering user' },
@@ -196,4 +228,4 @@ const logoutUser = (req, res) => {
   });
 };
 
-module.exports = { loginPage, logoutPage, registerPage, registerUser, signUser, authVerify, logoutUser };
+module.exports = { loginPage, logoutPage, registerPage, registerUser, signUser, authVerify, logoutUser, verifyAccount };

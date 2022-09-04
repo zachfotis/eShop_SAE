@@ -1,0 +1,67 @@
+.section-wishlist {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 30px;
+  margin: 50px auto;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+main .product-card {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+main .product-card .left-container img {
+  width: 120px;
+}
+
+main .product-card .right-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 05px;
+}
+
+main .product-card .right-container h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+main .product-card .right-container h2 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+main .product-card .right-container p {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+main .product-card .right-container .buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+main .product-card .right-container .buttons a {
+  width: 200px;
+}

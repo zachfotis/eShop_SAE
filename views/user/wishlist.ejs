@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {title}) %>
+    <link rel="stylesheet" href="/css/wishlist.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %> <%- (typeof message !== 'undefined') ?
+    (include('../partials/message.ejs', {message})) : '' %>
+    <script src="/js/message.js" defer></script>
+
+    <section class="section-wishlist">
+      <!-- User NAV -->
+      <%- include('../partials/user_nav.ejs', {title}) %>
+      <main class="w-full px-4">
+        <% if (typeof wishlist !== 'undefined' && wishlist.length > 0) { %> <% wishlist.forEach(product => { %>
+        <div class="product-card shadow-md rounded-md">
+          <div class="left-container">
+            <img
+              class="rounded-md shadow-md"
+              src="https://books.google.com/books/publisher/content?id=<%= product.bookId
+            %>&printsec=frontcover&img=1&zoom=2"
+              alt="<%- product.title %>"
+            />
+          </div>
+          <div class="right-container">
+            <h1><%= product.title %></h1>
+            <h2><%= product.authors.join(', ') %></h2>
+            <p><%= product.shortDescription %></p>
+            <div class="buttons">
+              <a
+                href="/cart/add/<%= product.id %>"
+                class="text-xs btn bg-indigo-600 hover:bg-indigo-700 btn-xs btn-block"
+                >Add to cart</a
+              >
+              <a href="/products/<%= product.id %>/add-to-wishlist" class="text-xs btn btn-xs btn-outline btn-error"
+                >Remove from wishlist</a
+              >
+            </div>
+          </div>
+        </div>
+        <% }) %> <% } else {%>
+        <img src="/img/empty_wishlist.png" alt="empty wishlist" />
+        <% } %>
+      </main>
+    </section>
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

@@ -28,6 +28,17 @@ main > section {
 }
 
 /* Account Details */
+.account-section .isVerified {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 1rem;
+  background-color: #f8d7da;
+  color: #856404;
+}
+
 .account-section form {
   width: 100%;
   margin: 10px;

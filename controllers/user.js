@@ -1,12 +1,14 @@
 const axios = require('axios');
 const countryList = require('../data/countries.js');
 const User = require('../models/User');
+const bcrypt = require('bcryptjs');
+const Product = require('../models/Product');
 
+// User Profile
 const profilePage = (req, res) => {
   res.render('user/profile', {
     title: 'Profile',
     countryList,
-    user: req.session.user,
   });
 };
 
@@ -140,6 +142,44 @@ const updateCard = (req, res) => {
   }
 };
 
+const updatePassword = (req, res) => {
+  const { password, verifyPassword } = req.body;
+  if (password !== verifyPassword) {
+    return res.redirect('/user/profile' + `?message=${encodeURIComponent('Passwords do not match')}&type=error`);
+  } else {
+    bcrypt.hash(password, 12, (err, hash) => {
+      if (err) {
+        return res.redirect('/user/profile' + `?message=${encodeURIComponent('Something went wrong!')}&type=error`);
+      } else {
+        User.findByIdAndUpdate(req.session.user._id, { $set: { password: hash } }, { new: true })
+          .then((user) => {
+            req.session.user = user;
+            return res.redirect(
+              '/user/profile' + `?message=${encodeURIComponent('Password has successfully updated!')}&type=success`
+            );
+          })
+          .catch((error) => {
+            return res.redirect('/user/profile' + `?message=${encodeURIComponent('Something went wrong!')}&type=error`);
+          });
+      }
+    });
+  }
+};
+
+// User Wishlist
+const wishlistPage = async (req, res) => {
+  let wishlist = [];
+  if (req.session?.user?.wishlist) {
+    const wishlistIds = req.session.user.wishlist.map((id) => id.id.toString());
+    wishlist = await Product.find({ _id: { $in: wishlistIds } });
+  }
+  res.render('user/wishlist', {
+    title: 'Wishlist',
+    wishlist,
+  });
+};
+
+// UTILITY FUNCTIONS
 function getCardType(number) {
   // Visa
   let re = new RegExp('^4');
@@ -156,4 +196,6 @@ module.exports = {
   profilePage,
   updateShipping,
   updateCard,
+  updatePassword,
+  wishlistPage,
 };

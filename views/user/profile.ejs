@@ -37,7 +37,10 @@
         <!-- Account Details -->
         <section class="account-section shadow-md rounded-md">
           <h2 class="text-xl leading-6 font-medium text-gray-900">Account Details</h2>
-          <form>
+          <% if((typeof user?.isVerified) !== 'undefined' && !user?.isVerified) { %> 
+          <h1 class="isVerified">Your account is not verified. Please check your email!</h1>
+          <% } %>
+          <form method="POST" action="/user/profile/updatePassword">
             <div class="container">
               <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
               <input type="email" name="email" id="email" placeholder="Email Address" class="input input-sm" disabled
@@ -59,7 +62,7 @@
               <label for="password" class="block text-sm font-medium text-gray-700">Verify Password</label>
               <input
                 type="password"
-                name="verify-password"
+                name="verifyPassword"
                 id="verify-password"
                 placeholder="Verify Password"
                 class="input input-sm input-bordered"
