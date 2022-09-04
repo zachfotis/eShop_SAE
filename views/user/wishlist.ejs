@@ -28,7 +28,7 @@
           <div class="right-container">
             <h1><%= product.title %></h1>
             <h2><%= product.authors.join(', ') %></h2>
-            <p><%= product.shortDescription %></p>
+            <p><%- product.shortDescription %></p>
             <div class="buttons">
               <a
                 href="/cart/add/<%= product.id %>"

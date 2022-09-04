@@ -9,6 +9,7 @@ const {
   cartPage,
   addToCart,
   removeFromCart,
+  decreaseFromCart,
   addToWishList,
 } = require('../controllers/home');
 
@@ -21,5 +22,6 @@ router.get('/sales', salesPage);
 router.get('/cart', cartPage);
 router.get('/cart/add/:id', addToCart);
 router.get('/cart/remove/:id', removeFromCart);
+router.get('/cart/decrease/:id', decreaseFromCart);
 
 module.exports = router;

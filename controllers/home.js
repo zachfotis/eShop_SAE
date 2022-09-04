@@ -150,6 +150,20 @@ const removeFromCart = (req, res) => {
   res.redirect('/cart');
 };
 
+const decreaseFromCart = (req, res) => {
+  const id = req.params.id;
+  if (req.session?.cart) {
+    const item = req.session.cart.find((item) => item.id === id);
+    if (item) {
+      item.quantity -= 1;
+      if (item.quantity === 0) {
+        req.session.cart.splice(req.session.cart.indexOf(item), 1);
+      }
+    }
+  }
+  res.redirect('/cart');
+};
+
 const addToWishList = (req, res) => {
   const productId = req.params.id;
   if (req?.session?.user) {
@@ -206,5 +220,6 @@ module.exports = {
   cartPage,
   addToCart,
   removeFromCart,
+  decreaseFromCart,
   addToWishList,
 };
