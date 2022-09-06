@@ -66,11 +66,13 @@ The following concepts are to be implements soon:
 
 - ~~Enhance basic layout, design and page structure~~
 - Responsive Design
-- Use MongoDB's \_id instead of product id
-- Validations on routing
+- ~~Use MongoDB's \_id instead of product id~~
+- ~~Validations on routing~~
 - ~~User Login and Register~~
 - ~~Authentication and Authorization~~
-- ... and more
+- Add Checkout
+- Add User Orders Menu
+- Add Admin Panel
 
 <br>
 
