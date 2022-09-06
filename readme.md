@@ -84,19 +84,61 @@ May 29, 2022
 - Add MongoDB and populate it
 - Add dummy products from api
 - Add admin page
+- Add product and categories pages
+- Add MongoDB and populate it
 
+May 30, 2022
+- add readme.md - 1st Milestone
+- fix titles and add sorting on DB
+- add edit remove data
 
-The following concepts are to be implemented next:
+Jul 23, 2022
+- fix locals
+- add real navbar
+- Merge branch 'master' of https://github.com/zachfotis/eShop_SAE
+- add auth and protected routes
 
-- ~~Enhance basic layout, design and page structure~~
-- Responsive Design
-- ~~Use MongoDB's \_id instead of product id~~
-- ~~Validations on routing~~
-- ~~User Login and Register~~
-- ~~Authentication and Authorization~~
-- Add Checkout
-- Add User Orders Menu
-- Add Admin Panel
+Jul 24, 2022
+- pretify admin all products
+
+Jul 25, 2022
+- Update readme.md
+- start shopping cart
+
+Jul 26, 2022
+- fix session and destroy
+- fix google books links
+- change favicon
+- prettify main pages
+
+Jul 28, 2022
+- add sales page
+
+Jul 29, 2022
+- start cart
+
+Jul 31, 2022
+- fix empty cart and session touch
+- add cart
+
+Aug 10, 2022
+- add user profile
+- add wishlist
+
+Aug 23, 2022
+- work on user profile
+
+Aug 24, 2022
+- finish credit cards
+
+Sep 4, 2022
+- fix cart quantiny and stock
+- add user wishlist
+
+Sep 6, 2022
+- Update readme.md
+- fix cart
+
 
 <br>
 ## Links:
