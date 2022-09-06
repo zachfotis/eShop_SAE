@@ -62,7 +62,7 @@ The following concepts have been developed so far:
 
 ## TODO:
 
-The following concepts are to be implements soon:
+The following concepts are to be implemented next:
 
 - ~~Enhance basic layout, design and page structure~~
 - Responsive Design
@@ -76,6 +76,29 @@ The following concepts are to be implements soon:
 
 <br>
 
+## Development Diary:
+May 28, 2022
+- Initial Commit
+
+May 29, 2022
+- Add MongoDB and populate it
+- Add dummy products from api
+- Add admin page
+
+
+The following concepts are to be implemented next:
+
+- ~~Enhance basic layout, design and page structure~~
+- Responsive Design
+- ~~Use MongoDB's \_id instead of product id~~
+- ~~Validations on routing~~
+- ~~User Login and Register~~
+- ~~Authentication and Authorization~~
+- Add Checkout
+- Add User Orders Menu
+- Add Admin Panel
+
+<br>
 ## Links:
 
 GitHub Repo: https://github.com/zachfotis/eShop_SAE
