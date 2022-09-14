@@ -144,19 +144,20 @@ const updateCard = (req, res) => {
 };
 
 const updatePassword = (req, res) => {
-  const { password, verifyPassword } = req.body;
-  if (password !== verifyPassword) {
-    return res.redirect('/user/profile' + `?message=${encodeURIComponent('Passwords do not match')}&type=error`);
+  const { email, password, verifyPassword } = req.body;
+
+  if (password !== verifyPassword || password.length < 6 || !email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+    return res.redirect('/user/profile' + `?message=${encodeURIComponent('Please check your inputs')}&type=error`);
   } else {
     bcrypt.hash(password, 12, (err, hash) => {
       if (err) {
         return res.redirect('/user/profile' + `?message=${encodeURIComponent('Something went wrong!')}&type=error`);
       } else {
-        User.findByIdAndUpdate(req.session.user._id, { $set: { password: hash } }, { new: true })
+        User.findByIdAndUpdate(req.session.user._id, { $set: { password: hash, email: email } }, { new: true })
           .then((user) => {
             req.session.user = user;
             return res.redirect(
-              '/user/profile' + `?message=${encodeURIComponent('Password has successfully updated!')}&type=success`
+              '/user/profile' + `?message=${encodeURIComponent('Your details have successfully updated!')}&type=success`
             );
           })
           .catch((error) => {

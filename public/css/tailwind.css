@@ -3955,13 +3955,6 @@ body[dir="rtl"] .checkbox:checked,
   position: sticky;
 }
 
-.inset-0 {
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-}
-
 .top-0 {
   top: 0px;
 }
@@ -4038,10 +4031,6 @@ body[dir="rtl"] .checkbox:checked,
   margin-left: 0.5rem;
 }
 
-.mt-24 {
-  margin-top: 6rem;
-}
-
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -4086,10 +4075,6 @@ body[dir="rtl"] .checkbox:checked,
   display: table;
 }
 
-.grid {
-  display: grid;
-}
-
 .hidden {
   display: none;
 }
@@ -4112,10 +4097,6 @@ body[dir="rtl"] .checkbox:checked,
 
 .h-40 {
   height: 10rem;
-}
-
-.h-full {
-  height: 100%;
 }
 
 .h-6 {
@@ -4174,10 +4155,6 @@ body[dir="rtl"] .checkbox:checked,
   flex-shrink: 0;
 }
 
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -4204,15 +4181,6 @@ body[dir="rtl"] .checkbox:checked,
 
 .gap-2 {
   gap: 0.5rem;
-}
-
-.gap-y-10 {
-  row-gap: 2.5rem;
-}
-
-.gap-x-6 {
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -4499,12 +4467,12 @@ body[dir="rtl"] .checkbox:checked,
   text-transform: none;
 }
 
-.leading-6 {
-  line-height: 1.5rem;
-}
-
 .leading-5 {
   line-height: 1.25rem;
+}
+
+.leading-6 {
+  line-height: 1.5rem;
 }
 
 .tracking-wider {
@@ -4588,11 +4556,6 @@ body[dir="rtl"] .checkbox:checked,
 .text-green-800 {
   --tw-text-opacity: 1;
   color: rgb(22 101 52 / var(--tw-text-opacity));
-}
-
-.text-yellow-800 {
-  --tw-text-opacity: 1;
-  color: rgb(133 77 14 / var(--tw-text-opacity));
 }
 
 .text-red-800 {
@@ -4709,10 +4672,6 @@ body[dir="rtl"] .checkbox:checked,
   color: rgb(99 102 241 / var(--tw-text-opacity));
 }
 
-.group:hover .group-hover\:opacity-75 {
-  opacity: 0.75;
-}
-
 @media (min-width: 640px) {
   .sm\:-mx-6 {
     margin-left: -1.5rem;
@@ -4725,10 +4684,6 @@ body[dir="rtl"] .checkbox:checked,
 
   .sm\:w-full {
     width: 100%;
-  }
-
-  .sm\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .sm\:rounded-lg {
@@ -4761,10 +4716,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 
 @media (min-width: 1024px) {
-  .lg\:col-span-7 {
-    grid-column: span 7 / span 7;
-  }
-
   .lg\:col-span-5 {
     grid-column: span 5 / span 5;
   }
@@ -4778,22 +4729,6 @@ body[dir="rtl"] .checkbox:checked,
     margin-top: 0px;
   }
 
-  .lg\:h-80 {
-    height: 20rem;
-  }
-
-  .lg\:h-full {
-    height: 100%;
-  }
-
-  .lg\:w-full {
-    width: 100%;
-  }
-
-  .lg\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .lg\:p-8 {
     padding: 2rem;
   }
@@ -4801,12 +4736,5 @@ body[dir="rtl"] .checkbox:checked,
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .xl\:gap-x-8 {
-    -moz-column-gap: 2rem;
-         column-gap: 2rem;
   }
 }

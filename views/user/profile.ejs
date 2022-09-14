@@ -43,8 +43,15 @@
           <form method="POST" action="/user/profile/updatePassword">
             <div class="container">
               <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-              <input type="email" name="email" id="email" placeholder="Email Address" class="input input-sm" disabled
-              autocomplete="email" <%- (typeof user.email !== 'undefined') ? 'value="' + user.email + '"' : '' %> />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                class="input input-sm input-bordered"
+                autocomplete="new-email"
+                <%- (typeof user.email !== 'undefined') ? 'value="' + user.email + '"' : '' %> 
+              />
             </div>
             <div class="container">
               <label for="password" class="block text-sm font-medium text-gray-700">New Password</label>
