@@ -1,20 +1,25 @@
 const Product = require('../models/Product.js');
 
 const allProductsPage = (req, res) => {
-  Product.find({}, null, { sort: { id: 1 } }, (err, products) => {
-    if (err) {
-      console.log(err);
-    } else {
-      if (!products || products.length === 0) {
-        res.redirect('/');
-      } else {
+  const perPage = 10;
+  const page = req.query.page || 1;
+  Product.find({})
+    .skip(perPage * page - perPage)
+    .limit(perPage)
+    .sort({ title: 'asc' })
+    .exec((err, products) => {
+      Product.countDocuments().exec((err, count) => {
+        if (err) return redirect(`/?message=${encodeURIComponent('An error occurred in Database')}&type=error`);
         res.render('admin/all-products', {
-          title: 'All Products',
-          products: products,
+          title: 'all products',
+          products,
+          current: page,
+          pages: Math.ceil(count / perPage),
+          count,
+          perPage,
         });
-      }
-    }
-  });
+      });
+    });
 };
 
 const modifyProductPage = (req, res) => {
@@ -30,7 +35,7 @@ const modifyProductPage = (req, res) => {
           res.redirect('/');
         } else {
           res.render('admin/modify-product', {
-            title: 'Modify Product',
+            title: 'modify product',
             product: product,
             isEdit: isEdit,
           });
@@ -39,7 +44,7 @@ const modifyProductPage = (req, res) => {
     });
   } else {
     res.render('admin/modify-product', {
-      title: 'Modify Product',
+      title: 'modify product',
       isEdit: isEdit,
       ...res.locals.commonInputs,
     });

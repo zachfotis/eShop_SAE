@@ -225,6 +225,9 @@ const checkoutPage = async (req, res) => {
 
     for (let i = 0; i < cart.length; i++) {
       const product = await Product.findOne({ _id: cart[i].id });
+      if (product.stock < cart[i].quantity) {
+        return res.redirect(`/cart?message=${encodeURIComponent('Not enough stock')}&type=error`);
+      }
       products.push({
         quantity: cart[i].quantity,
         productId: product._id,
@@ -235,9 +238,9 @@ const checkoutPage = async (req, res) => {
         description: product.description,
       });
     }
-
+    // if no user
     const order = new Order({
-      user: req.session.user._id,
+      user: req?.session?.user?._id ? req.session.user._id : null,
       products: products,
       total: req.session.cartTotal,
       status: 'awaiting payment',
@@ -251,7 +254,7 @@ const checkoutPage = async (req, res) => {
         const payment = new Payment({
           order: order._id,
           amount: order.total,
-          currency: 'EUR',
+          currency: 'USD',
           status: 'pending',
         });
         payment.save((err, payment) => {
@@ -264,11 +267,12 @@ const checkoutPage = async (req, res) => {
             const paymentData = {
               line_items: [],
               payment_method_types: ['card'],
-              customer_email: req.session.user.email,
               mode: 'payment',
               success_url: domain + '/payment/success/' + paymentId,
               cancel_url: domain + '/payment/cancel/' + paymentId,
             };
+
+            req?.session?.user?.email && (paymentData.customer_email = req.session.user.email);
 
             for (let i = 0; i < order.products.length; i++) {
               const productDiscountedPrice = (
@@ -351,7 +355,33 @@ const successPayment = (req, res) => {
                           // delete cart from session
                           req.session.cart = [];
                           req.session.cartTotal = 0;
-                          res.redirect('/user/orders');
+                          // reduce stock
+                          for (let i = 0; i < order.products.length; i++) {
+                            Product.findOne({ _id: order.products[i].productId }, (err, product) => {
+                              if (err) {
+                                console.log(err);
+                              } else {
+                                product.stock -= order.products[i].quantity;
+                                product.save((err, product) => {
+                                  if (err) {
+                                    console.log(err);
+                                  } else {
+                                    if (!req?.session?.user) {
+                                      res.redirect(
+                                        `/?message=${encodeURIComponent(
+                                          'You have successfully paid for your order'
+                                        )}&type=success`
+                                      );
+                                    } else {
+                                      res.redirect(
+                                        `/user/orders?message=${encodeURIComponent('Successful Payment')}&type=success`
+                                      );
+                                    }
+                                  }
+                                });
+                              }
+                            });
+                          }
                         }
                       });
                     }

@@ -9,12 +9,10 @@
     <!-- Navbar -->
     <%- include('../partials/nav.ejs') %>
     <section class="admin">
-      <h1 class="text-3xl my-10">ALL PRODUCTS</h1>
-      <!-- Links -->
-      <!-- <%- include('../partials/links_admin.ejs', {page:'all-products'})%> -->
-
+      <!-- Admin NAV -->
+      <%- include('../partials/admin_nav.ejs') %>
       <!-- Products Grid -->
-      <div class="flex flex-col">
+      <div class="flex flex-col mt-10">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div class="flex justify-center shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -27,7 +25,6 @@
                     >
                       Product
                     </th>
-
                     <th
                       scope="col"
                       class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -74,9 +71,8 @@
                       <div class="text-sm text-gray-900"><%= product.price %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-center">
-                      <div class="text-sm text-gray-900">
-                        <%= (product.discount * 100).toFixed(0) %>%</td>
-                      </div>
+                      <div class="text-sm text-gray-900"><%= (product.discount * 100).toFixed(0) %>%</div>
+                    </td>
                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500"><%= product.stock %></td>
                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                       <a
@@ -85,14 +81,15 @@
                         >Edit</a
                       >
                     </td>
-                    <% }) %>
                   </tr>
+                  <% }) %>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
+      <div class="pagination-bar my-5"><%- include('../partials/pagination_bar.ejs', {current, pages, perPage}) %></div>
     </section>
   </body>
 </html>
