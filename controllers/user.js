@@ -3,6 +3,7 @@ const countryList = require('../data/countries.js');
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const Product = require('../models/Product');
+const Order = require('../models/Order');
 
 // User Profile
 const profilePage = (req, res) => {
@@ -192,10 +193,24 @@ function getCardType(number) {
   return 'Unknown';
 }
 
+function ordersPage(req, res) {
+  Order.find({ user: req.session.user._id })
+    .then((orders) => {
+      res.render('user/orders', {
+        title: 'Orders',
+        orders: orders.reverse(),
+      });
+    })
+    .catch((error) => {
+      res.redirect('/user/profile' + `?message=${encodeURIComponent('Something went wrong!')}&type=error`);
+    });
+}
+
 module.exports = {
   profilePage,
   updateShipping,
   updateCard,
   updatePassword,
   wishlistPage,
+  ordersPage,
 };

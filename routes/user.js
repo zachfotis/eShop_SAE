@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { profilePage, updateShipping, updateCard, updatePassword, wishlistPage } = require('../controllers/user');
+const { profilePage, updateShipping, updateCard, updatePassword, wishlistPage, ordersPage } = require('../controllers/user');
 
 const checkLogin = (req, res, next) => {
   if (req.session.isLoggedIn && req.session.user) {
@@ -18,4 +18,8 @@ router.post('/profile/updatePassword', checkLogin, updatePassword);
 
 // User Wishlist
 router.get('/wishlist', checkLogin, wishlistPage);
+
+// User Orders
+router.get('/orders', checkLogin, ordersPage);
+
 module.exports = router;

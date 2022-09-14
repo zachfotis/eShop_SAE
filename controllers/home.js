@@ -1,7 +1,10 @@
 const Product = require('../models/Product.js');
+const Order = require('../models/Order.js');
+const Payment = require('../models/Payment.js');
 const Utilities = require('../models/Utilities');
 const User = require('../models/User.js');
 const quotes = require('../data/quotes.js');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const indexPage = (req, res) => {
   // get random quote
@@ -211,6 +214,200 @@ const addToWishList = (req, res) => {
   }
 };
 
+const checkoutPage = async (req, res) => {
+  const protocol = req.protocol;
+  const host = req.get('host');
+  const domain = protocol + '://' + host;
+  const cart = req.session?.cart;
+
+  if (cart && cart.length > 0) {
+    const products = [];
+
+    for (let i = 0; i < cart.length; i++) {
+      const product = await Product.findOne({ _id: cart[i].id });
+      products.push({
+        quantity: cart[i].quantity,
+        productId: product._id,
+        name: product.title,
+        price: product.price,
+        discount: product.discount,
+        image: `https://books.google.com/books/publisher/content?id=${product.bookId}&printsec=frontcover&img=1&zoom=4`,
+        description: product.description,
+      });
+    }
+
+    const order = new Order({
+      user: req.session.user._id,
+      products: products,
+      total: req.session.cartTotal,
+      status: 'awaiting payment',
+    });
+
+    order.save((err, order) => {
+      if (err) {
+        console.log(err);
+        res.redirect('/cart');
+      } else {
+        const payment = new Payment({
+          order: order._id,
+          amount: order.total,
+          currency: 'EUR',
+          status: 'pending',
+        });
+        payment.save((err, payment) => {
+          if (err) {
+            console.log(err.raw.message);
+            res.redirect('/cart');
+          } else {
+            // Create payment data for Stripe
+            const paymentId = payment._id;
+            const paymentData = {
+              line_items: [],
+              payment_method_types: ['card'],
+              customer_email: req.session.user.email,
+              mode: 'payment',
+              success_url: domain + '/payment/success/' + paymentId,
+              cancel_url: domain + '/payment/cancel/' + paymentId,
+            };
+
+            for (let i = 0; i < order.products.length; i++) {
+              const productDiscountedPrice = (
+                (order.products[i].price - order.products[i].price * order.products[i].discount) *
+                100
+              ).toFixed(0);
+              paymentData.line_items.push({
+                quantity: order.products[i].quantity,
+                price_data: {
+                  currency: payment.currency,
+                  unit_amount: Number(productDiscountedPrice),
+                  product_data: {
+                    name: order.products[i].name,
+                    images: [order.products[i].image],
+                  },
+                },
+              });
+            }
+            // Stripe checkout session
+            stripe.checkout.sessions.create(paymentData, (err, session) => {
+              if (err) {
+                console.log(err.raw.message);
+                res.redirect('/cart');
+              } else {
+                payment.stripeSessionId = session.id;
+                payment.save((err, payment) => {
+                  if (err) {
+                    res.redirect('/cart');
+                  } else {
+                    res.redirect(session.url);
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+  } else {
+    res.redirect('/cart');
+  }
+};
+
+const successPayment = (req, res) => {
+  const paymentId = req.params.id;
+  Payment.findOne({ _id: paymentId }, (err, payment) => {
+    if (err) {
+      console.log(err);
+      res.redirect('/cart');
+    } else {
+      if (!payment || payment.length === 0) {
+        res.redirect('/cart');
+      } else {
+        Order.findOne({ _id: payment.order }, (err, order) => {
+          if (err) {
+            console.log(err);
+            res.redirect('/cart');
+          } else {
+            if (!order || order.length === 0) {
+              res.redirect('/cart');
+            } else {
+              order.status = 'paid';
+              order.save((err, order) => {
+                if (err) {
+                  console.log(err);
+                  res.redirect('/cart');
+                } else {
+                  payment.status = 'paid';
+                  payment.save((err, payment) => {
+                    if (err) {
+                      console.log(err);
+                      res.redirect('/cart');
+                    } else {
+                      // delete payment from mongo
+                      Payment.deleteOne({ _id: paymentId }, (err) => {
+                        if (err) {
+                          console.log(err);
+                          res.redirect('/cart');
+                        } else {
+                          // delete cart from session
+                          req.session.cart = [];
+                          req.session.cartTotal = 0;
+                          res.redirect('/user/orders');
+                        }
+                      });
+                    }
+                  });
+                }
+              });
+            }
+          }
+        });
+      }
+    }
+  });
+};
+
+const cancelPayment = (req, res) => {
+  const paymentId = req.params.id;
+  Payment.findOne({ _id: paymentId }, (err, payment) => {
+    if (err) {
+      console.log(err);
+      res.redirect('/cart');
+    } else {
+      if (!payment || payment.length === 0) {
+        res.redirect('/cart');
+      } else {
+        Order.findOne({ _id: payment.order }, (err, order) => {
+          if (err) {
+            console.log(err);
+            res.redirect('/cart');
+          } else {
+            if (!order || order.length === 0) {
+              res.redirect('/cart');
+            } else {
+              // delete payment and order
+              Payment.deleteOne({ _id: paymentId }, (err) => {
+                if (err) {
+                  console.log(err);
+                  res.redirect('/cart');
+                } else {
+                  Order.deleteOne({ _id: order._id }, (err) => {
+                    if (err) {
+                      console.log(err);
+                      res.redirect('/cart');
+                    } else {
+                      res.redirect('/cart');
+                    }
+                  });
+                }
+              });
+            }
+          }
+        });
+      }
+    }
+  });
+};
+
 module.exports = {
   indexPage,
   categoriesPage,
@@ -222,4 +419,7 @@ module.exports = {
   removeFromCart,
   decreaseFromCart,
   addToWishList,
+  checkoutPage,
+  successPayment,
+  cancelPayment,
 };

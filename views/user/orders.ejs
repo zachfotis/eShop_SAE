@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {title}) %>
+    <link rel="stylesheet" href="/css/user_orders.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %> <%- (typeof message !== 'undefined') ?
+    (include('../partials/message.ejs', {message})) : '' %>
+    <script src="/js/message.js" defer></script>
+
+    <section class="section-orders">
+      <!-- User NAV -->
+      <%- include('../partials/user_nav.ejs', {title}) %>
+      <main class="w-full px-4">
+        <% if (typeof orders !== 'undefined' && orders.length > 0) { %>
+        <table class="w-full divide-y divide-gray-200 shadow overflow-hidden border-b border-gray-200 rounded-lg">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Order
+              </th>
+
+              <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Date
+              </th>
+              <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Total
+              </th>
+              <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <% orders.forEach((order) => { %>
+            <tr>
+              <td class="px-6 py-4 text-sm font-medium text-gray-900"><%= order.id %></td>
+              <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-900">
+                <%= (new Date(order.date)).toLocaleString() %>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-900">
+                $<%= order.total.toFixed(2) %>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
+                <% if (order.status === 'paid') {%>
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Collecting Items
+                </span>
+                <% } else if (order.status === 'shipped') { %>
+                <span
+                  class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-green-800"
+                >
+                  Shipped
+                </span>
+                <% } else if (order.status === 'delivered') { %>
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Delivered
+                </span>
+                <% } else if (order.status === 'cancelled') { %>
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                  Cancelled
+                </span>
+                <% } else if (order.status === 'awaiting payment') { %>
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                  Not Paid
+                </span>
+                <% } %>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+
+        <% } else {%>
+        <div class="empty-cart">
+          <img src="/img/empty_orders.png" alt="empty orders" />
+          <h1>You don't have any orders yet! Go shopping!</h1>
+        </div>
+        <% } %>
+      </main>
+    </section>
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

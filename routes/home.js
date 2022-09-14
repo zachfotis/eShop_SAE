@@ -1,3 +1,4 @@
+const { success } = require('daisyui/src/colors/colorNames');
 const express = require('express');
 const router = express.Router();
 const {
@@ -11,6 +12,9 @@ const {
   removeFromCart,
   decreaseFromCart,
   addToWishList,
+  checkoutPage,
+  successPayment,
+  cancelPayment,
 } = require('../controllers/home');
 
 router.get('/', indexPage);
@@ -23,5 +27,8 @@ router.get('/cart', cartPage);
 router.get('/cart/add/:id', addToCart);
 router.get('/cart/remove/:id', removeFromCart);
 router.get('/cart/decrease/:id', decreaseFromCart);
+router.post('/create-checkout-session', checkoutPage);
+router.get('/payment/success/:id', successPayment);
+router.get('/payment/cancel/:id', cancelPayment);
 
 module.exports = router;
