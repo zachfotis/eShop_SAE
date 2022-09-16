@@ -3,138 +3,210 @@
   <head>
     <%- include('../partials/head.ejs', {title:'Modify Product'}) %>
     <link rel="stylesheet" href="/css/admin-modify-product.css" />
-    <script src="/scripts/admin-modify-product.js" defer></script>
+    <script src="/js/admin-modify-product.js" defer></script>
   </head>
 
   <body>
     <!-- Navbar -->
-    <%- include('../partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %> <%- (typeof message !== 'undefined') ? (include('../partials/message.ejs',
+    {message})) : '' %>
+    <script src="/js/message.js" defer></script>
+
     <section class="admin">
       <!-- Admin NAV -->
       <%- include('../partials/admin_nav.ejs') %>
-      <!-- Form -->
-      <form class="form-admin">
-        <div class="id">
-          <label for="id">ID:</label>
-          <input type="text" id="id" name="id" placeholder="product id" value="<%= isEdit ? product.id : '' %>" />
+
+      <!-- This example requires Tailwind CSS v2.0+ -->
+      <form class="bg-white shadow overflow-hidden sm:rounded-lg mt-10">
+        <div class="px-4 py-5 sm:px-6">
+          <h3 class="text-lg leading-6 font-medium text-gray-900">Product Information</h3>
         </div>
-        <div class="title-admin">
-          <label for="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            placeholder="product title"
-            value="<%= isEdit ? product.title : '' %>"
-          />
+        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+          <dl class="sm:divide-y sm:divide-gray-200">
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Product ID</dt>
+              <input class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2" name="productId"
+              value="<%= isEdit ? product._id : '' %>" <%= isEdit ? 'disabled' : '' %>" />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Book ID</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="bookId"
+                placeholder="Enter the title"
+                value="<%= isEdit ? product.bookId : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Title</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="title"
+                placeholder="Enter the title"
+                value="<%= isEdit ? product.title : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Author</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="authors"
+                placeholder="Enter the author"
+                value="<%= isEdit ? product.authors : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Category</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="category"
+                placeholder="Enter the category"
+                value="<%= isEdit ? product.category : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Description</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="description"
+                placeholder="Enter the description"
+                value="<%= isEdit ? product.description : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Short Description</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="shortDescription"
+                placeholder="Enter the short description"
+                value="<%= isEdit ? product.shortDescription : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Publisher</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="publisher"
+                placeholder="Enter the publisher"
+                value="<%= isEdit ? product.publisher : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Published Date</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="publishedDate"
+                placeholder="Enter the Published Date"
+                value="<%= isEdit ? product.publishedDate : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">ISBN</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="isbn"
+                placeholder="Enter the ISBN"
+                value="<%= isEdit ? product.isbn : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Pages</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="pageCount"
+                placeholder="Enter the number of pages"
+                value="<%= isEdit ? product.pageCount : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Price</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="price"
+                placeholder="Enter the price"
+                value="<%= isEdit ? product.price : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Discount</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="discount"
+                placeholder="Enter the discount"
+                value="<%= isEdit ? product.discount : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Stock</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="stock"
+                placeholder="Enter the stock"
+                value="<%= isEdit ? product.stock : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Small Thumbnail</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="smallThumbnail"
+                placeholder="Enter the Link for small thumbnail"
+                value="<%= isEdit ? product.imageLinks.smallThumbnail : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Thumbnail</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="thumbnail"
+                placeholder="Enter the Link for thumbnail"
+                value="<%= isEdit ? product.imageLinks.thumbnail : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Small Image</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="small"
+                placeholder="Enter the Link for small image"
+                value="<%= isEdit ? product.imageLinks.small : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Medium Image</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="medium"
+                placeholder="Enter the Link for medium image"
+                value="<%= isEdit ? product.imageLinks.medium : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Large Image</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="large"
+                placeholder="Enter the Link for large image"
+                value="<%= isEdit ? product.imageLinks.large : '' %>"
+              />
+            </div>
+            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 flex justify-start items-center">Extra Large Image</dt>
+              <input
+                class="mt-1 input input-bordered input-ghost input-sm sm:mt-0 sm:col-span-2"
+                name="extraLarge"
+                placeholder="Enter the Link for extra large image"
+                value="<%= isEdit ? product.imageLinks.extraLarge : '' %>"
+              />
+            </div>
+          </dl>
         </div>
-        <div class="brand-admin">
-          <label for="brand">Brand:</label>
-          <input
-            type="text"
-            id="brand"
-            name="brand"
-            placeholder="product brand"
-            value="<%= isEdit ? product.brand : '' %>"
-          />
-        </div>
-        <div class="category-admin">
-          <label for="category">Category:</label>
-          <input
-            type="text"
-            id="category"
-            name="category"
-            placeholder="product category"
-            value="<%= isEdit ? product.category : '' %>"
-          />
-        </div>
-        <div class="price-admin">
-          <label for="price">Price:</label>
-          <input
-            type="number"
-            id="price"
-            name="price"
-            placeholder="product price"
-            step="0.01"
-            value="<%= isEdit ? product.price : '' %>"
-          />
-        </div>
-        <div class="discount-admin">
-          <label for="discount">Discount:</label>
-          <input
-            type="number-admin"
-            id="discountPercentage"
-            name="discountPercentage"
-            placeholder="product discount"
-            step="0.01"
-            value="<%= isEdit ? product.discountPercentage : '' %>"
-          />
-        </div>
-        <div class="rating-admin">
-          <label for="rating">Rating:</label>
-          <input
-            type="number"
-            id="rating"
-            name="rating"
-            placeholder="product rating"
-            step="0.01"
-            value="<%= isEdit ? product.rating : '' %>"
-          />
-        </div>
-        <div class="stock-admin">
-          <label for="stock">Stock:</label>
-          <input
-            type="number"
-            id="stock"
-            name="stock"
-            placeholder="product stock"
-            value="<%= isEdit ? product.stock : '' %>"
-          />
-        </div>
-        <div class="description-admin">
-          <label for="description">Description:</label>
-          <textarea id="description" name="description" placeholder="product description">
-<%= isEdit ? product.description : null %></textarea
-          >
-        </div>
-        <div class="thumbnail-admin">
-          <label for="thumbnail">Thumbnail:</label>
-          <input
-            type="text"
-            id="thumbnail"
-            name="thumbnail"
-            placeholder="product thumbnail"
-            value="<%= isEdit ? product.thumbnail : ''  %>"
-          />
-        </div>
-        <div class="images-admin">
-          <label for="images">Images:</label>
-          <div class="images">
-            <% if (isEdit) { %> <% product.images.forEach((image, index) => { %>
-            <input
-              type="text"
-              id="image<%= index %>"
-              name="image<%= index %>"
-              placeholder="product image"
-              value="<%= image %>"
-            />
-            <% }) %> <% } else { %>
-            <input type="text" id="image0" name="image0" placeholder="product image1" />
-            <input type="text" id="image1" name="image1" placeholder="product image2" />
-            <input type="text" id="image2" name="image2" placeholder="product image3" />
-            <input type="text" id="image3" name="image3" placeholder="product image4" />
-            <input type="text" id="image4" name="image4" placeholder="product image5" />
-            <% } %>
-          </div>
-        </div>
-        <div class="buttons-admin">
-          <% if (isEdit) { %>
-          <input type="button" id="edit-admin" value="Edit" />
-          <input type="button" id="delete-admin" value="Delete" />
-          <% } else{ %>
-          <input type="button" id="add-admin" value="Add" />
-          <% } %>
-        </div>
+        <% if (isEdit) { %>
+        <input type="button" id="edit-admin" value="Edit" class="btn btn-outline btn-md btn-primary w-96 m-4" />
+        <input type="button" id="delete-admin" value="Delete" class="btn btn-outline btn-md btn-error w-96 m-4" />
+        <% } else{ %>
+        <input type="button" id="add-admin" value="Add" class="btn btn-outline btn-md btn-accent w-96 m-4" />
+        <% } %>
       </form>
     </section>
   </body>

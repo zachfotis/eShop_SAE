@@ -30,7 +30,7 @@ const modifyProductPage = (req, res) => {
   let isEdit = req.query.edit;
   isEdit === 'true' ? (isEdit = true) : (isEdit = false);
   if (id) {
-    Product.findOne({ id }, (err, product) => {
+    Product.findOne({ _id: id }, (err, product) => {
       if (err) {
         console.log(err);
       } else {
@@ -49,99 +49,89 @@ const modifyProductPage = (req, res) => {
     res.render('admin/modify-product', {
       title: 'modify product',
       isEdit: isEdit,
-      ...res.locals.commonInputs,
     });
   }
 };
 
 const addProduct = (req, res) => {
   const data = {
-    id: Number(req.body.id),
-    brand: req.body.brand,
+    bookId: req.body.bookId,
+    title: req.body.title,
     category: req.body.category,
     description: req.body.description,
-    discountPercentage: Number(req.body.discountPercentage),
-    images: [],
+    shortDescription: req.body.shortDescription,
+    authors: [req.body.authors],
+    publisher: req.body.publisher,
+    publishedDate: req.body.publishedDate,
+    isbn: req.body.isbn,
+    pageCount: Number(req.body.pageCount),
     price: Number(req.body.price),
-    rating: Number(req.body.rating),
+    discount: Number(req.body.discount),
     stock: Number(req.body.stock),
-    thumbnail: req.body.thumbnail,
-    title: req.body.title,
+    imageLinks: {
+      smallThumbnail: req.body.smallThumbnail,
+      thumbnail: req.body.thumbnail,
+      small: req.body.small,
+      medium: req.body.medium,
+      large: req.body.large,
+      extraLarge: req.body.extraLarge,
+    },
   };
 
-  req.body.image0 && data.images.push(req.body.image0);
-  req.body.image1 && data.images.push(req.body.image1);
-  req.body.image2 && data.images.push(req.body.image2);
-  req.body.image3 && data.images.push(req.body.image3);
-  req.body.image4 && data.images.push(req.body.image4);
-
-  if (data.id) {
-    Product.create(data, (err, product) => {
-      if (err) {
-        console.log(err);
-      }
-      res.redirect('/admin/all-products');
-    });
-  } else {
-    res.redirect('/admin/modify-product/');
-  }
+  const product = new Product(data);
+  product.save((err, product) => {
+    if (err) {
+      return res.json({ status: 'error', message: 'An error occurred' });
+    } else {
+      return res.json({ status: 'success', message: 'Product added successfully' });
+    }
+  });
 };
 
 const editProduct = (req, res) => {
+  console.log(req.body);
   const data = {
-    id: Number(req.body.id),
-    brand: req.body.brand,
+    productId: req.body.productId,
+    bookId: req.body.bookId,
+    title: req.body.title,
     category: req.body.category,
     description: req.body.description,
-    discountPercentage: Number(req.body.discountPercentage),
-    images: [],
+    shortDescription: req.body.shortDescription,
+    authors: [req.body.authors],
+    publisher: req.body.publisher,
+    publishedDate: req.body.publishedDate,
+    isbn: req.body.isbn,
+    pageCount: Number(req.body.pageCount),
     price: Number(req.body.price),
-    rating: Number(req.body.rating),
+    discount: Number(req.body.discount),
     stock: Number(req.body.stock),
-    thumbnail: req.body.thumbnail,
-    title: req.body.title,
+    imageLinks: {
+      smallThumbnail: req.body.smallThumbnail,
+      thumbnail: req.body.thumbnail,
+      small: req.body.small,
+      medium: req.body.medium,
+      large: req.body.large,
+      extraLarge: req.body.extraLarge,
+    },
   };
-
-  req.body.image0 && data.images.push(req.body.image0);
-  req.body.image1 && data.images.push(req.body.image1);
-  req.body.image2 && data.images.push(req.body.image2);
-  req.body.image3 && data.images.push(req.body.image3);
-  req.body.image4 && data.images.push(req.body.image4);
-
-  if (data.id) {
-    Product.findOneAndUpdate({ id: data.id }, data, (err, product) => {
-      if (err) {
-        console.log(err);
-      } else {
-        if (!product) {
-          res.redirect(`/admin/modify-product/${data.id}?edit=true`);
-        } else {
-          res.redirect('/admin/all-products');
-        }
-      }
-    });
-  } else {
-    res.redirect('/admin/modify-product/');
-  }
+  Product.findOneAndUpdate({ _id: data.productId }, data, (err, product) => {
+    if (err) {
+      return res.json({ status: 'error', message: 'An error occurred' });
+    } else {
+      return res.json({ status: 'success', message: 'Product updated successfully' });
+    }
+  });
 };
 
 const deleteProduct = (req, res) => {
-  const id = req.body.id;
-  if (id) {
-    Product.findOneAndDelete({ id: id }, (err, product) => {
-      if (err) {
-        console.log(err);
-      } else {
-        if (!product) {
-          res.redirect('/admin/all-products');
-        } else {
-          res.redirect('/admin/all-products');
-        }
-      }
-    });
-  } else {
-    res.redirect('/admin/all-products');
-  }
+  const id = req.body.productId;
+  Product.findOneAndDelete({ _id: id }, (err, product) => {
+    if (err) {
+      return res.json({ status: 'error', message: 'An error occurred' });
+    } else {
+      return res.json({ status: 'success', message: 'Product deleted successfully' });
+    }
+  });
 };
 
 const allOrdersPage = (req, res) => {
@@ -169,7 +159,7 @@ const allOrdersPage = (req, res) => {
 const changeOrderStatus = (req, res) => {
   const id = req.body.id;
   const status = req.body.status;
-  console.log(id, status);
+
   if (id) {
     Order.findOneAndUpdate({ _id: id }, { status: status }, (err, order) => {
       if (err) {

@@ -17,7 +17,7 @@ formElements.forEach((formElement) => {
         if (data.status === 'success') {
           location.reload();
         } else {
-          location.reload();
+          alert(data.message);
         }
       });
   });

@@ -16,7 +16,7 @@ selectElements.forEach((select) => {
         if (data.status === 'success') {
           location.reload();
         } else {
-          alert('Something went wrong');
+          alert(data.message);
         }
       })
       .catch((err) => {
