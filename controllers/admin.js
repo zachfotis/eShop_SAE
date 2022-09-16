@@ -1,4 +1,7 @@
 const Product = require('../models/Product.js');
+const Order = require('../models/Order.js');
+const User = require('../models/User.js');
+const { sendEmail } = require('./mail');
 
 const allProductsPage = (req, res) => {
   const perPage = 10;
@@ -141,10 +144,108 @@ const deleteProduct = (req, res) => {
   }
 };
 
+const allOrdersPage = (req, res) => {
+  const perPage = 10;
+  const page = req.query.page || 1;
+  Order.find({})
+    .skip(perPage * page - perPage)
+    .limit(perPage)
+    .sort({ date: 'desc' })
+    .exec((err, orders) => {
+      Order.countDocuments().exec((err, count) => {
+        if (err) return redirect(`/?message=${encodeURIComponent('An error occurred in Database')}&type=error`);
+        res.render('admin/all-orders', {
+          title: 'all orders',
+          orders,
+          current: page,
+          pages: Math.ceil(count / perPage),
+          count,
+          perPage,
+        });
+      });
+    });
+};
+
+const changeOrderStatus = (req, res) => {
+  const id = req.body.id;
+  const status = req.body.status;
+  console.log(id, status);
+  if (id) {
+    Order.findOneAndUpdate({ _id: id }, { status: status }, (err, order) => {
+      if (err) {
+        console.log(err);
+      } else {
+        if (!order) {
+          res.json({ status: 'failed', message: 'Order not found' });
+        } else {
+          sendEmail(
+            {
+              email: order.shipping.email,
+              date: new Date().toLocaleDateString(),
+              orderID: order._id,
+              status: status.replace(/\b\w/g, (l) => l.toUpperCase()),
+              total: Number(order.total).toFixed(2),
+            },
+            'changeOrderStatus'
+          );
+          res.json({ status: 'success', message: 'Order status updated' });
+        }
+      }
+    });
+  } else {
+    res.json({ status: 'error', message: 'An error occurred' });
+  }
+};
+
+const allUsersPage = (req, res) => {
+  const perPage = 10;
+  const page = req.query.page || 1;
+  User.find({})
+    .skip(perPage * page - perPage)
+    .limit(perPage)
+    .sort({ date: 'desc' })
+    .exec((err, users) => {
+      User.countDocuments().exec((err, count) => {
+        if (err) return redirect(`/?message=${encodeURIComponent('An error occurred in Database')}&type=error`);
+        res.render('admin/all-users', {
+          title: 'all users',
+          users,
+          current: page,
+          pages: Math.ceil(count / perPage),
+          count,
+          perPage,
+        });
+      });
+    });
+};
+
+const deleteUser = (req, res) => {
+  const id = req.body.id;
+  if (id) {
+    User.findOneAndDelete({ _id: id }, (err, user) => {
+      if (err) {
+        console.log(err);
+      } else {
+        if (!user) {
+          res.json({ status: 'failed', message: 'User not found' });
+        } else {
+          res.json({ status: 'success', message: 'User deleted' });
+        }
+      }
+    });
+  } else {
+    res.json({ status: 'error', message: 'An error occurred' });
+  }
+};
+
 module.exports = {
   allProductsPage,
   modifyProductPage,
+  allOrdersPage,
   addProduct,
   editProduct,
   deleteProduct,
+  changeOrderStatus,
+  allUsersPage,
+  deleteUser,
 };

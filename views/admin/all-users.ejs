@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {title:'All Products'}) %>
+    <link rel="stylesheet" href="/css/admin-all-orders.css" />
+    <script src="/js/admin-all-users.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/nav.ejs') %>
+    <section class="admin">
+      <!-- Admin NAV -->
+      <%- include('../partials/admin_nav.ejs') %>
+      <!-- Products Grid -->
+      <main class="w-full px-4 mt-10">
+        <% if (typeof users !== 'undefined' && users.length > 0) { %>
+        <table class="w-full divide-y divide-gray-200 shadow overflow-hidden border-b border-gray-200 rounded-lg">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                User ID
+              </th>
+
+              <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Email
+              </th>
+              <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Status
+              </th>
+              <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <% users.forEach((user) => { %>
+            <tr>
+              <td class="px-6 py-4 text-sm font-medium text-gray-900"><%= user._id %></td>
+              <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-900"><%= user.email %></td>
+              <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-900">
+                <%= user.isVerified ? 'Verified' : 'Not Verified' %>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
+                <form action="/admin/delete-user" method="post" data-userID="<%= user._id %>">
+                  <input type="submit" class="btn btn-outline btn-error btn-xs" value="Delete" />
+                </form>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+
+        <% } else {%>
+        <div class="empty-cart">
+          <img src="/img/empty_orders.png" alt="empty orders" />
+        </div>
+        <% } %>
+      </main>
+      <div class="pagination-bar my-5"><%- include('../partials/pagination_bar.ejs', {current, pages, perPage}) %></div>
+    </section>
+  </body>
+</html>
