@@ -5,6 +5,7 @@ const Utilities = require('../models/Utilities');
 const User = require('../models/User.js');
 const quotes = require('../data/quotes.js');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const { sendEmail } = require('./mail');
 
 const indexPage = (req, res) => {
   // get random quote
@@ -394,6 +395,16 @@ const successPayment = (req, res) => {
                                         `/user/orders?message=${encodeURIComponent('Successful Payment')}&type=success`
                                       );
                                     }
+                                    sendEmail(
+                                      {
+                                        email: order.shipping.email,
+                                        date: new Date().toLocaleDateString(),
+                                        orderID: order._id,
+                                        status: 'Processing Items',
+                                        total: Number(order.total).toFixed(2),
+                                      },
+                                      'verifyOrder'
+                                    );
                                   }
                                 });
                               }

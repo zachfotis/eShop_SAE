@@ -3,6 +3,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
+const { sendEmail } = require('./mail');
 
 const loginPage = (req, res) => {
   if (req.session?.isLoggedIn) {
@@ -53,6 +54,10 @@ const verifyAccount = (req, res) => {
           );
         }
       });
+      const host = req.get('host');
+      const protocol = req.protocol;
+      const link = `${protocol}://${host}/`;
+      sendEmail({ email: user.email, link }, 'registered');
     })
     .catch((error) => {
       return res.redirect('/' + `?message=${encodeURIComponent('Something went wrong!')}&type=error`);
@@ -91,7 +96,7 @@ const registerUser = (req, res) => {
                   const host = req.get('host');
                   const protocol = req.protocol;
                   const link = `${protocol}://${host}/verify?token=${user.verificationToken}`;
-                  // TODO: Send verification email
+                  sendEmail({ email: user.email, token: link }, 'verifyAccount');
 
                   res.render('auth/login', {
                     title: 'Register',

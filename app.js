@@ -96,9 +96,6 @@ app.use('*', (req, res, next) => {
   res.status(404).render('home/404');
 });
 
-const { sendEmail } = require('./controllers/mail');
-sendEmail({ email: 'zaxfotis@gmail.com', password: '123456789' }, 'registered');
-
 // Connect to MongoDb and Start Server
 mongoose
   .connect(process.env.MONGO_URI, {
