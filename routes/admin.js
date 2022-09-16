@@ -23,6 +23,7 @@ const protectedRoute = (req, res, next) => {
 router.get('/all-products', protectedRoute, allProductsPage);
 router.get('/modify-product', protectedRoute, modifyProductPage);
 router.get('/modify-product/:id', protectedRoute, modifyProductPage);
+router.get('/delete-product/:id', protectedRoute, deleteProduct);
 router.get('/all-orders', protectedRoute, allOrdersPage);
 router.get('/all-users', protectedRoute, allUsersPage);
 

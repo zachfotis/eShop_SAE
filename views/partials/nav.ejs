@@ -1,3 +1,4 @@
+<script src="/js/nav.js" defer></script>
 <nav class="navbar bg-base-100 shadow-lg justify-center sticky top-0 z-10">
   <div class="wrapper justify-between items-center">
     <a class="btn btn-ghost btn-lg normal-case text-xl" href="/">
@@ -6,7 +7,8 @@
     </a>
     <!-- SEARCH BAR -->
     <div class="form-control search-bar">
-      <input type="text" placeholder="Search" class="input input-bordered input-sm mx-auto" />
+      <input id="search-input" type="text" placeholder="Search" class="input input-bordered input-sm mx-auto" />
+      <ul class="result-list outline outline-slate-200 outline-1 rounded-md shadow-md"></ul>
     </div>
     <div class="gap-4 flex justify-center items-center">
       <!-- MAIN PAGES MENU -->

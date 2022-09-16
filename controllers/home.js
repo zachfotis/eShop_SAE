@@ -18,6 +18,25 @@ const indexPage = (req, res) => {
   });
 };
 
+const searchQuery = (req, res) => {
+  const query = req.query.terms;
+
+  Product.find({ title: { $regex: new RegExp(query, 'i') } })
+    .limit(5)
+    .exec((err, products) => {
+      if (err) {
+        return res.status(500).json({
+          status: 'error',
+          message: 'Error searching for products',
+        });
+      }
+      return res.status(200).json({
+        status: 'success',
+        products,
+      });
+    });
+};
+
 const categoriesPage = (req, res) => {
   Utilities.findOne({}, (err, utilities) => {
     if (err) {
@@ -468,6 +487,7 @@ const cancelPayment = (req, res) => {
 
 module.exports = {
   indexPage,
+  searchQuery,
   categoriesPage,
   productsPage,
   productPage,

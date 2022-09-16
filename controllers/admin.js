@@ -124,14 +124,28 @@ const editProduct = (req, res) => {
 };
 
 const deleteProduct = (req, res) => {
-  const id = req.body.productId;
-  Product.findOneAndDelete({ _id: id }, (err, product) => {
-    if (err) {
-      return res.json({ status: 'error', message: 'An error occurred' });
-    } else {
-      return res.json({ status: 'success', message: 'Product deleted successfully' });
-    }
-  });
+  const id1 = req.body.productId;
+  const id2 = req.params.id;
+
+  if (id1) {
+    Product.findOneAndDelete({ _id: id1 }, (err, product) => {
+      if (err) {
+        return res.json({ status: 'error', message: 'An error occurred' });
+      } else {
+        return res.json({ status: 'success', message: 'Product deleted successfully' });
+      }
+    });
+  } else if (id2) {
+    Product.findOneAndDelete({ _id: id2 }, (err, product) => {
+      if (err) {
+        return res.redirect(`/?message=${encodeURIComponent('An error occurred in Database')}&type=error`);
+      } else {
+        return res.redirect(`/?message=${encodeURIComponent('Product deleted successfully')}&type=success`);
+      }
+    });
+  } else {
+    return res.redirect(`/?message=${encodeURIComponent('Product not found')}&type=error`);
+  }
 };
 
 const allOrdersPage = (req, res) => {

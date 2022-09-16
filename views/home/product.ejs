@@ -291,7 +291,7 @@
           <div class="buttons mt-10 flex sm:flex-col1">
             <a
               href="/cart/add/<%= product.id %>"
-              class="max-w-xs flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full"
+              class="btn btn-primary w-80 mr-5"
             >
               Add to Cart
             </a>
@@ -316,11 +316,27 @@
                 />
               </svg>
             </a>
+
+            <% if(typeof user !== 'undefined' && user?.isAdmin) { %>
+            <a
+              href="/admin/modify-product/<%= product?.id %>?edit=true"
+              class="btn btn-outline btn-primary w-24 mx-5"
+            >
+            Edit
+            </a>
+            <a
+              href="/admin/delete-product/<%= product?.id %>"
+              class="btn btn-outline btn-error w-24 mr-5"
+            >
+            Delete
+            </a>
+            <% } %>
+
           </div>
         </div>
       </div>
     </section>
-    <script>
+    <script defer>
       let tl = new TimelineMax();
 
       tl.set($('.book-wrapper'), { perspective: 8000, xPercent: -50, yPercent: 8, left: '50%' })
