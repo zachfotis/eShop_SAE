@@ -17,7 +17,10 @@ const indexPage = (req, res) => {
     .exec((err, books) => {
       if (err) {
         console.log(err);
-        return res.redirect('/');
+        return res.render('home/index', {
+          title: 'home',
+          quote: randomQuote,
+        });
       }
       return res.render('home/index', {
         title: 'home',
