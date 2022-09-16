@@ -7,7 +7,7 @@ const Order = require('../models/Order');
 
 // User Profile
 const profilePage = (req, res) => {
-  res.render('user/profile', {
+  return res.render('user/profile', {
     title: 'Profile',
     countryList,
   });
@@ -175,7 +175,7 @@ const wishlistPage = async (req, res) => {
     const wishlistIds = req.session.user.wishlist.map((id) => id.id.toString());
     wishlist = await Product.find({ _id: { $in: wishlistIds } });
   }
-  res.render('user/wishlist', {
+  return res.render('user/wishlist', {
     title: 'Wishlist',
     wishlist,
   });
@@ -197,13 +197,13 @@ function getCardType(number) {
 function ordersPage(req, res) {
   Order.find({ user: req.session.user._id })
     .then((orders) => {
-      res.render('user/orders', {
+      return res.render('user/orders', {
         title: 'Orders',
         orders: orders.reverse(),
       });
     })
     .catch((error) => {
-      res.redirect('/user/profile' + `?message=${encodeURIComponent('Something went wrong!')}&type=error`);
+      return res.redirect('/user/profile' + `?message=${encodeURIComponent('Something went wrong!')}&type=error`);
     });
 }
 

@@ -12,10 +12,19 @@ const indexPage = (req, res) => {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
   !randomQuote?.author && (randomQuote.author = 'Anonymous');
 
-  res.render('home/index', {
-    title: 'home',
-    quote: randomQuote,
-  });
+  Product.find({})
+    .limit(4)
+    .exec((err, books) => {
+      if (err) {
+        console.log(err);
+        return res.redirect('/');
+      }
+      return res.render('home/index', {
+        title: 'home',
+        quote: randomQuote,
+        books: books,
+      });
+    });
 };
 
 const searchQuery = (req, res) => {
@@ -120,9 +129,34 @@ const salesPage = (req, res) => {
 };
 
 const cartPage = (req, res) => {
-  res.render('home/cart', {
-    title: 'cart',
-  });
+  if (req.session?.cart && req.session.cart.length > 0) {
+    const cart = req.session.cart;
+    const firstProduct = cart[0].product.category;
+    Product.find({ category: firstProduct })
+      .limit(4)
+      .exec((err, books) => {
+        if (err) {
+          console.log(err);
+          return res.render('home/cart', {
+            title: 'cart',
+          });
+        }
+        if (books.length > 0) {
+          return res.render('home/cart', {
+            title: 'cart',
+            books: books,
+          });
+        } else {
+          return res.render('home/cart', {
+            title: 'cart',
+          });
+        }
+      });
+  } else {
+    return res.render('home/cart', {
+      title: 'cart',
+    });
+  }
 };
 
 const addToCart = (req, res) => {
@@ -284,7 +318,7 @@ const checkoutPage = async (req, res) => {
     order.save((err, order) => {
       if (err) {
         console.log(err);
-        res.redirect('/cart');
+        return res.redirect('/cart');
       } else {
         const payment = new Payment({
           order: order._id,
@@ -295,7 +329,7 @@ const checkoutPage = async (req, res) => {
         payment.save((err, payment) => {
           if (err) {
             console.log(err.raw.message);
-            res.redirect('/cart');
+            return res.redirect('/cart');
           } else {
             // Create payment data for Stripe
             const paymentId = payment._id;
@@ -332,14 +366,14 @@ const checkoutPage = async (req, res) => {
             stripe.checkout.sessions.create(paymentData, (err, session) => {
               if (err) {
                 console.log(err.raw.message);
-                res.redirect('/cart');
+                return res.redirect('/cart');
               } else {
                 payment.stripeSessionId = session.id;
                 payment.save((err, payment) => {
                   if (err) {
-                    res.redirect('/cart');
+                    return res.redirect('/cart');
                   } else {
-                    res.redirect(session.url);
+                    return res.redirect(session.url);
                   }
                 });
               }
@@ -358,30 +392,30 @@ const successPayment = (req, res) => {
   Payment.findOne({ _id: paymentId }, (err, payment) => {
     if (err) {
       console.log(err);
-      res.redirect('/cart');
+      return res.redirect('/cart');
     } else {
       if (!payment || payment.length === 0) {
-        res.redirect('/cart');
+        return res.redirect('/cart');
       } else {
         Order.findOne({ _id: payment.order }, (err, order) => {
           if (err) {
             console.log(err);
-            res.redirect('/cart');
+            return res.redirect('/cart');
           } else {
             if (!order || order.length === 0) {
-              res.redirect('/cart');
+              return res.redirect('/cart');
             } else {
               order.status = 'paid';
               order.save((err, order) => {
                 if (err) {
                   console.log(err);
-                  res.redirect('/cart');
+                  return res.redirect('/cart');
                 } else {
                   payment.status = 'paid';
                   payment.save((err, payment) => {
                     if (err) {
                       console.log(err);
-                      res.redirect('/cart');
+                      return res.redirect('/cart');
                     } else {
                       // delete payment from mongo
                       Payment.deleteOne({ _id: paymentId }, (err) => {
@@ -404,7 +438,7 @@ const successPayment = (req, res) => {
                                     console.log(err);
                                   } else {
                                     if (!req?.session?.user) {
-                                      res.redirect(
+                                      return res.redirect(
                                         `/?message=${encodeURIComponent(
                                           'You have successfully paid for your order'
                                         )}&type=success`
@@ -448,31 +482,31 @@ const cancelPayment = (req, res) => {
   Payment.findOne({ _id: paymentId }, (err, payment) => {
     if (err) {
       console.log(err);
-      res.redirect('/cart');
+      return res.redirect('/cart');
     } else {
       if (!payment || payment.length === 0) {
-        res.redirect('/cart');
+        return res.redirect('/cart');
       } else {
         Order.findOne({ _id: payment.order }, (err, order) => {
           if (err) {
             console.log(err);
-            res.redirect('/cart');
+            return res.redirect('/cart');
           } else {
             if (!order || order.length === 0) {
-              res.redirect('/cart');
+              return res.redirect('/cart');
             } else {
               // delete payment and order
               Payment.deleteOne({ _id: paymentId }, (err) => {
                 if (err) {
                   console.log(err);
-                  res.redirect('/cart');
+                  return res.redirect('/cart');
                 } else {
                   Order.deleteOne({ _id: order._id }, (err) => {
                     if (err) {
                       console.log(err);
-                      res.redirect('/cart');
+                      return res.redirect('/cart');
                     } else {
-                      res.redirect('/cart');
+                      return res.redirect('/cart');
                     }
                   });
                 }

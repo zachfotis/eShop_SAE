@@ -7,8 +7,8 @@
 
   <body>
     <!-- Navbar -->
-    <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %> 
-    <%- (typeof message !== 'undefined') ? (include('../partials/message.ejs', {message})) : '' %>
+    <%- include('../partials/nav.ejs', {isLoggedIn, user, title}) %> <%- (typeof message !== 'undefined') ?
+    (include('../partials/message.ejs', {message})) : '' %>
     <script src="/js/message.js" defer></script>
 
     <section class="section-home">
@@ -23,6 +23,26 @@
         <h1><%= quote.quote %></h1>
         <p>~ <%= quote.author %> ~</p>
       </article>
+
+      <% if(typeof books !== 'undefined') {%>
+      <h1 class="font-medium text-lg mt-5">Book you may like</h1>
+      <section class="w-full flex justify-center items-start gap-5">
+        <% books.forEach(book => { %>
+        <div
+          class="shadow-md hover:shadow-lg rounded-lg p-5 flex-1 flex flex-col justify-between items-center max-w-xs mt-5 h-96"
+        >
+          <img
+            src="<%= `https://books.google.com/books/publisher/content?id=${book.bookId}&printsec=frontcover&img=1&zoom=3` %>"
+            alt="book image"
+            class="h-48"
+          />
+          <h1 class="text-center mt-4 font-medium"><%= book.title %></h1>
+          <p class="mt-1">Price: $<%= book.price %></p>
+          <a href="/products/<%= book._id %>" class="btn btn-primary btn-outline btn-sm mt-3 w-full">View</a>
+        </div>
+        <% }) %>
+      </section>
+      <% } %>
     </section>
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %>

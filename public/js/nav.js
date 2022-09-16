@@ -24,7 +24,7 @@ searchInput.addEventListener('keyup', (e) => {
               resultBook.href = `/products/${book._id}`;
               resultBook.innerHTML = `
               <img
-              src="http://books.google.com/books/publisher/content?id=${book.bookId}&printsec=frontcover&img=1&zoom=1"
+              src="https://books.google.com/books/publisher/content?id=${book.bookId}&printsec=frontcover&img=1&zoom=1"
               class="result-book-img"
               />
               <div class="result-book-info">
