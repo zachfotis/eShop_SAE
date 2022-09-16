@@ -215,6 +215,11 @@ const addToWishList = (req, res) => {
 };
 
 const checkoutPage = async (req, res) => {
+  const { email, firstName, lastName, address, city, country, postalCode, phoneNumber } = req.body;
+  if (!email || !firstName || !lastName || !address || !city || !country || !postalCode || !phoneNumber) {
+    return res.redirect(`/cart?message=${encodeURIComponent('Please fill in all the fields')}&type=error`);
+  }
+
   const protocol = req.protocol;
   const host = req.get('host');
   const domain = protocol + '://' + host;
@@ -244,6 +249,16 @@ const checkoutPage = async (req, res) => {
       products: products,
       total: req.session.cartTotal,
       status: 'awaiting payment',
+      shipping: {
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        address: address,
+        city: city,
+        country: country,
+        postalCode: postalCode,
+        phoneNumber: phoneNumber,
+      },
     });
 
     order.save((err, order) => {
@@ -272,7 +287,9 @@ const checkoutPage = async (req, res) => {
               cancel_url: domain + '/payment/cancel/' + paymentId,
             };
 
-            req?.session?.user?.email && (paymentData.customer_email = req.session.user.email);
+            req?.session?.user?.email
+              ? (paymentData.customer_email = req.session.user.email)
+              : (paymentData.customer_email = email);
 
             for (let i = 0; i < order.products.length; i++) {
               const productDiscountedPrice = (

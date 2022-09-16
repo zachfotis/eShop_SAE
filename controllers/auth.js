@@ -198,7 +198,7 @@ const authVerify = (req, res, next) => {
         req.session.save();
         // req.session.destroy();
         // res.clearCookie('connect.sid');
-        res.redirect('/login');
+        return res.redirect('/login');
       }
       next();
     });
