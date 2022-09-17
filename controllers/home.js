@@ -12,7 +12,7 @@ const indexPage = (req, res) => {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
   !randomQuote?.author && (randomQuote.author = 'Anonymous');
 
-  Product.find({})
+  Product.find({ category: 'Computers' })
     .limit(4)
     .exec((err, books) => {
       if (err) {
