@@ -65,14 +65,16 @@ The following concepts have been developed so far:
 The following concepts are to be implemented next:
 
 - ~~Enhance basic layout, design and page structure~~
-- Responsive Design
 - ~~Use MongoDB's \_id instead of product id~~
 - ~~Validations on routing~~
 - ~~User Login and Register~~
 - ~~Authentication and Authorization~~
-- Add Checkout
-- Add User Orders Menu
-- Add Admin Panel
+- ~~Add Checkout~~
+- ~~Add User Orders Menu~~
+- ~~Add Admin Panel~~
+- Responsive Design
+- Add Stripe's Web Hooks
+- Add admin sorting (by price, discount, stock)
 
 <br>
 
@@ -139,6 +141,18 @@ Sep 6, 2022
 - Update readme.md
 - fix cart
 
+Sep 14, 2022
+- Add pagination
+
+Sep 16, 2022
+- Add cart shipping info
+- Add emailer
+- Add all users and orders in admin panel
+- Add admin modify product
+
+Sep 16, 2022
+- add search bar functionality
+- add related products
 
 <br>
 ## Links:
