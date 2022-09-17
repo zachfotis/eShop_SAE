@@ -30,19 +30,18 @@
             <h2><%= product.authors.join(', ') %></h2>
             <p><%- product.shortDescription %></p>
             <div class="buttons">
-              <a
-                href="/cart/add/<%= product.id %>"
-                class="text-xs btn bg-indigo-600 hover:bg-indigo-700 btn-xs btn-block"
-                >Add to cart</a
-              >
-              <a href="/products/<%= product.id %>/add-to-wishlist" class="text-xs btn btn-xs btn-outline btn-error"
+              <a href="/cart/add/<%= product.id %>" class="text-xs btn btn-xs btn-primary">Add to cart</a>
+              <a href="/products/<%= product.id %>/add-to-wishlist" class="text-xs btn btn-xs btn-outline btn-secondary"
                 >Remove from wishlist</a
               >
             </div>
           </div>
         </div>
         <% }) %> <% } else {%>
-        <img src="/img/empty_wishlist.png" alt="empty wishlist" />
+        <div class="empty-wishlist">
+          <img src="/img/empty_orders.png" alt="empty cart" />
+          <h1>You don't have any products in your wishlist. Go add some!</h1>
+        </div>
         <% } %>
       </main>
     </section>

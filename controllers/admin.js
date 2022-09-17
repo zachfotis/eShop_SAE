@@ -89,7 +89,6 @@ const addProduct = (req, res) => {
 };
 
 const editProduct = (req, res) => {
-  console.log(req.body);
   const data = {
     productId: req.body.productId,
     bookId: req.body.bookId,
